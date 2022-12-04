@@ -1,0 +1,21 @@
+.responsive-menu {
+    top: 0;
+    right: 0;
+    width: 70%;
+    position: absolute;
+    background-color: rgb(245 245 245);
+}
+
+.responsive-menu ul li:not(:last-of-type) {
+    margin-bottom: 1rem;
+}
+
+.responsive-menu ul li a {
+    font-size: 1.3rem;
+}
+
+@media screen and (min-width: 992px) {
+    .responsive-menu {
+        display: none !important;
+    }
+}

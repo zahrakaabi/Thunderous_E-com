@@ -1,0 +1,63 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: #222;
+    text-decoration: none;
+}
+
+ul {
+    padding-left: 0;
+    list-style: none;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-column {
+    flex-direction: column
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.text-center {
+    text-align: center;
+} 
+
+.w-screen {
+    width: 100%;
+}
+
+.h-full {
+    height: 100vh;
+    min-height: 100vh;
+}
+
+.container {
+    padding-inline: 110px;
+}
+
+@media screen and (max-width: 992px) {
+    .container {
+        padding-inline: 15px;
+    }
+}

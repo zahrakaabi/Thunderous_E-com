@@ -1,0 +1,35 @@
+.menu ul {
+    display: none;
+}
+
+.menu ul li a {
+    font-size: 1.3rem;
+}
+
+.burger-menu {
+    gap: 3px;
+    border: none;
+    outline: none;
+    background: transparent;
+}
+
+.burger-menu div {
+    height: 5px;
+    width: 30px;
+    background: #222;
+}
+
+
+@media screen and (min-width: 992px) {
+    .Header nav button {
+        display: none;
+    }
+
+    .menu ul  {
+        display: flex;
+    }
+
+    .menu ul li:not(:last-of-type) {
+        margin-right: 1rem;
+    }
+}

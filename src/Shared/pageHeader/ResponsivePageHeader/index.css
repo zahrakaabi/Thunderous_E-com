@@ -1,9 +1,20 @@
-.responsive-menu {
+.responsive-menu-container {
     top: 0;
     right: 0;
-    width: 70%;
     position: absolute;
-    background-color: rgb(245 245 245);
+}
+
+.responsive-menu-container[data-state="opened"] {
+    animation: animate-menu-opened 0.7s ease-in-out forwards;
+}
+
+.responsive-menu-container[data-state="closing"] {
+    animation: animate-menu-closed 0.7s ease-in-out forwards;
+}
+
+.responsive-menu {
+    width: 70%;
+    background-color: rgb(249 249 249);
 }
 
 .responsive-menu ul li:not(:last-of-type) {
@@ -18,4 +29,14 @@
     .responsive-menu {
         display: none !important;
     }
+}
+
+@keyframes animate-menu-opened {
+    0% { right: -100%; }
+    100% { right: 0; }
+}
+
+@keyframes animate-menu-closed {
+    0% { right: 0; }
+    100% { right: -100%; }
 }

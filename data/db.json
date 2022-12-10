@@ -1,34 +1,12 @@
 {
-    "Products" : [
+    "Products": [
         {
             "id": 0,
-            "name": "",
-            "image": "../src/Assets/Images/img-8.avif"
+            "name": "zahra"
         },
         {
             "id": 1,
-            "name": "",
-            "image": ""
-        },
-        {
-            "id": 2,
-            "name": "",
-            "image": ""
-        },
-        {
-            "id": 3,
-            "name": "",
-            "image": ""
-        },
-        {
-            "id": 4,
-            "name": "",
-            "image": ""
-        },
-        {
-            "id": 5,
-            "name": "",
-            "image": ""
+            "name": "aira"
         }
     ]
 }

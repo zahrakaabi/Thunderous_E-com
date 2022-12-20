@@ -11,11 +11,11 @@ import { fetchData } from '../../Hooks/useFetch';
 /*               BANNER COMPONENT           */
 /* ---------------------------------------- */
 function Banner() {
-    const { data } = useQuery(['products'], () => fetchData('products'), { staleTime: 3000 });
+    const { data } = useQuery(['products'], () => fetchData('Products'), { staleTime: 3000 });
     /* ************ RENDERING ************* */
     return (
         <div>
-            {data?.data?.map((el) => <div key={el.id}>{el.name}</div>)}
+            {data?.data?.map((el) => <div key={el.id}><img src={el.image} alt={el.name} /></div>)}
         </div>
     )
 }

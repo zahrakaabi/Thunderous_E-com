@@ -2,12 +2,10 @@
 /*                DEPENDENCIES          */
 /* ------------------------------------ */
 // Packages
-
-// Hooks
-import useFetch from './Hooks/useFetch';
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 // UI Local Components
-import { PageHeader } from './Components';
+import { PageHeader, Banner } from './Components';
 
 // Styles
 import './Shared/styles/global.css';
@@ -15,27 +13,19 @@ import './Shared/styles/variables.css';
 import './Shared/styles/typography.css';
 
 // @TO DO : Run the next line in the terminal
-// npx json-server --watch data/db.json --port 3000 
+// npx json-server --watch data/db.json --port 3001 
 /* ------------------------------------ */
 /*                    APP               */
 /* ------------------------------------ */ 
 function App() {
-  // CONSTS
-  const PRODUCTS_LINK = 'http://localhost:4000/Products';
-
-  // STATES
-  const { data, loading, error } = useFetch(PRODUCTS_LINK);
-  // name data const {data: Joke} = useFettch('etc')
-
-  // NESTED FUNCS
-  if (loading) return <h1>loading....</h1>
-  if (error) console.log('error', error)
-  console.log('data', data)
-
+  const queryClient = new QueryClient();
   /* ********** RENDERING ************* */
   return (
     <div className="App">
-        <PageHeader />
+      <PageHeader />
+      <QueryClientProvider client={queryClient}>
+        <Banner />
+      </QueryClientProvider>
     </div>
   );
 }

@@ -2,7 +2,6 @@
 /*                DEPENDENCIES          */
 /* ------------------------------------ */
 // Packages
-import { useState } from 'react';
 
 // Context
 import { useStateContext } from '../../../Context/ContextProvider';

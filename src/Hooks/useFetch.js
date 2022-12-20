@@ -2,32 +2,13 @@
 /*                DEPENDENCIES              */
 /* ---------------------------------------- */
 // Packages
-import { useState, useEffect } from 'react';
-import axios from 'axios';
+import axios from "axios";
 
 /* ---------------------------------------- */
-/*            USE FETCH CUSTOM HOOK         */
+/*                 FETCH DATA               */
 /* ---------------------------------------- */
-function useFetch(url) {
-  // STATES
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-
-  // EFFECTS
-  useEffect(() => {
-    setLoading(true);
-
-    axios.get(url)
-    .then(({ data }) => setData(data))
-    .catch((error) => setError(error))
-    .finally(() => setLoading(false))
-  }, [url]);
-
-  // @TO DO : try effect resturn + fix double rendering
-
-  /* ************ RENDERING *************** */
-  return { data, loading, error }
-}
-
-export default useFetch;
+export const fetchData = async (url) => {
+    const API_URL = process.env.REACT_APP_API_URL;
+    const response = await axios.get(`${API_URL}/${url}`);
+    return response;
+}    

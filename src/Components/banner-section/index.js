@@ -7,6 +7,9 @@ import { useQuery } from "@tanstack/react-query";
 // Fetchers
 import { fetchData } from '../../Hooks/useFetch';
 
+// Styles
+import './index.css';
+
 /* ---------------------------------------- */
 /*               BANNER COMPONENT           */
 /* ---------------------------------------- */
@@ -14,8 +17,18 @@ function Banner() {
     const { data } = useQuery(['products'], () => fetchData('Products'), { staleTime: 3000 });
     /* ************ RENDERING ************* */
     return (
-        <div>
-            {data?.data?.map((el) => <div key={el.id}><img src={el.image} alt={el.name} /></div>)}
+        <div className="container Banner flex items-center justify w-screen">
+          <div className="Slider flex items-end w-screen">
+             {data?.data?.map((product) => (
+              <a href='/' className="pos-r" key={product.id}>
+                <div className="product-details">
+                    <span>{product.price}</span>
+                    <span>{product.name}</span>
+                </div>
+                <img src={product.image} alt={product.name} />
+              </a>
+             ))}
+          </div>
         </div>
     )
 }

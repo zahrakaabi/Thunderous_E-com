@@ -2,10 +2,12 @@
 /*                DEPENDENCIES          */
 /* ------------------------------------ */
 // Packages
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 // UI Local Components
-import { PageHeader, Banner } from './Components';
+import { PageHeader } from './Components';
+
+// UI Local Pages
+import { Home } from './Pages';
 
 // Styles
 import './Shared/styles/global.css';
@@ -18,14 +20,11 @@ import './Shared/styles/typography.css';
 /*                    APP               */
 /* ------------------------------------ */ 
 function App() {
-  const queryClient = new QueryClient();
   /* ********** RENDERING ************* */
   return (
     <div className="App">
       <PageHeader />
-      <QueryClientProvider client={queryClient}>
-        <Banner />
-      </QueryClientProvider>
+      <Home />
     </div>
   );
 }

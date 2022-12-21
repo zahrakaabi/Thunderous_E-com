@@ -9,6 +9,17 @@ body {
     padding: 0;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul, ol {
+    margin: 0;
+}
+
 a {
     color: #222;
     text-decoration: none;
@@ -43,6 +54,10 @@ ul {
     align-items: center;
 }
 
+.items-end {
+    align-items: flex-end;
+}
+
 .text-center {
     text-align: center;
 } 
@@ -58,6 +73,10 @@ ul {
 
 .container {
     padding-inline: 110px;
+}
+
+.pos-r {
+    position: relative;
 }
 
 @media screen and (max-width: 992px) {

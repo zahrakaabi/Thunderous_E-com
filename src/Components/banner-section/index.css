@@ -1,11 +1,7 @@
-.Banner {
-    height: calc(100vh - 60px); /*- minus header height(60px)*/
-    min-height: calc(100vh - 60px);
-}
-
 .Slider {
     height: calc(360px + 0.25rem); /* img:hover height + scroll height*/
     overflow-x: auto;
+    margin-top: 50px;
 }
 
 .Slider::-webkit-scrollbar {
@@ -48,8 +44,7 @@
     z-index: 1;
     display: none;
     position: absolute;
-    font-size: 0.65rem;
-    font-family: sans-serif;
+    font: 0.65rem sans-serif;
     text-transform: uppercase;
     width: calc(100% - (var(--left) * 2));
 }
@@ -57,4 +52,15 @@
 .Slider a:hover .product-details {
     display: flex;
     justify-content: space-between;
+}
+
+.banner-content {
+    margin-block: 60px;
+}
+
+.banner-content p {
+    width: 40%;
+    font: 1rem sans-serif;
+    text-align: justify;
+    position: relative;
 }

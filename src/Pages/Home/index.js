@@ -5,7 +5,7 @@
 import {  QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 // UI Local Components
-import { Banner } from '../../Components';
+import { Banner, About } from '../../Components';
 
 /* ---------------------------------------- */
 /*                  Home PAGE               */
@@ -17,6 +17,7 @@ function Home() {
         <div>
             <QueryClientProvider client={queryClient}>
                 <Banner />
+                <About />
             </QueryClientProvider>
         </div>
     )

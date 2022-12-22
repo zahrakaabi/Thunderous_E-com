@@ -17,7 +17,7 @@ function Banner() {
     const { data } = useQuery(['products'], () => fetchData('Products'), { staleTime: 3000 });
     /* ************ RENDERING ************* */
     return (
-        <div className="container Banner flex items-center justify w-screen">
+        <div className="container">
           <div className="Slider flex items-end w-screen">
              {data?.data?.map((product) => (
               <a href='/' className="pos-r" key={product.id}>
@@ -28,6 +28,9 @@ function Banner() {
                 <img src={product.image} alt={product.name} />
               </a>
              ))}
+          </div>
+          <div className="banner-content">
+            <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero.</p>
           </div>
         </div>
     )

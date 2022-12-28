@@ -60,3 +60,30 @@
     height: 400px;
     object-fit: cover;
 }
+
+@media (max-width: 992px) {
+    .about-section {
+        display: block !important;
+    }
+
+    .about-section::before {
+        display: none;
+    }
+    
+    .about-section_img {
+        width: 100%;
+    }
+
+    .about-section_img img {
+        width: 100%;
+        height: 500px;
+    }
+
+    .arrow {
+        bottom: 0;
+        left: -55px;
+        top: unset;
+        width: 300px;
+        transform: rotate(-45deg);
+    }
+}

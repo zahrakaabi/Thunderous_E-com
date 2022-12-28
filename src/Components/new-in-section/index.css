@@ -1,0 +1,112 @@
+.new-in-section h1 {
+    font: 6rem serif;
+    position: relative;
+}
+
+.new-in-section h1::before {
+    left: 50%;
+    top: 5px;
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    width: 60px;
+    height: 150px;
+    border: 1px solid rgb(90, 90, 90);
+    transform: rotate(50deg) translateX(-50%);
+}
+
+.new-in-content {
+   gap: 30px;
+   margin-block: 80px;
+}
+
+.content-container {
+   width: calc(100% / 3);
+   height: 400px;
+   padding: 30px;
+   border: 1px solid rgb(90, 90, 90);
+   background-color: rgb(231, 231, 231);
+   border-bottom-right-radius: 50%; 
+}
+
+.content-container p {
+    font: 1rem sans-serif;
+    text-align: justify;
+}
+
+.content-container button {
+    margin-top: 30px;
+    padding: 10px;
+    border: 1px solid rgb(90, 90, 90);
+    background-color: transparent;
+}
+
+.content-container button .button-arrow {
+    width: 60px;
+    height: 10px;
+    margin-left: 5px;
+}
+
+.new-in-content .woman_1,
+.new-in-content .woman_2 {
+    height: 400px;
+    cursor: pointer;
+    width: calc(100% / 3);
+    position: relative;
+    transition: 0.3s ease;
+}
+
+.new-in-content .woman_1 img,
+.new-in-content .woman_2 img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover; 
+}
+
+.new-in-content .woman_1 img {
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%; 
+}
+
+.new-in-content .woman_2 img {
+    border-radius: 45%;
+}
+
+.new-in-content .woman_1:hover::before,
+.new-in-content .woman_2:hover::before {
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    content: 'VIEW COLLECTION';
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.new-in-content .woman_1::before {
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%; 
+}
+
+.new-in-content .woman_2::before {
+    border-radius: 45%;
+}
+
+@media (max-width: 992px) {
+    .new-in-content {
+        display: block !important;
+    }
+
+    .content-container {
+        width: 100%;
+    }
+
+    .new-in-content .woman_1, 
+    .new-in-content .woman_2 {
+        width: 100%;
+        height: 550px;
+        margin-top: 50px;
+    }
+}

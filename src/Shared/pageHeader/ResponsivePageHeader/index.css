@@ -14,6 +14,8 @@
 
 .responsive-menu {
     width: 70%;
+    z-index: 1;
+    position: relative;
     background-color: rgb(249 249 249);
 }
 

@@ -42,12 +42,20 @@ ul {
     justify-content: center;
 }
 
+.justify-start {
+    justify-content: flex-start;
+}
+
 .justify-between {
     justify-content: space-between;
 }
 
 .justify-end {
     justify-content: flex-end;
+}
+
+.items-start {
+    align-items: flex-start;
 }
 
 .items-center {
@@ -73,6 +81,10 @@ ul {
 
 .container {
     padding-inline: 110px;
+}
+
+.section-seperator {
+    margin-top: 80px;
 }
 
 .pos-r {

@@ -26,8 +26,10 @@ function About() {
                     </picture>
                 </div>
                 <div className="about-section_content flex justify-end items-end">
-                    <h1>Lorem ipsum was purposefully designed to have no meaning, 
-                    but appear like real text, making it the perfect placeholder.</h1>
+                    <h1>
+                        Lorem ipsum was purposefully designed to have no meaning, 
+                        but appear like real text, making it the perfect placeholder.
+                    </h1>
                 </div>
             </div>
         </div>

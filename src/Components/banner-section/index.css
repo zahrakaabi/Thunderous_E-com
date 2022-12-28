@@ -64,3 +64,9 @@
     text-align: justify;
     position: relative;
 }
+
+@media (max-width: 992px) {
+    .banner-content p {
+        width: 100%;
+    }
+}

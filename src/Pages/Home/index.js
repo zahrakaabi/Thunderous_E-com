@@ -12,6 +12,7 @@ import { Banner, About, NewIn } from '../../Components';
 /* ---------------------------------------- */
 function Home() {
     const queryClient = new QueryClient();
+    
     /* ************ RENDERING ************* */
     return (
         <div>

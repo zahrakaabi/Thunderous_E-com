@@ -15,6 +15,7 @@ import './index.css';
 /* ---------------------------------------- */
 function Banner() {
     const { data } = useQuery(['products'], () => fetchData('Products'), { staleTime: 3000 });
+    
     /* ************ RENDERING ************* */
     return (
         <div className="container">

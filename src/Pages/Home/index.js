@@ -5,14 +5,14 @@
 import {  QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 // UI Local Components
-import { Banner, About, NewIn } from '../../Components';
+import { Banner, About, NewIn, ScrollProgressBar } from '../../Components';
 
 /* ---------------------------------------- */
 /*                  Home PAGE               */
 /* ---------------------------------------- */
 function Home() {
     const queryClient = new QueryClient();
-    
+
     /* ************ RENDERING ************* */
     return (
         <div>
@@ -21,6 +21,7 @@ function Home() {
                 <About />
                 <NewIn />
             </QueryClientProvider>
+            <ScrollProgressBar />
         </div>
     )
 }

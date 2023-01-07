@@ -21,7 +21,7 @@ function About() {
                 <img src={ DOWN_ARROW} className="arrow" alt="arrow" />
                 <div className="about-section_img">
                     <picture>
-                        <source srcset={WOMAN_FACE} media="(min-width:400px)" />
+                        <source srcSet={WOMAN_FACE} media="(min-width:400px)" />
                         <img src={WOMAN_FACE} alt="woman-face-smiling" />
                     </picture>
                 </div>

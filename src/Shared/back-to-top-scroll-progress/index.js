@@ -10,30 +10,39 @@ import "./index.css"
 // horizantal PBar: https://www.npmjs.com/package/react-progressbar-on-scroll
 
 /* ---------------------------------------- */
+/*          CALCULATE SCROLL VALUE          */
+/* ---------------------------------------- */
+const calcScrollValue = () => {
+    const SCROLL_PROGRESS = document.getElementById("progress");
+    const POSITION = document.documentElement.scrollTop;
+    const SCROLL_HEIGHT = document.documentElement.scrollHeight;
+    const CLIENT_HEIGHT = document.documentElement.clientHeight;
+
+    const CALC_HEIGHT = SCROLL_HEIGHT - CLIENT_HEIGHT; 
+    const SCROLL_VALUE = Math.round((POSITION * 100) / (CALC_HEIGHT));
+
+    if (POSITION > 100) { 
+        SCROLL_PROGRESS.style.display = 'grid';
+    } else {
+        SCROLL_PROGRESS.style.display = 'none';
+    }
+
+    SCROLL_PROGRESS.addEventListener('click', () => {
+        document.documentElement.scrollTop = 0;
+    })
+
+    SCROLL_PROGRESS.style.background = `conic-gradient(#222 ${SCROLL_VALUE}%, #ebebeb ${SCROLL_VALUE}%)`;
+};
+
+/* ---------------------------------------- */
 /*     SCROLL TO TOP PROGRESS INDOCATOR     */
 /* ---------------------------------------- */
 function ScrollProgressBar() {
-    let calcScrollValue = () => {
-        let scrollProgress = document.getElementById("progress");
-        let pos = document.documentElement.scrollTop;
-        let calcHeight = document.documentElement.scrollHeight -
-        document.documentElement.clientHeight;
-        let scrollValue = Math.round((pos * 100) / (calcHeight));
-
-        if (pos > 100) {
-            scrollProgress.style.display = 'grid';
-        } else {
-            scrollProgress.style.display = 'none';
-        }
-
-        scrollProgress.addEventListener('click', () => {
-            document.documentElement.scrollTop = 0;
-        })
-
-        scrollProgress.style.background = `conic-gradient(black ${scrollValue}%, gray ${scrollValue}%)`;
-    } ;
-    window.onscroll = calcScrollValue;
-    window.onload = calcScrollValue;
+    const IS_BROWSER = typeof window !== 'undefined';
+    if (IS_BROWSER) {
+        window.onscroll = calcScrollValue;
+        window.onload = calcScrollValue;
+    }
      
     /* ************ RENDERING ************* */
     return (

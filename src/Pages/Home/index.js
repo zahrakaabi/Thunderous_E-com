@@ -2,6 +2,7 @@
 /*                DEPENDENCIES              */
 /* ---------------------------------------- */
 // Packages
+import AnimatedCursor from "react-animated-cursor";
 import {  QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 // UI Local Components
@@ -16,6 +17,27 @@ function Home() {
     /* ************ RENDERING ************* */
     return (
         <div>
+            <AnimatedCursor
+                innerSize={6}
+                outerSize={30}
+                color="0, 0, 0"
+                outerAlpha={0.2}
+                innerScale={1}
+                outerScale={3}
+                clickables={[
+                    "a",
+                    'input[type="text"]',
+                    'input[type="email"]',
+                    'input[type="number"]',
+                    'input[type="submit"]',
+                    'input[type="image"]',
+                    "label[for]",
+                    "select",
+                    "textarea",
+                    "button",
+                    ".link",
+                ]}
+            />
             <QueryClientProvider client={queryClient}>
                 <Banner />
                 <About />

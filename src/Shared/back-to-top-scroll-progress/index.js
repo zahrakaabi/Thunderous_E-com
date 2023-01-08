@@ -21,16 +21,10 @@ const calcScrollValue = () => {
     const CALC_HEIGHT = SCROLL_HEIGHT - CLIENT_HEIGHT; 
     const SCROLL_VALUE = Math.round((POSITION * 100) / (CALC_HEIGHT));
 
-    if (POSITION > 100) { 
-        SCROLL_PROGRESS.style.display = 'grid';
-    } else {
-        SCROLL_PROGRESS.style.display = 'none';
-    }
-
+    SCROLL_PROGRESS.style.display = POSITION > 100 ? 'grid' : 'none';
     SCROLL_PROGRESS.addEventListener('click', () => {
         document.documentElement.scrollTop = 0;
     })
-
     SCROLL_PROGRESS.style.background = `conic-gradient(#222 ${SCROLL_VALUE}%, #ebebeb ${SCROLL_VALUE}%)`;
 };
 

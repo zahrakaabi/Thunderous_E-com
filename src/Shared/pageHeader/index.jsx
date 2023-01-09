@@ -2,7 +2,7 @@
 /*                DEPENDENCIES          */
 /* ------------------------------------ */
 // Packages
-import { useEffect } from 'react';
+import { Suspense, Outlet, useEffect } from 'react';
 
 // Context
 import { useStateContext } from '../../Context/ContextProvider';
@@ -30,39 +30,45 @@ function PageHeader() {
 
     /* ********** RENDERING *********** */
     return (
-      <div className="container Header flex justify-between items-center">
-          <a className="logo" href="/"><h1>LOGO</h1></a>
+      <>
+        <div className="container Header flex justify-between items-center">
+            <a className="logo" href="/"><h1>LOGO</h1></a>
 
-          <nav>
-            <button 
-              className="burger-menu flex flex-column" 
-              aria-controls="primary-navigation"
-              aria-label="Menu"
-              aria-expanded={activeMenu}
-              onClick={() => {
-                setDataStateMenu('opened');
-                setActiveMenu((prevActiveMenu) => !prevActiveMenu);
-              }}
-            >
-              {/* Screen Reader Only*/}
-              <span className="visually-hidden"></span>
-              <div></div>
-              <div></div>
-              <div></div>
-            </button>
+            <nav>
+              <button 
+                className="burger-menu flex flex-column" 
+                aria-controls="primary-navigation"
+                aria-label="Menu"
+                aria-expanded={activeMenu}
+                onClick={() => {
+                  setDataStateMenu('opened');
+                  setActiveMenu((prevActiveMenu) => !prevActiveMenu);
+                }}
+              >
+                {/* Screen Reader Only*/}
+                <span className="visually-hidden"></span>
+                <div></div>
+                <div></div>
+                <div></div>
+              </button>
 
-            <ResponsivePageHeader />
+              <ResponsivePageHeader />
 
-            <div className="menu">
-              <ul>
-                <li><a href="/#">Home</a></li>
-                <li><a href="/#">About</a></li>
-                <li><a href="/#">Services</a></li>
-                <li><a href="/#">Contact</a></li>
-              </ul>
-            </div>
-          </nav>
-      </div>
+              <div className="menu">
+                <ul>
+                  <li><a href="/#">Home</a></li>
+                  <li><a href="/#">About</a></li>
+                  <li><a href="/#">Services</a></li>
+                  <li><a href="/#">Contact</a></li>
+                </ul>
+              </div>
+            </nav>
+        </div>
+
+        <Suspense fallback={<h1>Loading...</h1>}>
+          <Outlet />
+        </Suspense>
+      </>
     );
   }
   

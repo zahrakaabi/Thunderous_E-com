@@ -19,7 +19,7 @@ function Home() {
         <div>
             <AnimatedCursor
                 innerSize={6}
-                outerSize={30}
+                outerSize={25}
                 color="0, 0, 0"
                 outerAlpha={0.2}
                 innerScale={1}

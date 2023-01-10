@@ -2,11 +2,11 @@
 /*                DEPENDENCIES          */
 /* ------------------------------------ */
 // Packages
-import { lazy } from 'react';
+import { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 // UI Local Components
-import { PageHeader } from './Components';
+import Layout from './Layout';
 
 // Styles
 import './Shared/styles/global.css';
@@ -14,8 +14,9 @@ import './Shared/styles/variables.css';
 import './Shared/styles/typography.css';
 
 // Lazy UI Local Pages
-//import  Home  from './Pages/Home';
-const Home = lazy(() => import('./Pages/Home'))
+const Home = lazy(() => import('./Pages').then((module) => {
+  return { default: module.Home };
+}));
 
 // @TO DO : Run the next line in the terminal
 // npx json-server --watch data/db.json --port 3001 
@@ -26,11 +27,15 @@ function App() {
   /* ********** RENDERING ************* */
   return (
     <div className="App">
-    <Router>
-      <Routes>
-            <Route path="/" element={<Home />} />
-      </Routes>
-    </Router>
+      <Router>
+        <Suspense fallback={<div>Loading...</div>}>
+          <Routes>
+              <Route element={<Layout />}>
+                <Route path="/" element={<Home />} />
+              </Route>
+          </Routes>
+        </Suspense>
+      </Router>
     </div>
   );
 }

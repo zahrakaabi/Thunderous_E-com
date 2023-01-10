@@ -2,7 +2,7 @@
 /*                DEPENDENCIES          */
 /* ------------------------------------ */
 // Packages
-import { Suspense, Outlet, useEffect } from 'react';
+import { useEffect } from 'react';
 
 // Context
 import { useStateContext } from '../../Context/ContextProvider';
@@ -56,18 +56,14 @@ function PageHeader() {
 
               <div className="menu">
                 <ul>
-                  <li><a href="/#">Home</a></li>
-                  <li><a href="/#">About</a></li>
-                  <li><a href="/#">Services</a></li>
-                  <li><a href="/#">Contact</a></li>
+                  <li><a href="/">Home</a></li>
+                  <li><a href="/about">About</a></li>
+                  <li><a href="/shop">Shop</a></li>
+                  <li><a href="/contact">Contact</a></li>
                 </ul>
               </div>
             </nav>
         </div>
-
-        <Suspense fallback={<h1>Loading...</h1>}>
-          <Outlet />
-        </Suspense>
       </>
     );
   }

@@ -20,15 +20,19 @@ function Banner() {
     return (
         <div className="container">
           <div className="Slider flex items-end w-screen">
-             {data?.data?.map((product) => (
-              <a href='/' className="pos-r" key={product.id}>
-                <div className="product-details">
-                    <span>{product.price}</span>
-                    <span>{product.name}</span>
-                </div>
-                <img src={product.image} alt={product.name} />
-              </a>
-             ))}
+             {data?.data?.map((product) => {
+                  const { id, price, name, image } = product;
+                  return (
+                    <a href={`/products/${id}`} className="pos-r" key={id}>
+                      <div className="product-details">
+                          <span>{price}</span>
+                          <span>{name}</span>
+                      </div>
+                      <img src={image} alt={name} />
+                    </a>
+                  )
+                }
+             )}
           </div>
           <div className="banner-content">
             <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero.</p>
@@ -37,7 +41,3 @@ function Banner() {
     )
 }
 export default Banner;
-
-// @ TO DO : use loading="lazy" html attribute its eager by default
-// @ TO DO : use instead reat-lazy-load-image-component (effect="blur")
-// @ TO DO : use better react-blurhash   

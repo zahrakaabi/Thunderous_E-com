@@ -14,8 +14,14 @@ import './Shared/styles/variables.css';
 import './Shared/styles/typography.css';
 
 // Lazy UI Local Pages
+/* ------------- HOME PAGE ------------ */
 const Home = lazy(() => import('./Pages').then((module) => {
   return { default: module.Home };
+}));
+
+/* -------- PRODUCT DETAILS PAGE ------ */
+const ProductDeatils = lazy(() => import('./Pages').then((module) => {
+  return { default: module.ProductDeatils };
 }));
 
 // @TO DO : Run the next line in the terminal
@@ -32,6 +38,7 @@ function App() {
           <Routes>
               <Route element={<Layout />}>
                 <Route path="/" element={<Home />} />
+                <Route path="/products/:id" element={<ProductDeatils />} />
               </Route>
           </Routes>
         </Suspense>

@@ -4,7 +4,7 @@
 // Packages
 import { Outlet } from "react-router-dom";
 
-// UI Local Components
+// UI_Local Components
 import { PageHeader } from '../Components';
 
 /* ------------------------------------ */

@@ -7,15 +7,12 @@
 import './index.css';
 
 /* ------------------------------------ */
-/*          PRODUCT DETAILS PAGE        */
+/*            PRODUCT DETAILS           */
 /* ------------------------------------ */ 
-function ProductDeatils() {
+function ProductDetails() {
   /* ********** RENDERING ************* */
   return (
-    <div className="product-details-container">
-        hello product details
-    </div>
+    <h1>kkkkk</h1>
   );
 }
-
-export default ProductDeatils;
+export default ProductDetails;

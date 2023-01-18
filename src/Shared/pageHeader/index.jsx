@@ -33,7 +33,7 @@ function PageHeader() {
     return (
       <>
         <div className="container Header flex justify-between items-center">
-            <a className="logo" href="/"><h1>LOGO</h1></a>
+            <Link className="logo" to="/"><h1>LOGO</h1></Link>
 
             <nav>
               <button 

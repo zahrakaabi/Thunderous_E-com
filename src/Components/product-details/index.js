@@ -2,6 +2,7 @@
 /*                DEPENDENCIES          */
 /* ------------------------------------ */
 // Packages
+import { useParams } from 'react-router-dom';
 import { useQuery } from "@tanstack/react-query";
 
 // Fetchers
@@ -14,12 +15,24 @@ import './index.css';
 /*            PRODUCT DETAILS           */
 /* ------------------------------------ */ 
 function ProductDetails() {
-  const { data } = useQuery(['productDetails'], () => fetchData('Products/1'), { staleTime: 3000 });
+  const { id } = useParams();
+  const { data } = useQuery(['productDetails'], () => fetchData(`Products/${id}`), { staleTime: 3000 });
+  const { name, image, price } = data ? data?.data : '';
+  const API_URL = process.env.REACT_APP_API_URL;
 
-  console.log('data product details', data)
   /* ********** RENDERING ************* */
   return (
-    <h1>kkkkk</h1>
+    <div className="container product-detail-wrapper">
+      <div className="product-detail__image">
+        <img src={`${API_URL}/${image}`} alt={name} />
+      </div>
+      <div className="product-detail__content flex justify-center items-center flex-column text-center">
+        <h1>{name}</h1>
+        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters</p>
+        <h2>{price}</h2>
+        <button type="button">Add to cart</button>
+      </div>
+    </div>
   );
 }
 export default ProductDetails;

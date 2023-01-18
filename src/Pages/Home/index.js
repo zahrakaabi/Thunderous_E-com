@@ -3,7 +3,6 @@
 /* ---------------------------------------- */
 // Packages
 import AnimatedCursor from "react-animated-cursor";
-import {  QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 // UI Local Components
 import { Banner, About, NewIn, ScrollProgressBar } from '../../Components';
@@ -12,7 +11,6 @@ import { Banner, About, NewIn, ScrollProgressBar } from '../../Components';
 /*                  Home PAGE               */
 /* ---------------------------------------- */
 function Home() {
-    const queryClient = new QueryClient();
 
     /* ************ RENDERING ************* */
     return (
@@ -38,11 +36,9 @@ function Home() {
                     ".link",
                 ]}
             />
-            <QueryClientProvider client={queryClient}>
-                <Banner />
-                <About />
-                <NewIn />
-            </QueryClientProvider>
+            <Banner />
+            <About />
+            <NewIn />
             <ScrollProgressBar />
         </div>
     )

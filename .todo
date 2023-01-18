@@ -2,4 +2,4 @@
 - @TO DO : create page shop that contains all products
 - @TO DO : fix reloading pageHeader
 - @TO DO : use instead reat-lazy-load-image-component (effect="blur") -bannerSection
-- @TO DO : use better react-blurhash -bannerSection
+- @TO DO : use better react-blurhash -bannerSection x product detail

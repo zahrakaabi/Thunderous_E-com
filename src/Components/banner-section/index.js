@@ -2,6 +2,7 @@
 /*                DEPENDENCIES              */
 /* ---------------------------------------- */
 // Packages
+import { Link } from 'react-router-dom';
 import { useQuery } from "@tanstack/react-query";
 
 // Fetchers
@@ -23,13 +24,13 @@ function Banner() {
              {data?.data?.map((product) => {
                   const { id, price, name, image } = product;
                   return (
-                    <a href={`/products/${id}`} className="pos-r" key={id}>
+                    <Link to={`/products/${id}`} className="pos-r" key={id}>
                       <div className="product-details">
                           <span>{price}</span>
                           <span>{name}</span>
                       </div>
-                      <img src={image} alt={name} />
-                    </a>
+                      <img src={image} alt={name} loading="lazy" width={250} height={300}  />
+                    </Link>
                   )
                 }
              )}

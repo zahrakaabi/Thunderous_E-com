@@ -4,6 +4,7 @@
 // Packages
 import { useParams } from 'react-router-dom';
 import { useQuery } from "@tanstack/react-query";
+import Tilt from "react-parallax-tilt";
 
 // Fetchers
 import { fetchData } from '../../Hooks/useFetch';
@@ -24,7 +25,9 @@ function ProductDetails() {
   return (
     <div className="container product-detail-wrapper">
       <div className="product-detail__image">
-        <img src={`${API_URL}/${image}`} alt={name} />
+        <Tilt tiltMaxAngleX={15} tiltMaxAngleY={15}>
+          <img src={`${API_URL}/${image}`} alt={name} loading="lazy" />
+        </Tilt>
       </div>
       <div className="product-detail__content flex justify-center items-center flex-column text-center">
         <h1>{name}</h1>

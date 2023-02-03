@@ -4,6 +4,7 @@
 // Packages
 import { Link } from 'react-router-dom';
 import { useQuery } from "@tanstack/react-query";
+import { useTranslation } from "react-i18next";
 
 // Fetchers
 import { fetchData } from '../../Hooks/useFetch';
@@ -15,7 +16,11 @@ import './index.css';
 /*               BANNER COMPONENT           */
 /* ---------------------------------------- */
 function Banner() {
+  // data
     const { data } = useQuery(['products'], () => fetchData('Products'), { staleTime: 3000 });
+
+    // translation
+    const { t, i18n } = useTranslation('common');
     
     /* ************ RENDERING ************* */
     return (
@@ -36,7 +41,9 @@ function Banner() {
              )}
           </div>
           <div className="banner-content">
-            <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero.</p>
+            <p>{t('banner.content')}</p>
+            <button onClick={() => i18n.changeLanguage('fr')}>fr</button>
+            <button onClick={() => i18n.changeLanguage('en')}>en</button>
           </div>
         </div>
     )

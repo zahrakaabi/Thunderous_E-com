@@ -6,6 +6,7 @@
 .product-detail__image {
     width: 50%;
     height: 500px;
+    cursor: auto;
 }
 
 .product-detail__image img {
@@ -16,9 +17,11 @@
 
 .product-detail__content {
     width: 50%;
+    cursor: auto;
 }
 
 .product-detail__content p {
+    cursor: text;
     margin-block: 20px;
 }
 

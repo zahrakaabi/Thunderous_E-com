@@ -1,5 +1,26 @@
 {
-    "banner": {
-        "content": "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero."
+    "navbar": {
+        "logo": "LOGO",
+        "link_1": "Home",
+        "link_2": "About",
+        "link_3": "Shop",
+        "link_4": "Contact"
+    },
+
+    "index": {
+        "banner": "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero.",
+
+        "about": "Lorem ipsum was purposefully designed to have no meaning, but appear like real text, making it the perfect placeholder.",
+
+        "newIn": {
+            "title": "NEW IN",
+            "content": "The new collection is characterized by clean shapes and timeless thoughtfull designs that highlight the natural beauty and uniqueness of everybody.",
+            "button": "COLLECTION"
+        }
+    },
+    
+    "product_detail": {
+        "content": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters",
+        "button": "Add to cart"
     }
 }

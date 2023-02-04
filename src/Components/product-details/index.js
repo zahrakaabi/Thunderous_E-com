@@ -5,6 +5,7 @@
 import { useParams } from 'react-router-dom';
 import { useQuery } from "@tanstack/react-query";
 import Tilt from "react-parallax-tilt";
+import { useTranslation } from "react-i18next";
 
 // Fetchers
 import { fetchData } from '../../Hooks/useFetch';
@@ -21,6 +22,9 @@ function ProductDetails() {
   const { name, image, price } = data ? data?.data : '';
   const API_URL = process.env.REACT_APP_API_URL;
 
+  // translation
+  const { t } = useTranslation('common');
+
   /* ********** RENDERING ************* */
   return (
     <div className="container product-detail-wrapper">
@@ -31,9 +35,9 @@ function ProductDetails() {
       </div>
       <div className="product-detail__content flex justify-center items-center flex-column text-center">
         <h1>{name}</h1>
-        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters</p>
+        <p>{t('product_detail.content')}</p>
         <h2>{price}</h2>
-        <button type="button">Add to cart</button>
+        <button type="button">{t('product_detail.button')}</button>
       </div>
     </div>
   );

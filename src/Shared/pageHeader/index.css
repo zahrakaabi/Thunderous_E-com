@@ -1,17 +1,27 @@
 .Header {
     height: 60px;
+    cursor: auto;
 }
 
 .menu ul {
+    cursor: auto;
     display: none;
 }
 
+.menu ul li button {
+    width: 25px;
+    height: 25px;
+    border-radius: none;
+}
+
 .menu ul li a {
+    cursor: pointer;
     font-size: 1.3rem;
 }
 
 .burger-menu {
     gap: 3px;
+    cursor: auto;
     border: none;
     outline: none;
     background: transparent;
@@ -35,7 +45,7 @@
 
 
 @media screen and (min-width: 992px) {
-    .Header nav button {
+    .Header nav .burger-menu {
         display: none;
     }
 

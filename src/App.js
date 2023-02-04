@@ -34,7 +34,7 @@ function App() {
         <Suspense fallback={<div>Loading...</div>}>
           <Routes>
               <Route element={<Layout />}>
-                <Route exact path="/" element={<Home />} />
+                <Route path="/" element={<Home />} />
                 <Route path="products/:id" element={<ProductDetailsPage />} />
               </Route>
               <Route path="*" element={<div><h2>404 Page not found etc</h2></div>} />

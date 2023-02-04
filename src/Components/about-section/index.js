@@ -2,6 +2,7 @@
 /*                DEPENDENCIES              */
 /* ---------------------------------------- */
 // Packages
+import { useTranslation } from "react-i18next";
 
 // Images
 import WOMAN_FACE from '../../Assets/Images/About-section/woman_face.avif'; 
@@ -14,6 +15,9 @@ import './index.css';
 /*                ABOUT COMPONENT           */
 /* ---------------------------------------- */
 function About() {
+    // translation
+    const { t } = useTranslation('common');
+
     /* ************ RENDERING ************* */
     return (
         <div className="container about-section-container">
@@ -26,10 +30,7 @@ function About() {
                     </picture>
                 </div>
                 <div className="about-section_content flex justify-end items-end">
-                    <h1>
-                        Lorem ipsum was purposefully designed to have no meaning, 
-                        but appear like real text, making it the perfect placeholder.
-                    </h1>
+                    <h1>{t('index.about')}</h1>
                 </div>
             </div>
         </div>

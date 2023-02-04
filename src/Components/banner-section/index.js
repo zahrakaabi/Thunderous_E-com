@@ -16,11 +16,11 @@ import './index.css';
 /*               BANNER COMPONENT           */
 /* ---------------------------------------- */
 function Banner() {
-  // data
+    // data
     const { data } = useQuery(['products'], () => fetchData('Products'), { staleTime: 3000 });
 
     // translation
-    const { t, i18n } = useTranslation('common');
+    const { t } = useTranslation('common');
     
     /* ************ RENDERING ************* */
     return (
@@ -41,9 +41,7 @@ function Banner() {
              )}
           </div>
           <div className="banner-content">
-            <p>{t('banner.content')}</p>
-            <button onClick={() => i18n.changeLanguage('fr')}>fr</button>
-            <button onClick={() => i18n.changeLanguage('en')}>en</button>
+            <p>{t('index.banner')}</p>
           </div>
         </div>
     )

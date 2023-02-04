@@ -4,6 +4,7 @@
 // Packages
 import { useEffect } from 'react';
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 // Context
 import { useStateContext } from '../../Context/ContextProvider';
@@ -28,12 +29,18 @@ function PageHeader() {
       MENU_TOGGLE.addEventListener('animationend', handleDataStateMenu(), { once: true })
       return MENU_TOGGLE.removeEventListener('animationend', handleDataStateMenu())
     }, [])
+    
+    // translation
+    const { t, i18n } = useTranslation('common');
+    const changeLanguage = (lng) => {
+      i18n.changeLanguage(lng);
+    }
 
     /* ********** RENDERING *********** */
     return (
       <>
         <div className="container Header flex justify-between items-center">
-            <Link className="logo" to="/"><h1>LOGO</h1></Link>
+            <Link className="logo cursor-auto" to="/"><h1>{t('navbar.logo')}</h1></Link>
 
             <nav>
               <button 
@@ -57,10 +64,20 @@ function PageHeader() {
 
               <div className="menu">
                 <ul>
-                  <li><Link to="/">Home</Link></li>
-                  <li><Link to="about">About</Link></li>
-                  <li><Link to="shop">Shop</Link></li>
-                  <li><Link to="contact">Contact</Link></li>
+                  <li><Link to="/">{t('navbar.link_1')}</Link></li>
+                  <li><Link to="about">{t('navbar.link_2')}</Link></li>
+                  <li><Link to="shop">{t('navbar.link_3')}</Link></li>
+                  <li><Link to="contact">{t('navbar.link_4')}</Link></li>
+                  <li className="flex">
+                    <button className="cursor-auto flex items-center justify-center" 
+                            onClick={() => changeLanguage('fr')}>
+                            fr
+                        </button>
+                    <button className="cursor-auto flex items-center justify-center" 
+                            onClick={() => changeLanguage('en')}>
+                            en
+                        </button>
+                  </li>
                 </ul>
               </div>
             </nav>

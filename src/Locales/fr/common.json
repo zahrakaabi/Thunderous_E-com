@@ -1,5 +1,26 @@
 {
-    "banner": {
-        "content": "Lorem ipsum, ou lipsum comme on l'appelle parfois, est un texte factice utilisé dans la mise en page de conceptions imprimées, graphiques ou Web. Le passage est attribué à un typographe inconnu du XVe siècle qui aurait brouillé des parties de Cicéron."
+    "navbar": {
+        "logo": "LOGO",
+        "link_1": "Acceuil",
+        "link_2": "A propos",
+        "link_3": "Shop",
+        "link_4": "Contact"
+    },
+
+    "index": {
+        "banner": "Lorem ipsum, ou lipsum comme on l'appelle parfois, est un texte factice utilisé dans la mise en page de conceptions imprimées, graphiques ou Web. Le passage est attribué à un typographe inconnu du XVe siècle qui aurait brouillé des parties de Cicéron.",
+
+        "about": "Lorem ipsum a été délibérément conçu pour n'avoir aucune signification, mais apparaître comme un vrai texte, ce qui en fait l'espace réservé parfait.",
+
+        "newIn": {
+            "title": "NOUVELLE CO",
+            "content": "La nouvelle collection se caractérise par des formes épurées et des designs réfléchis intemporels qui mettent en valeur la beauté naturelle et le caractère unique de chacun..",
+            "button": "COLLECTION"
+        }
+    },
+
+    "product_detail": {
+        "content": "C'est un fait établi depuis longtemps qu'un lecteur sera distrait par le contenu lisible d'une page lorsqu'il regarde sa mise en page. L'intérêt d'utiliser Lorem Ipsum est qu'il a une distribution plus ou moins normale des lettres",
+        "button": "Ajouter au panier"
     }
 }

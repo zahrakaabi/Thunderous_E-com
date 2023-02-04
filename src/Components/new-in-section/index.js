@@ -2,6 +2,7 @@
 /*                DEPENDENCIES              */
 /* ---------------------------------------- */
 // Packages
+import { useTranslation } from "react-i18next";
 
 // Images
 import WOMAN_1 from '../../Assets/Images/New-in-section/woman.avif';
@@ -15,17 +16,18 @@ import './index.css';
 /*               NEW IN COMPONENT           */
 /* ---------------------------------------- */
 function NewIn() {
+    // translation
+    const { t } = useTranslation('common');
+
     /* ************ RENDERING ************* */
     return (
         <div className="container new-in-section section-seperator">
-            <h1 className="text-center">NEW IN</h1>
+            <h1 className="text-center">{t('index.newIn.title')}</h1>
             <div className="new-in-content flex">
                 <div className="content-container flex flex-column justify-center items-start">
-                    <p>The new collection is characterized by clean shapes and timeless thoughtfull 
-                       designs that highlight the natural beauty and uniqueness of everybody.
-                    </p>
+                    <p>{t('index.newIn.content')}</p>
                     <button className="flex items-center" type='button'>
-                        <span>COLLECTION</span> <img className='button-arrow' src={ARROW} alt="arrow" />
+                        <span>{t('index.newIn.button')}</span> <img className='button-arrow' src={ARROW} alt="arrow" />
                     </button>
                 </div>
 

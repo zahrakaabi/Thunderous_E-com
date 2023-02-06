@@ -36,6 +36,9 @@ function App() {
               <Route element={<Layout />}>
                 <Route path="/" element={<Home />} />
                 <Route path="products/:id" element={<ProductDetailsPage />} />
+
+                {/*<Route path="/signup" element={<Signup/>}/>
+                <Route path="/login" element={<Login/>}/>*/}
               </Route>
               <Route path="*" element={<div><h2>404 Page not found etc</h2></div>} />
           </Routes>

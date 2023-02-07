@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 // UI_Local Components
 import Layout from './Layout';
+import { Signup, Login } from './Authentification-components';
 
 // Styles
 import './Shared/styles/global.css';
@@ -37,8 +38,9 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="products/:id" element={<ProductDetailsPage />} />
 
-                {/*<Route path="/signup" element={<Signup/>}/>
-                <Route path="/login" element={<Login/>}/>*/}
+                {/* Authentification */}
+                <Route path="/signup" element={<Signup />}/>
+                <Route path="/login" element={<Login />}/>
               </Route>
               <Route path="*" element={<div><h2>404 Page not found etc</h2></div>} />
           </Routes>

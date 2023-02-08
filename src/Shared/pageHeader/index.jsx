@@ -5,12 +5,20 @@
 import { useEffect } from 'react';
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { onAuthStateChanged } from 'firebase/auth';
+
+import { auth } from '../../firebase';
 
 // Context
 import { useStateContext } from '../../Context/ContextProvider';
+import { useAuthValue } from '../../Context/AuthContextProvider';
+
+// Custom Hook
+import useModal from '../../Hooks/useModal';
 
 // UI Local Components
 import ResponsivePageHeader from './ResponsivePageHeader';
+import { Modal, Register, Login } from './Authentification';
 
 // Styles
 import './index.css';
@@ -21,14 +29,24 @@ import './index.css';
 function PageHeader() {
     // CONTEXT
     const { activeMenu, setActiveMenu, setDataStateMenu } = useStateContext();
+    const { setCurrentUser } = useAuthValue();
 
-    // CLOSE MENU TOGGLE
     useEffect(() => {
+      // CLOSE MENU TOGGLE
       const MENU_TOGGLE = document.querySelector('.burger-menu');
       const handleDataStateMenu = () => MENU_TOGGLE.setAttribute('data-state', 'closed');
-      MENU_TOGGLE.addEventListener('animationend', handleDataStateMenu(), { once: true })
+      MENU_TOGGLE.addEventListener('animationend', handleDataStateMenu(), { once: true });
+      
+      // Authentication
+      onAuthStateChanged(auth, (user) => {
+        setCurrentUser(user);
+      });
+
       return MENU_TOGGLE.removeEventListener('animationend', handleDataStateMenu())
-    }, [])
+    }, [setCurrentUser]);
+
+    // CUSTOM HOOK
+    const { openModal, toggle } = useModal();
     
     // translation
     const { t, i18n } = useTranslation('common');
@@ -68,6 +86,15 @@ function PageHeader() {
                   <li><Link to="about">{t('navbar.link_2')}</Link></li>
                   <li><Link to="shop">{t('navbar.link_3')}</Link></li>
                   <li><Link to="contact">{t('navbar.link_4')}</Link></li>
+                  <li>
+                    <div onClick={toggle}>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <path d="M12 2a5 5 0 1 0 5 5 5 5 0 0 0-5-5zm0 8a3 3 0 1 1 3-3 3 3 0 0 1-3 3zm9 11v-1a7 7 0 0 0-7-7h-4a7 7 0 0 0-7 7v1h2v-1a5 5 0 0 1 5-5h4a5 5 0 0 1 5  5v1z"></path>
+                      </svg>
+                    </div>
+                    {/*{openModal && <Modal openModal={openModal} toggle={toggle}><Register /></Modal>}*/}
+                    {openModal && <Modal openModal={openModal} toggle={toggle}><Login /></Modal>}
+                  </li>
                   <li className="flex">
                     <button className="cursor-auto flex items-center justify-center" 
                             onClick={() => changeLanguage('fr')}>

@@ -5,9 +5,11 @@
 import { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
+//import PrivateRoute from './PrivateRoute';
+
 // UI_Local Components
 import Layout from './Layout';
-import { Signup, Login } from './Authentification-components';
+import  { VerifyEmail } from './Shared/pageHeader/Authentification';
 
 // Styles
 import './Shared/styles/global.css';
@@ -37,11 +39,14 @@ function App() {
               <Route element={<Layout />}>
                 <Route path="/" element={<Home />} />
                 <Route path="products/:id" element={<ProductDetailsPage />} />
+                <Route path="verify-email" element={<VerifyEmail />} />
+                
 
                 {/* Authentification */}
-                <Route path="/signup" element={<Signup />}/>
-                <Route path="/login" element={<Login />}/>
+                {/*<Route path="/signup" element={<Signup />}/>
+                <Route path="/login" element={<Login />}/>*/}
               </Route>
+              {/*<PrivateRoute exact path="/" element={<Profile />} />*/}
               <Route path="*" element={<div><h2>404 Page not found etc</h2></div>} />
           </Routes>
         </Suspense>

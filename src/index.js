@@ -10,6 +10,7 @@ import './i18n';
 import App from './App';
 
 // Context
+import { AuthProvider } from './Context/AuthContextProvider';
 import { ContextProvider } from './Context/ContextProvider';
 
 /* ------------------------------------ */
@@ -18,9 +19,11 @@ import { ContextProvider } from './Context/ContextProvider';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <ContextProvider>
-      <App />
-    </ContextProvider>
+    <AuthProvider>
+      <ContextProvider>
+        <App />
+      </ContextProvider>
+    </AuthProvider>
   </React.StrictMode>
 );
 

@@ -3,10 +3,13 @@
 /* ------------------------------------ */
 // Packages
 import React, {useState} from 'react';
-import {  signInWithEmailAndPassword   } from 'firebase/auth';
-import { auth } from '../../firebase';
-import { NavLink, useNavigate } from 'react-router-dom'
- 
+import { signInWithEmailAndPassword, sendEmailVerification } from 'firebase/auth';
+import { auth } from '../../../../firebase';
+import { NavLink, useNavigate } from 'react-router-dom';
+
+// CONTEXT
+import { useAuthValue } from '../../../../Context/AuthContextProvider';
+
 // Styles
 import './index.css';
 
@@ -16,11 +19,36 @@ import './index.css';
 function Login() {
     const navigate = useNavigate();
     
+    // Context
+    const { setTimeActive } = useAuthValue();
+
     // States
     const [email, setEmail] = useState('');
+    const [error, setError] = useState(''); 
     const [password, setPassword] = useState('');
-       
+
     // OnLogin
+    const onLogin = async (e) => {
+        e.preventDefault();
+
+        await signInWithEmailAndPassword(auth, email, password)
+        .then(() => {
+            if(!auth.currentUser.emailVerified) {
+                sendEmailVerification(auth.currentUser)
+                .then(() => {
+                    setTimeActive(true);
+                    navigate('/verify-email');
+                })
+                .catch((err) => alert(err.message));
+            } else {
+                navigate('/');
+            }
+        })
+        .catch(err => setError(err.message));
+    }
+
+
+    /*
     const onLogin = (e) => {
         e.preventDefault();
         signInWithEmailAndPassword(auth, email, password)
@@ -35,11 +63,11 @@ function Login() {
             const errorMessage = error.message;
             console.log(errorCode, errorMessage)
         });
-    }
+    }*/
 
     /* ************ RENDERING ************/
     return(
-        <main >        
+        <main>        
             <section>
                 <div>                                            
                     <p> FocusApp </p>                       

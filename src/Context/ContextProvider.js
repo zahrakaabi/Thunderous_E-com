@@ -11,7 +11,7 @@ import { createContext, useContext, useState } from 'react';
 const StateContext = createContext();
 
 // CONTEXT PROVIDERS
-export const ContextProvider = ({ children }) => {
+export function ContextProvider({ children }) {
     // STATES
     const [activeMenu, setActiveMenu] = useState(false);
     const [dataStateMenu, setDataStateMenu] = useState('closing');

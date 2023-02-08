@@ -4,7 +4,10 @@
 - @TO DO : add languages to navabr @done
 - @TO DO : add content to locales @done
 - @TO DO : update pages + organize code @done
-- @TO DO : authentification
+- @TO DO : authentification @done
+- @TO DO : authentication - add verify email option @done
+- @TO DO : style UI auth + add inputs
+- @TO DO : authentification using fb + gmail option
 - @TO DO : add PWA add to screen option
 - @TO DO : implement SEO
 - @TO DO : create page shop that contains all products

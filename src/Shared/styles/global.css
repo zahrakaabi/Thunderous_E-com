@@ -83,6 +83,10 @@ ul {
     min-height: 100vh;
 }
 
+.hide-element {
+    display: none;
+}
+
 .container {
     padding-inline: 110px;
 }

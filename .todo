@@ -6,9 +6,13 @@
 - @TO DO : update pages + organize code @done
 - @TO DO : authentification @done
 - @TO DO : authentication - add verify email option @done
-- @TO DO : style UI auth + add inputs
+- @TO DO : style UI register + login + verifyEmail @done
+- @TO DO : password validation @done
+- @TO DO : private route + profile
 - @TO DO : authentification using fb + gmail option
+- @TO DO : add i18n to URL
+- @TO DO : create loading component
 - @TO DO : add PWA add to screen option
 - @TO DO : implement SEO
 - @TO DO : create page shop that contains all products
-- @TO DO : fix reloading pageHeader 
+- @TO DO : fix reloading pageHeader @done

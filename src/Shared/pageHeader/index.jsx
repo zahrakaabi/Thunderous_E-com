@@ -2,7 +2,7 @@
 /*                DEPENDENCIES          */
 /* ------------------------------------ */
 // Packages
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { onAuthStateChanged } from 'firebase/auth';
@@ -18,7 +18,7 @@ import useModal from '../../Hooks/useModal';
 
 // UI Local Components
 import ResponsivePageHeader from './ResponsivePageHeader';
-import { Modal, Register, Login } from './Authentification';
+import { Modal, Register, Login, VerifyEmail } from './Authentification';
 
 // Styles
 import './index.css';
@@ -30,6 +30,10 @@ function PageHeader() {
     // CONTEXT
     const { activeMenu, setActiveMenu, setDataStateMenu } = useStateContext();
     const { setCurrentUser } = useAuthValue();
+
+    // STATES
+    const [authMode, setAuthMode] = useState('login');
+    const [verifyEmail, setVerifyEmail] = useState(false);
 
     useEffect(() => {
       // CLOSE MENU TOGGLE
@@ -92,8 +96,13 @@ function PageHeader() {
                         <path d="M12 2a5 5 0 1 0 5 5 5 5 0 0 0-5-5zm0 8a3 3 0 1 1 3-3 3 3 0 0 1-3 3zm9 11v-1a7 7 0 0 0-7-7h-4a7 7 0 0 0-7 7v1h2v-1a5 5 0 0 1 5-5h4a5 5 0 0 1 5  5v1z"></path>
                       </svg>
                     </div>
-                    {/*{openModal && <Modal openModal={openModal} toggle={toggle}><Register /></Modal>}*/}
-                    {openModal && <Modal openModal={openModal} toggle={toggle}><Login /></Modal>}
+                    {openModal && (
+                      <Modal openModal={openModal} toggle={toggle}>
+                        {authMode === 'login' ? <Login toggle={toggle} setAuthMode={setAuthMode} /> : <></>}
+                        {authMode === 'register' ? <Register toggle={toggle} setAuthMode={setAuthMode} verifyEmail={verifyEmail} setVerifyEmail={setVerifyEmail} /> : <></>}
+                        {verifyEmail ? <VerifyEmail /> : <></>}
+                      </Modal>
+                    )}
                   </li>
                   <li className="flex">
                     <button className="cursor-auto flex items-center justify-center" 

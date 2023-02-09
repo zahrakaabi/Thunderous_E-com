@@ -1,0 +1,17 @@
+.verify-email h1 {
+    font: 1rem sans-serif;
+}
+
+.verify-email h1 span {
+    color: rgb(6, 74, 77);
+}
+
+.verify-email button {
+    width: 150px;
+    height: 35px;
+    border: none;
+    outline: none;
+    color: #fff;
+    margin-top: 1rem;
+    background: #222;
+}

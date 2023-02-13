@@ -1,5 +1,27 @@
 .profile-container {
     width: 100%;
+    cursor: auto;
     height: 100vh;
     min-height: 100vh;
+}
+
+.profile-container p,
+.profile-container h1 {
+    margin-bottom: 1rem;
+}
+
+.profile-container p,
+.profile-container button {
+    font-family: sans-serif;
+}
+
+.profile-container button {
+    width: 150px;
+    height: 35px;
+    border: none;
+    outline: none;
+    color: #fff;
+    cursor: pointer;
+    background: #222;
+    margin-bottom: 1rem;
 }

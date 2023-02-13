@@ -34,13 +34,10 @@ function Login({ toggle, setAuthMode }) {
         .then(() => {
             if(!auth.currentUser.emailVerified) {
                 sendEmailVerification(auth.currentUser)
-                .then(() => {
-                    setTimeActive(true);
-                    navigate('/verify-email');
-                })
+                .then(() => setTimeActive(true))
                 .catch((err) => console.log(err.message));
             } else {
-                navigate('/');
+                navigate('/profile');
                 toggle();
             }
         })
@@ -61,7 +58,7 @@ function Login({ toggle, setAuthMode }) {
                             required                                                                                
                             placeholder="Email address"
                             onChange={(e) => setEmail(e.target.value)}
-                            autocomplete="off"
+                            autoComplete="off"
                         />
                     </label>
                 </div>
@@ -76,10 +73,11 @@ function Login({ toggle, setAuthMode }) {
                             required                                                                                
                             placeholder="Password"
                             onChange={(e) => setPassword(e.target.value)}
+                            autoComplete="off"
                         />
                     </label>
                 </div>
-                                                
+
                 <button type="submit">Login</button>                              
             </form>
                        

@@ -59,7 +59,7 @@ function VerifyEmail() {
         const interval = setInterval(() => {
           currentUser?.reload()
           .then(() => {
-            if(currentUser?.emailVerified){
+            if (currentUser?.emailVerified) {
               clearInterval(interval)
               navigate('/');
             }
@@ -71,7 +71,7 @@ function VerifyEmail() {
     /* ********** RENDERING *********** */
     return (
         <div className="verify-email">
-            <h1>Email sent to <span>{currentUser?.email}</span> to verify</h1>
+            <h1>Email sent to <span>{currentUser?.email}</span> check your email!</h1>
             <button onClick={resendEmailVerification} disabled={timeActive}>
                 {/* the button will be disabled for a minute when a verification email is sent */}
                 Resend Email {timeActive && `in ${time}`}

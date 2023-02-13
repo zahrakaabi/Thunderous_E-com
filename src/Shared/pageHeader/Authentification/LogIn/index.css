@@ -17,6 +17,10 @@
     border: 1px solid #000;
 }
 
+.form-group .error {
+    margin-bottom: 1rem;
+}
+
 .login form button {
     width: 150px;
     height: 35px;

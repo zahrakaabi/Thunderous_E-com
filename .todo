@@ -8,11 +8,11 @@
 - @TO DO : authentication - add verify email option @done
 - @TO DO : style UI register + login + verifyEmail @done
 - @TO DO : password validation @done
-- @TO DO : private route + profile
+- @TO DO : profile page + sign out @done
 - @TO DO : authentification using fb + gmail option
 - @TO DO : add i18n to URL
-- @TO DO : create loading component
+- @TO DO : create loading component -
 - @TO DO : add PWA add to screen option
 - @TO DO : implement SEO
 - @TO DO : create page shop that contains all products
-- @TO DO : fix reloading pageHeader @done
+- @TO DO : fix reloading pageHeader 

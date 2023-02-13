@@ -3,14 +3,17 @@
 /* ------------------------------------ */
 // Packages
 import { lazy, Suspense } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
-//import PrivateRoute from './PrivateRoute';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 
 // UI_Local Components
 import Layout from './Layout';
+import Loader from './Shared/loader';
 
 // Styles
+// Context
+import { useAuthValue } from './Context/AuthContextProvider';
+
+
 import './Shared/styles/global.css';
 import './Shared/styles/variables.css';
 import './Shared/styles/typography.css';
@@ -24,23 +27,30 @@ const Home = lazy(() => import('./Pages').then((module) => {
 const ProductDetailsPage = lazy(() => import('./Pages').then((module) => {
   return { default: module.ProductDetailsPage };
 }));
+/* ---------- PROFILE PAGE ------------ */
+const Profile = lazy(() => import('./Pages').then((module) => {
+  return { default: module.Profile };
+}));
 
 /* ------------------------------------ */
 /*                    APP               */
 /* ------------------------------------ */ 
 function App() {
+  //CONTEXT
+  const { currentUser } = useAuthValue()
+
   /* ********** RENDERING ************* */
   return (
     <div className="App">
       <Router>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<Loader />}>
           <Routes>
               <Route element={<Layout />}>
                 <Route path="/" element={<Home />} />
                 <Route path="products/:id" element={<ProductDetailsPage />} />
               </Route>
-              {/*<PrivateRoute exact path="/" element={<Profile />} />*/}
               <Route path="*" element={<div><h2>404 Page not found etc</h2></div>} />
+              <Route path="/profile" element={currentUser?.emailVerified ? (<Profile />) : (<Navigate to='/' />)} />
           </Routes>
         </Suspense>
       </Router>

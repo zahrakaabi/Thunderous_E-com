@@ -88,7 +88,7 @@ function Register({ setAuthMode, verifyEmail, setVerifyEmail }) {
                         onChange={(e) => setEmail(e.target.value)}  
                         required                                    
                         placeholder="Email address"  
-                        autocomplete="off"                              
+                        autoComplete="off"                              
                     />
                 </label>
             </div>

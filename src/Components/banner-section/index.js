@@ -17,7 +17,7 @@ import './index.css';
 /* ---------------------------------------- */
 function Banner() {
     // data
-    const { data } = useQuery(['products'], () => fetchData('Products'), { staleTime: 3000 });
+    const { data: products } = useQuery(['products'], () => fetchData('Products'), { staleTime: 3000 });
 
     // translation
     const { t } = useTranslation('common');
@@ -26,7 +26,7 @@ function Banner() {
     return (
         <div className="container">
           <div className="Slider flex items-end w-screen">
-             {data?.data?.map((product) => {
+             {products?.map((product) => {
                   const { id, price, name, image } = product;
                   return (
                     <Link to={`/products/${id}`} className="pos-r" key={id}>

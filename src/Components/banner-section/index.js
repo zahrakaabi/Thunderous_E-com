@@ -3,11 +3,10 @@
 /* ---------------------------------------- */
 // Packages
 import { Link } from 'react-router-dom';
-import { useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 
 // Fetchers
-import { fetchData } from '../../Hooks/useFetch';
+import useProducts from '../../Hooks/useProducts';
 
 // Styles
 import './index.css';
@@ -17,7 +16,7 @@ import './index.css';
 /* ---------------------------------------- */
 function Banner() {
     // data
-    const { data: products } = useQuery(['products'], () => fetchData('Products'), { staleTime: 3000 });
+    const products = useProducts();
 
     // translation
     const { t } = useTranslation('common');

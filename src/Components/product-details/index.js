@@ -18,8 +18,8 @@ import './index.css';
 /* ------------------------------------ */ 
 function ProductDetails() {
   const { id } = useParams();
-  const { data } = useQuery(['productDetails'], () => fetchData(`Products/${id}`), { staleTime: 3000 });
-  const { name, image, price } = data ? data?.data : '';
+  const { data: productDetails } = useQuery(['productDetails', id], () => fetchData(`Products/${id}`), { staleTime: 3000 });
+  const { name, image, price } = productDetails ? productDetails : '';
   const API_URL = process.env.REACT_APP_API_URL;
 
   // translation

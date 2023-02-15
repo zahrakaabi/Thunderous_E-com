@@ -37,7 +37,7 @@ const Profile = lazy(() => import('./Pages').then((module) => {
 /* ------------------------------------ */ 
 function App() {
   //CONTEXT
-  const { currentUser } = useAuthValue()
+  const { currentUser } = useAuthValue();
 
   /* ********** RENDERING ************* */
   return (
@@ -48,9 +48,9 @@ function App() {
               <Route element={<Layout />}>
                 <Route path="/" element={<Home />} />
                 <Route path="products/:id" element={<ProductDetailsPage />} />
+                <Route path="/profile" element={currentUser?.emailVerified ? (<Profile />) : (<Navigate to='/' />)} />
               </Route>
               <Route path="*" element={<div><h2>404 Page not found etc</h2></div>} />
-              <Route path="/profile" element={currentUser?.emailVerified ? (<Profile />) : (<Navigate to='/' />)} />
           </Routes>
         </Suspense>
       </Router>

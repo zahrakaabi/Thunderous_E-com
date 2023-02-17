@@ -3,12 +3,12 @@
 /* -------------------------------------------------------- */
 // Packages
 import PropTypes from 'prop-types';
-import {Helmet} from "react-helmet";
+import { Helmet } from 'react-helmet-async';
 
 /* -------------------------------------------------------- */
 /*                          SEO                             */
 /* -------------------------------------------------------- */
-function SEO({title, description, type}) {
+function SEO({ title, description, type, name }) {
   /* *********************** RENDERING ******************** */
   return (
     <Helmet>
@@ -22,6 +22,13 @@ function SEO({title, description, type}) {
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         { /* End Facebook tags */ }
+
+        { /* Twitter tags */ }
+        <meta name="twitter:creator" content={name} />
+        <meta name="twitter:card" content={type} />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+        { /* End Twitter tags */ }
     </Helmet>
   );
 }
@@ -29,7 +36,7 @@ function SEO({title, description, type}) {
 SEO.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
+  name: PropTypes.string,
   type: PropTypes.string
 }
 

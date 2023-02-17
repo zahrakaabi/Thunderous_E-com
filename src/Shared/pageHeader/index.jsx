@@ -106,13 +106,15 @@ function PageHeader() {
                   </li>
                   <li className="flex">
                     <button className="cursor-auto flex items-center justify-center" 
-                            onClick={() => changeLanguage('fr')}>
-                            fr
-                        </button>
+                            onClick={() => changeLanguage('fr')}
+                    >
+                      fr
+                    </button>
                     <button className="cursor-auto flex items-center justify-center" 
-                            onClick={() => changeLanguage('en')}>
-                            en
-                        </button>
+                            onClick={() => changeLanguage('en')}
+                    >
+                      en
+                    </button>
                   </li>
                 </ul>
               </div>

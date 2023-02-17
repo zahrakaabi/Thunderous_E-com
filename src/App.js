@@ -4,6 +4,7 @@
 // Packages
 import { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 
 // UI_Local Components
 import Layout from './Layout';
@@ -42,18 +43,20 @@ function App() {
   /* ********** RENDERING ************* */
   return (
     <div className="App">
-      <Router>
-        <Suspense fallback={<Loader />}>
-          <Routes>
-              <Route element={<Layout />}>
-                <Route path="/" element={<Home />} />
-                <Route path="products/:id" element={<ProductDetailsPage />} />
-                <Route path="/profile" element={currentUser?.emailVerified ? (<Profile />) : (<Navigate to='/' />)} />
-              </Route>
-              <Route path="*" element={<div><h2>404 Page not found etc</h2></div>} />
-          </Routes>
-        </Suspense>
-      </Router>
+      <HelmetProvider>{/* CCR */}
+        <Router>
+          <Suspense fallback={<Loader />}>
+            <Routes>
+                <Route element={<Layout />}>
+                  <Route path="/" element={<Home />} />
+                  <Route path="products/:id" element={<ProductDetailsPage />} />
+                  <Route path="/profile" element={currentUser?.emailVerified ? (<Profile />) : (<Navigate to='/' />)} />
+                </Route>
+                <Route path="*" element={<div><h2>404 Page not found etc</h2></div>} />
+            </Routes>
+          </Suspense>
+        </Router>
+      </HelmetProvider>
     </div>
   );
 }

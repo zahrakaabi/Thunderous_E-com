@@ -34,7 +34,7 @@ const Profile = lazy(() => import('./Pages').then((module) => {
 }));
 /* -------- ALL PRODUCTS PAGE --------- */
 const AllProductsPage = lazy(() => import('./Pages').then((module) => {
-  return { default: module.Profile };
+  return { default: module.AllProductsPage };
 }));
 
 /* ------------------------------------ */

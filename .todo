@@ -12,7 +12,7 @@
 - @TO DO : authentification using fb + gmail option
 - @TO DO : add i18n to URL
 - @TO DO : create loading component @done
-- @TO DO : add PWA add to screen option
+- @TO DO : add PWA add to screen option --IN PROGRESS
 - @TO DO : implement SEO @done
-- @TO DO : create page shop that contains all products ----IN PROGRESS
+- @TO DO : create page shop that contains all products @done
 - @TO DO : fix reloading pageHeader 

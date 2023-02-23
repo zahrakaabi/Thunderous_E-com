@@ -2,7 +2,8 @@
 /*                DEPENDENCIES          */
 /* ------------------------------------ */
 // Packages
-//import { useTranslation } from "react-i18next";
+import { Link } from 'react-router-dom';
+import { motion } from "framer-motion";
 
 // Styles
 import './index.css';
@@ -11,26 +12,31 @@ import './index.css';
 /*            PRODUCT CARD              */
 /* ------------------------------------ */ 
 function ProductCard({ product }) {
-  // translation
-  //const { t } = useTranslation('common');
-
-  const { price, name, image } = product ? product : '';
+  const { id, price, name, image } = product ? product : '';
 
   /* ********** RENDERING ************* */
   return (
-    <div className="product-card">
-      <div className="product-card__content flex justify-between">
-        <h5>{name}</h5>
-        <h5>{price}</h5>
-      </div>
-      <div className="product-card__img">
-        <img src={image} alt={name} />
-      </div>
-      <button className="product-card__CTA-button flex justify-center items-center" 
-        type="button"
-        title="Add produt to your cart"
-      >+</button>
-    </div>
+    <motion.div 
+      className="product-card"
+      animate={{ opacity: 1 }}
+      initial={{ opacity: 0 }}
+      exit={{ opacity: 0 }}
+      layout
+    >
+      <Link to={`/products/${id}`} className="pos-r">
+        <div className="product-card__content flex justify-between">
+          <h5>{name}</h5>
+          <h5>{price}</h5>
+        </div>
+        <div className="product-card__img">
+          <img src={image} alt={name} />
+        </div>
+        <button className="product-card__CTA-button flex justify-center items-center" 
+          type="button"
+          title="Add produt to your cart"
+        >+</button>
+      </Link>
+    </motion.div>
   );
 }
 

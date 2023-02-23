@@ -53,8 +53,8 @@ function App() {
             <Routes>
                 <Route element={<Layout />}>
                   <Route path="/" element={<Home />} />
+                  <Route path="/products" element={<AllProductsPage />} />
                   <Route path="/products/:id" element={<ProductDetailsPage />} />
-                  <Route path="/all-products" element={<AllProductsPage />} />
                   <Route path="/profile" element={currentUser?.emailVerified ? (<Profile />) : (<Navigate to='/' />)} />
                 </Route>
                 <Route path="*" element={<div><h2>404 Page not found etc</h2></div>} />

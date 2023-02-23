@@ -88,7 +88,7 @@ function PageHeader() {
                 <ul>
                   <li><Link to="/">{t('navbar.link_1')}</Link></li>
                   <li><Link to="about">{t('navbar.link_2')}</Link></li>
-                  <li><Link to="shop">{t('navbar.link_3')}</Link></li>
+                  <li><Link to="products">{t('navbar.link_3')}</Link></li>
                   <li><Link to="contact">{t('navbar.link_4')}</Link></li>
                   <li>
                     <div onClick={toggle}>

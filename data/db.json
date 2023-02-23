@@ -4,37 +4,43 @@
             "id": 0,
             "name": "product_0",
             "image": "Assets/Images/Products/product_0.avif",
-            "price": "$10"
+            "price": "$10",
+            "type": "Creme"
         },
         {
             "id": 1,
             "name": "product_1",
             "image": "Assets/Images/Products/product_1.avif",
-            "price": "$25"
+            "price": "$25",
+            "type": "Creme"
         },
         {
             "id": 2,
             "name": "product_2",
             "image": "Assets/Images/Products/product_2.avif",
-            "price": "$15"
+            "price": "$15",
+            "type": "Creme"
         },
         {
             "id": 3,
             "name": "product_3",
             "image": "Assets/Images/Products/product_3.avif",
-            "price": "$20"
+            "price": "$20",
+            "type": "Creme"
         },
         {
             "id": 4,
             "name": "product_4",
             "image": "Assets/Images/Products/product_4.avif",
-            "price": "$35"
+            "price": "$35",
+            "type": "Serum"
         },
         {
             "id": 5,
             "name": "product_5",
             "image": "Assets/Images/Products/product_5.avif",
-            "price": "$10"
+            "price": "$10",
+            "type": "Serum"
         },
         {
             "id": 6,
@@ -46,37 +52,43 @@
             "id": 7,
             "name": "product_7",
             "image": "Assets/Images/Products/product_7.avif",
-            "price": "$20"
+            "price": "$20",
+            "type": "Serum"
         },
         {
             "id": 8,
             "name": "product_8",
             "image": "Assets/Images/Products/product_8.avif",
-            "price": "$15"
+            "price": "$15",
+            "type": "Creme"
         },
         {
             "id": 9,
             "name": "product_9",
             "image": "Assets/Images/Products/product_9.avif",
-            "price": "$30"
+            "price": "$30",
+            "type": "Creme"
         },
         {
             "id": 10,
             "name": "product_10",
             "image": "Assets/Images/Products/product_10.avif",
-            "price": "$25"
+            "price": "$25",
+            "type": "Serum"
         },
         {
             "id": 11,
             "name": "product_11",
             "image": "Assets/Images/Products/product_11.avif",
-            "price": "$10"
+            "price": "$10",
+            "type": "Creme"
         },
         {
             "id": 12,
             "name": "product_12",
             "image": "Assets/Images/Products/product_12.avif",
-            "price": "$45"
+            "price": "$45",
+            "type": "Creme"
         }
     ]
 }

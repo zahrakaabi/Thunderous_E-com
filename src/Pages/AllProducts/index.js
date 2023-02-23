@@ -2,15 +2,14 @@
 /*                DEPENDENCIES          */
 /* ------------------------------------ */
 // Packages
+import { useState } from 'react';
+import { motion, AnimatePresence } from "framer-motion";
 
 // UI Local Pages
 import { AllProductsMenu, ProductCard } from '../../Components';
 
 // SEO
 import SEO from '../../Shared/SEO';
-
-// Hooks
-import useProducts from '../../Hooks/useProducts';
 
 // Styles
 import './index.css';
@@ -19,8 +18,9 @@ import './index.css';
 /*           ALL PRODUCTS PAGE          */
 /* ------------------------------------ */ 
 function AllProductsPage() {
-  // Hooks 
-  const products = useProducts();
+  // States
+  const [filtredProducts, setFiltredProducts] = useState();
+  const [active, setActive] = useState('All');
 
   /* ********** RENDERING ************* */
   return (
@@ -32,13 +32,17 @@ function AllProductsPage() {
       />
 
       <div className="container all-products">
-        <AllProductsMenu />
-        <div className="products-wrapper">
-          {products?.map((product) => {
-            const { id } = product;
-            return <div key={id}><ProductCard product={product} /></div>
-          })}
-        </div>
+        <AllProductsMenu 
+          active={active} 
+          setActive={setActive} 
+          setFiltredProducts={setFiltredProducts} 
+        />
+
+        <motion.div className="products-wrapper" layout>
+          <AnimatePresence>
+            {filtredProducts?.map((product) => <ProductCard product={product} key={product?.id} />)}
+          </AnimatePresence>
+        </motion.div>
       </div>
     </>
   );

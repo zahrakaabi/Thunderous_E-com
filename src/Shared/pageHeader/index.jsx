@@ -12,6 +12,7 @@ import { auth } from '../../firebase';
 // Context
 import { useStateContext } from '../../Context/ContextProvider';
 import { useAuthValue } from '../../Context/AuthContextProvider';
+import { useCartValue } from '../../Context/CartContextProvider';
 
 // Custom Hook
 import useModal from '../../Hooks/useModal';
@@ -19,6 +20,9 @@ import useModal from '../../Hooks/useModal';
 // UI Local Components
 import ResponsivePageHeader from './ResponsivePageHeader';
 import { Modal, Register, Login, VerifyEmail } from './Authentification';
+
+// Images
+import SHOPPING_BAG from '../../Assets/Images/Icons/shopping-bag.png';
 
 // Styles
 import './index.css';
@@ -30,6 +34,7 @@ function PageHeader() {
     // CONTEXT
     const { activeMenu, setActiveMenu, setDataStateMenu } = useStateContext();
     const { setCurrentUser } = useAuthValue();
+    const { cartItemsNumber } = useCartValue();
 
     // STATES
     const [authMode, setAuthMode] = useState('login');
@@ -103,6 +108,12 @@ function PageHeader() {
                         {verifyEmail ? <VerifyEmail /> : <></>}
                       </Modal>
                     )}
+                  </li>
+                  <li>
+                    <div className="pos-r">
+                      <img className="shopping_bag" src={SHOPPING_BAG} alt="shopping_bag" />
+                      {cartItemsNumber && cartItemsNumber !== 0 ? <span className="cart_items_num flex justify-center items-center">{cartItemsNumber}</span> : <></>}
+                    </div>                  
                   </li>
                   <li className="flex">
                     <button className="cursor-auto flex items-center justify-center" 

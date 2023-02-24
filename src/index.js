@@ -8,10 +8,12 @@ import './i18n';
 
 // UIL ocal Components
 import App from './App';
+import * as serviceWorker from "./serviceWorkerRegistration";
 
 // Context
 import { AuthProvider } from './Context/AuthContextProvider';
 import { ContextProvider } from './Context/ContextProvider';
+import { CartProvider } from './Context/CartContextProvider';
 
 /* ------------------------------------ */
 /*                    APP               */
@@ -21,8 +23,12 @@ root.render(
   <React.StrictMode>
     <AuthProvider>
       <ContextProvider>
-        <App />
+        <CartProvider>
+          <App />
+        </CartProvider>
       </ContextProvider>
     </AuthProvider>
   </React.StrictMode>
 );
+
+serviceWorker.register();

@@ -7,6 +7,9 @@ import { useQuery } from "@tanstack/react-query";
 import Tilt from "react-parallax-tilt";
 import { useTranslation } from "react-i18next";
 
+// Context
+import { useCartValue } from '../../Context/CartContextProvider';
+
 // Fetchers
 import { fetchData } from '../../Hooks/useFetch';
 
@@ -21,6 +24,9 @@ function ProductDetails() {
   const { data: productDetails } = useQuery(['productDetails', id], () => fetchData(`Products/${id}`), { staleTime: 3000 });
   const { name, image, price } = productDetails ? productDetails : '';
   const API_URL = process.env.REACT_APP_API_URL;
+
+  //Context
+  const { setCartItemsNumber } = useCartValue();
 
   // translation
   const { t } = useTranslation('common');
@@ -37,7 +43,9 @@ function ProductDetails() {
         <h1>{name}</h1>
         <p>{t('product_detail.content')}</p>
         <h2>{price}</h2>
-        <button type="button">{t('product_detail.button')}</button>
+        <button type="button" onClick={() => setCartItemsNumber((prev) => prev + 1)}>
+          {t('product_detail.button')}
+        </button>
       </div>
     </div>
   );

@@ -43,6 +43,22 @@
     width: 1px;
 }
 
+.shopping_bag {
+    width: 24px;
+    height: 24px;
+}
+
+.cart_items_num {
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    right: -5px;
+    bottom: -5px;
+    border-radius: 50%;
+    font-size: 0.55rem;
+    color: #fff;
+    background-color: #222;
+}
 
 @media screen and (min-width: 992px) {
     .Header nav .burger-menu {

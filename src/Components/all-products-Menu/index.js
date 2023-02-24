@@ -3,7 +3,7 @@
 /* ------------------------------------ */
 // Packages
 import { useEffect } from 'react';
-//import { useTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 // Hooks
 import useProducts from '../../Hooks/useProducts';
@@ -16,7 +16,7 @@ import './index.css';
 /* ------------------------------------ */ 
 function AllProductsMenu({ active, setActive, setFiltredProducts }) {
   // translation
-  //const { t } = useTranslation('common');
+  const { t } = useTranslation('common');
 
   // Hooks 
   const products = useProducts();
@@ -33,14 +33,13 @@ function AllProductsMenu({ active, setActive, setFiltredProducts }) {
   /* ********** RENDERING ************* */
   return (
     <div className="all-products-menu flex flex-wrap">
-        {/*<p>{t('product_detail.content')}</p>*/}
         <button 
           className={`flex justify-center items-center ${active === 'All' ? 'active' : ''}`} 
           type="button"
           value="All"
           onClick={(e) => setActive(e.target.value)}
         >
-          All
+          {t('products.menu.button_1')}
         </button>
         <button 
           className={`flex justify-center items-center ${active === 'Serum' ? 'active' : ''}`} 
@@ -48,7 +47,7 @@ function AllProductsMenu({ active, setActive, setFiltredProducts }) {
           value="Serum"
           onClick={(e) => setActive(e.target.value)}
         >
-          Serum
+          {t('products.menu.button_2')}
         </button>
         <button 
           className={`flex justify-center items-center ${active === 'Creme' ? 'active' : ''}`}  
@@ -56,7 +55,7 @@ function AllProductsMenu({ active, setActive, setFiltredProducts }) {
           value="Creme"
           onClick={(e) => setActive(e.target.value)}
         >
-          Creme
+          {t('products.menu.button_3')}
         </button>
     </div>
   );

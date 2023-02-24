@@ -22,5 +22,13 @@
     "product_detail": {
         "content": "C'est un fait établi depuis longtemps qu'un lecteur sera distrait par le contenu lisible d'une page lorsqu'il regarde sa mise en page. L'intérêt d'utiliser Lorem Ipsum est qu'il a une distribution plus ou moins normale des lettres",
         "button": "Ajouter au panier"
+    },
+
+    "products": {
+        "menu": {
+            "button_1": "Tout",
+            "button_2": "Sérum",
+            "button_3": "Crème"
+        }
     }
 }

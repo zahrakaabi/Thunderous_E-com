@@ -5,6 +5,9 @@
 import { Link } from 'react-router-dom';
 import { motion } from "framer-motion";
 
+// Context
+import { useCartValue } from '../../Context/CartContextProvider';
+
 // Styles
 import './index.css';
 
@@ -12,6 +15,10 @@ import './index.css';
 /*            PRODUCT CARD              */
 /* ------------------------------------ */ 
 function ProductCard({ product }) {
+  //Context
+  const { setCartItemsNumber } = useCartValue();
+
+  // Desctruction
   const { id, price, name, image } = product ? product : '';
 
   /* ********** RENDERING ************* */
@@ -31,11 +38,12 @@ function ProductCard({ product }) {
         <div className="product-card__img">
           <img src={image} alt={name} />
         </div>
-        <button className="product-card__CTA-button flex justify-center items-center" 
-          type="button"
-          title="Add produt to your cart"
-        >+</button>
       </Link>
+      <button className="product-card__CTA-button flex justify-center items-center" 
+        type="button"
+        title="Add produt to your cart"
+        onClick={() => setCartItemsNumber((prev) => prev + 1)}
+      >+</button>
     </motion.div>
   );
 }

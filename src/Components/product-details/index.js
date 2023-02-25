@@ -26,7 +26,7 @@ function ProductDetails() {
   const API_URL = process.env.REACT_APP_API_URL;
 
   //Context
-  const { setCartItemsNumber } = useCartValue();
+  const { addToCart } = useCartValue();
 
   // translation
   const { t } = useTranslation('common');
@@ -43,7 +43,7 @@ function ProductDetails() {
         <h1>{name}</h1>
         <p>{t('product_detail.content')}</p>
         <h2>{price}</h2>
-        <button type="button" onClick={() => setCartItemsNumber((prev) => prev + 1)}>
+        <button type="button" onClick={() => addToCart(productDetails)}>
           {t('product_detail.button')}
         </button>
       </div>

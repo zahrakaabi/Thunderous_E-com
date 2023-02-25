@@ -20,6 +20,7 @@ import useModal from '../../Hooks/useModal';
 // UI Local Components
 import ResponsivePageHeader from './ResponsivePageHeader';
 import { Modal, Register, Login, VerifyEmail } from './Authentification';
+import Cart from '../cart';
 
 // Images
 import SHOPPING_BAG from '../../Assets/Images/Icons/shopping-bag.png';
@@ -39,6 +40,12 @@ function PageHeader() {
     // STATES
     const [authMode, setAuthMode] = useState('login');
     const [verifyEmail, setVerifyEmail] = useState(false);
+    const [openCart, setOpenCart] = useState(false);
+
+    // TOGGLE - show/hide option
+    function toggleCart() {
+      setOpenCart((openCart) => !openCart);
+    }
 
     useEffect(() => {
       // CLOSE MENU TOGGLE
@@ -101,19 +108,20 @@ function PageHeader() {
                         <path d="M12 2a5 5 0 1 0 5 5 5 5 0 0 0-5-5zm0 8a3 3 0 1 1 3-3 3 3 0 0 1-3 3zm9 11v-1a7 7 0 0 0-7-7h-4a7 7 0 0 0-7 7v1h2v-1a5 5 0 0 1 5-5h4a5 5 0 0 1 5  5v1z"></path>
                       </svg>
                     </div>
-                    {openModal && (
+                    {openModal ? (
                       <Modal openModal={openModal} toggle={toggle}>
                         {authMode === 'login' ? <Login toggle={toggle} setAuthMode={setAuthMode} /> : <></>}
                         {authMode === 'register' ? <Register toggle={toggle} setAuthMode={setAuthMode} verifyEmail={verifyEmail} setVerifyEmail={setVerifyEmail} /> : <></>}
                         {verifyEmail ? <VerifyEmail /> : <></>}
                       </Modal>
-                    )}
+                    ) : <></>}
                   </li>
                   <li>
-                    <div className="pos-r">
+                    <div className="pos-r" onClick={toggleCart}>
                       <img className="shopping_bag" src={SHOPPING_BAG} alt="shopping_bag" />
                       {cartItemsNumber && cartItemsNumber !== 0 ? <span className="cart_items_num flex justify-center items-center">{cartItemsNumber}</span> : <></>}
-                    </div>                  
+                    </div> 
+                    {openCart ? <Cart openModal={openCart} toggle={toggleCart} /> : <></>}            
                   </li>
                   <li className="flex">
                     <button className="cursor-auto flex items-center justify-center" 

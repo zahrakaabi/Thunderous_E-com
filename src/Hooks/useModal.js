@@ -13,7 +13,7 @@ function useModal() {
 
   // TOGGLE - show/hide option
   function toggle() {
-    setOpenModal(!openModal);
+    setOpenModal((openModal) => !openModal);
   }
 
   /* ************* RENDERING ************* */

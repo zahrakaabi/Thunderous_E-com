@@ -16,10 +16,10 @@ import './index.css';
 /* ------------------------------------ */ 
 function ProductCard({ product }) {
   //Context
-  const { setCartItemsNumber } = useCartValue();
+  const { addToCart } = useCartValue();
 
   // Desctruction
-  const { id, price, name, image } = product ? product : '';
+  const { id, price, name, image } = product ? product : ''; 
 
   /* ********** RENDERING ************* */
   return (
@@ -42,7 +42,7 @@ function ProductCard({ product }) {
       <button className="product-card__CTA-button flex justify-center items-center" 
         type="button"
         title="Add produt to your cart"
-        onClick={() => setCartItemsNumber((prev) => prev + 1)}
+        onClick={() => addToCart(product)}
       >+</button>
     </motion.div>
   );

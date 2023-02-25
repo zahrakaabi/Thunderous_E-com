@@ -25,6 +25,6 @@ const Modal = ({ openModal, toggle, children }) => openModal ? ReactDOM.createPo
         {children}
     </div>
   </React.Fragment>, document.body
-) : null;
+) : <></>;
 
 export default Modal;

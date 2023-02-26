@@ -30,7 +30,7 @@ function Banner() {
                   return (
                     <Link to={`/products/${id}`} className="pos-r" key={id}>
                       <div className="product-details">
-                          <span>{price}</span>
+                          <span>{`$${price}`}</span>
                           <span>{name}</span>
                       </div>
                       <img src={image} alt={name} loading="lazy" width={250} height={300}  />

@@ -8,7 +8,7 @@ import { useTranslation } from "react-i18next";
 import { useCartValue } from '../../Context/CartContextProvider';
 
 // UI Local Components
-import { Modal } from '../../Shared/pageHeader/Authentification';
+import Cart from './cart';
 
 // Styles
 import './index.css';
@@ -16,10 +16,10 @@ import './index.css';
 /* ------------------------------------ */
 /*                 HEADER               */
 /* ------------------------------------ */
-function Cart({ openModal, toggle }) {
-    // CONTEXT
-    const { cartItemsNumber } = useCartValue();
-    
+function ModalCart() {
+    // Context
+    const { closeCart } = useCartValue();
+
     // translation
     const { t, i18n } = useTranslation('common');
 
@@ -30,12 +30,12 @@ function Cart({ openModal, toggle }) {
                     className="modal-close-button" 
                     data-dismiss="modal" 
                     aria-label="Close" 
-                    onClick={toggle}>
+                    onClick={closeCart}>
                 <span aria-hidden="true">&times;</span>
             </button>
-            map carItems array here
+            <Cart  />
         </div>
     );
 }
 
-export default Cart;
+export default ModalCart;

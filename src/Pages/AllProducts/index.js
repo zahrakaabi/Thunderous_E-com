@@ -26,7 +26,7 @@ function AllProductsPage() {
   return (
     <>
       <SEO
-        title='All Products | E-commerce'
+        title='Shop | Thunderous'
         description='Ecommerce website that sells cosmetics products'
         name='Products'
       />

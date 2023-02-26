@@ -20,7 +20,7 @@ import useModal from '../../Hooks/useModal';
 // UI Local Components
 import ResponsivePageHeader from './ResponsivePageHeader';
 import { Modal, Register, Login, VerifyEmail } from './Authentification';
-import Cart from '../cart';
+import ModalCart from '../modal-cart';
 
 // Images
 import SHOPPING_BAG from '../../Assets/Images/Icons/shopping-bag.png';
@@ -35,17 +35,11 @@ function PageHeader() {
     // CONTEXT
     const { activeMenu, setActiveMenu, setDataStateMenu } = useStateContext();
     const { setCurrentUser } = useAuthValue();
-    const { cartItemsNumber } = useCartValue();
+    const { cartItemsNumber, openCart } = useCartValue();
 
     // STATES
     const [authMode, setAuthMode] = useState('login');
     const [verifyEmail, setVerifyEmail] = useState(false);
-    const [openCart, setOpenCart] = useState(false);
-
-    // TOGGLE - show/hide option
-    function toggleCart() {
-      setOpenCart((openCart) => !openCart);
-    }
 
     useEffect(() => {
       // CLOSE MENU TOGGLE
@@ -117,11 +111,11 @@ function PageHeader() {
                     ) : <></>}
                   </li>
                   <li>
-                    <div className="pos-r" onClick={toggleCart}>
+                    <div className="pos-r">
                       <img className="shopping_bag" src={SHOPPING_BAG} alt="shopping_bag" />
                       {cartItemsNumber && cartItemsNumber !== 0 ? <span className="cart_items_num flex justify-center items-center">{cartItemsNumber}</span> : <></>}
                     </div> 
-                    {openCart ? <Cart openModal={openCart} toggle={toggleCart} /> : <></>}            
+                    {openCart ? <ModalCart /> : <></>}            
                   </li>
                   <li className="flex">
                     <button className="cursor-auto flex items-center justify-center" 

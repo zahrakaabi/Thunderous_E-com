@@ -33,7 +33,7 @@ function ProductCard({ product }) {
       <Link to={`/products/${id}`} className="pos-r">
         <div className="product-card__content flex justify-between">
           <h5>{name}</h5>
-          <h5>{price}</h5>
+          <h5>{`$${price}`}</h5>
         </div>
         <div className="product-card__img">
           <img src={image} alt={name} />

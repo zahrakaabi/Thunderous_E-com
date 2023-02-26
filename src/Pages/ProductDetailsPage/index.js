@@ -20,7 +20,7 @@ function ProductDetailsPage() {
   return (
     <>
       <SEO
-        title='Product | E-commerce'
+        title='Product | Thunderous'
         description='Ecommerce website that sells cosmetics products'
         name='home'
       />

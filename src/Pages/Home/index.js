@@ -18,7 +18,7 @@ function Home() {
     return (
         <>
             <SEO
-                title='Home'
+                title='Home | Thunderous'
                 description='Ecommerce website that sells cosmetics products'
                 name='home'
             />

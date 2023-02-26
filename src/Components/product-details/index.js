@@ -42,7 +42,7 @@ function ProductDetails() {
       <div className="product-detail__content flex justify-center items-center flex-column text-center">
         <h1>{name}</h1>
         <p>{t('product_detail.content')}</p>
-        <h2>{price}</h2>
+        <h2>{`$${price}`}</h2>
         <button type="button" onClick={() => addToCart(productDetails)}>
           {t('product_detail.button')}
         </button>

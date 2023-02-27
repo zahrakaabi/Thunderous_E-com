@@ -30,7 +30,7 @@ function ProductCard({ product }) {
       exit={{ opacity: 0 }}
       layout
     >
-      <Link to={`/products/${id}`} className="pos-r">
+      <Link to={`/Shop/${id}`} className="pos-r">
         <div className="product-card__content flex justify-between">
           <h5>{name}</h5>
           <h5>{`$${price}`}</h5>

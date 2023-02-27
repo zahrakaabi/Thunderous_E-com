@@ -94,7 +94,7 @@ function PageHeader() {
                 <ul>
                   <li><Link to="/">{t('navbar.link_1')}</Link></li>
                   <li><Link to="about">{t('navbar.link_2')}</Link></li>
-                  <li><Link to="products">{t('navbar.link_3')}</Link></li>
+                  <li><Link to="Shop">{t('navbar.link_3')}</Link></li>
                   <li><Link to="contact">{t('navbar.link_4')}</Link></li>
                   <li>
                     <div onClick={toggle}>
@@ -113,7 +113,7 @@ function PageHeader() {
                   <li>
                     <div className="pos-r">
                       <img className="shopping_bag" src={SHOPPING_BAG} alt="shopping_bag" />
-                      {cartItemsNumber && cartItemsNumber !== 0 ? <span className="cart_items_num flex justify-center items-center">{cartItemsNumber}</span> : <></>}
+                      {cartItemsNumber !== 0 ? <span className="cart_items_num flex justify-center items-center">{cartItemsNumber}</span> : <></>}
                     </div> 
                     {openCart ? <ModalCart /> : <></>}            
                   </li>

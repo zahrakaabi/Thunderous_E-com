@@ -28,7 +28,7 @@ function Banner() {
              {products?.map((product) => {
                   const { id, price, name, image } = product;
                   return (
-                    <Link to={`/products/${id}`} className="pos-r" key={id}>
+                    <Link to={`/Shop/${id}`} className="pos-r" key={id}>
                       <div className="product-details">
                           <span>{`$${price}`}</span>
                           <span>{name}</span>

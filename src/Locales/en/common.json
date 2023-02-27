@@ -30,5 +30,10 @@
             "button_2": "Serum",
             "button_3": "Creme"
         }
+    },
+
+    "cart_modal": {
+        "added_item": "item added to your cart",
+        "continue_shopping": "continue shopping"
     }
 }

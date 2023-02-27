@@ -12,8 +12,9 @@
 - @TO DO : authentification using fb + gmail option
 - @TO DO : add i18n to URL
 - @TO DO : increment cart number onclick @done
-- @TO DO : add to cart 
+- @TO DO : add to cart @done
 - @TO DO : display added items
+- @TO DO : implement page cart
 - @TO DO : increment number item
 - @TO DO : decrease number item
 - @TO DO : add shopping bag to navbar @done

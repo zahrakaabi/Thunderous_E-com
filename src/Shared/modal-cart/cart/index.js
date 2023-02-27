@@ -3,6 +3,7 @@
 /* ------------------------------------ */
 // Packages
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 
 // Context
 import { useCartValue } from '../../../Context/CartContextProvider';
@@ -14,23 +15,37 @@ import './index.css';
 /*                 HEADER               */
 /* ------------------------------------ */
 function Cart() {
+    const navigate = useNavigate();
+    const API_URL = process.env.REACT_APP_API_URL;
+
     // CONTEXT
     const { closeCart, cartItems, product } = useCartValue();
     const { name, image } = product ? product : '';
     
     // translation
-    const { t, i18n } = useTranslation('common');
+    const { t } = useTranslation('common');
+
+    // Navigate to cart page
+    const navigateToCart = () => {
+        navigate('/cart');
+        closeCart();
+    }
 
     /* ********** RENDERING *********** */
     return (
         <div className="cart-wrapper">
-            <h6>check icon item added to your cart</h6>
+            <h5 className="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="m10 15.586-3.293-3.293-1.414 1.414L10 18.414l9.707-9.707-1.414-1.414z"></path>
+                </svg>
+                {t('cart_modal.added_item')}
+            </h5>
             <div className="cart-item flex">
-                <img src={image} alt={name} />
-                <h1>{`${name} | THUNDEROUS`}</h1>
+                <img src={`${API_URL}/${image}`} alt={name} />
+                <h4>{`${name} | THUNDEROUS`}</h4>
             </div>
-            <button type="button">{`View my cart (${cartItems.length})`}</button>
-            <button type="button" onClick={closeCart}>Continue Shopping</button>
+            <button type="button" onClick={navigateToCart}>{`View my cart (${cartItems.length})`}</button>
+            <button type="button" onClick={closeCart}>{t('cart_modal.continue_shopping')}</button>
         </div>
     );
 }

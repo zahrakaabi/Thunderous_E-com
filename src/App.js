@@ -36,6 +36,10 @@ const Profile = lazy(() => import('./Pages').then((module) => {
 const AllProductsPage = lazy(() => import('./Pages').then((module) => {
   return { default: module.AllProductsPage };
 }));
+/* ----------- CART PAGE -------------- */
+const CartPage = lazy(() => import('./Pages').then((module) => {
+  return { default: module.CartPage };
+}));
 
 /* ------------------------------------ */
 /*                    APP               */
@@ -53,8 +57,9 @@ function App() {
             <Routes>
                 <Route element={<Layout />}>
                   <Route path="/" element={<Home />} />
-                  <Route path="/products" element={<AllProductsPage />} />
-                  <Route path="/products/:id" element={<ProductDetailsPage />} />
+                  <Route path="/Shop" element={<AllProductsPage />} />
+                  <Route path="/Shop/:id" element={<ProductDetailsPage />} />
+                  <Route path="/cart" element={<CartPage />} />
                   <Route path="/profile" element={currentUser?.emailVerified ? (<Profile />) : (<Navigate to='/' />)} />
                 </Route>
                 <Route path="*" element={<div><h2>404 Page not found etc</h2></div>} />

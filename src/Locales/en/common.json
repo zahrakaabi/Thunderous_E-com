@@ -34,6 +34,7 @@
 
     "cart_modal": {
         "added_item": "item added to your cart",
+        "view_cart": "View my cart",
         "continue_shopping": "continue shopping"
     }
 }

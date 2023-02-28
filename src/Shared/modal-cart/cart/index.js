@@ -44,7 +44,7 @@ function Cart() {
                 <img src={`${API_URL}/${image}`} alt={name} />
                 <h4>{`${name} | THUNDEROUS`}</h4>
             </div>
-            <button type="button" onClick={navigateToCart}>{`View my cart (${cartItems.length})`}</button>
+            <button type="button" onClick={navigateToCart}>{`${t('cart_modal.view_cart')} (${cartItems.length})`}</button>
             <button type="button" onClick={closeCart}>{t('cart_modal.continue_shopping')}</button>
         </div>
     );

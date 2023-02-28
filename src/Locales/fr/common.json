@@ -34,6 +34,7 @@
 
     "cart_modal": {
         "added_item": "produit est ajouté dans votre papier avec succé",
-        "continue_shopping": "continue le shopping"
+        "view_cart": "Allez vers votre cart",
+        "continue_shopping": "Continue le shopping"
     }
 }

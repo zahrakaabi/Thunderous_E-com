@@ -13,10 +13,13 @@
 - @TO DO : add i18n to URL
 - @TO DO : increment cart number onclick @done
 - @TO DO : add to cart @done
-- @TO DO : display added items
-- @TO DO : implement page cart
-- @TO DO : increment number item
-- @TO DO : decrease number item
+- @TO DO : display added items @done
+- @TO DO : Cart is empty 
+- @TO DO : delete item from cart
+- @TO DO : Quantity (+/-)
+- @TO DO : calc qty*item price 
+- @TO DO : calc subtotal
+- @TO DO : Pagination
 - @TO DO : add shopping bag to navbar @done
 - @TO DO : add search option in the shop page
 - @TO DO : add customer review 
@@ -24,4 +27,5 @@
 - @TO DO : add PWA add to screen option @done
 - @TO DO : implement SEO @done
 - @TO DO : create page shop that contains all products @done
+- @TO DO : Error page UI Component
 - @TO DO : fix reloading pageHeader 

@@ -1,9 +1,6 @@
 /* ------------------------------------ */
 /*                DEPENDENCIES          */
 /* ------------------------------------ */
-// Packages
-import { useTranslation } from "react-i18next";
-
 // Context
 import { useCartValue } from '../../Context/CartContextProvider';
 
@@ -19,9 +16,6 @@ import './index.css';
 function ModalCart() {
     // Context
     const { closeCart } = useCartValue();
-
-    // translation
-    const { t, i18n } = useTranslation('common');
 
     /* ********** RENDERING *********** */
     return (

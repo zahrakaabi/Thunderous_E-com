@@ -93,9 +93,9 @@ function PageHeader() {
               <div className="menu">
                 <ul>
                   <li><Link to="/">{t('navbar.link_1')}</Link></li>
-                  <li><Link to="about">{t('navbar.link_2')}</Link></li>
-                  <li><Link to="Shop">{t('navbar.link_3')}</Link></li>
-                  <li><Link to="contact">{t('navbar.link_4')}</Link></li>
+                  <li><Link to="/about">{t('navbar.link_2')}</Link></li>
+                  <li><Link to="/Shop">{t('navbar.link_3')}</Link></li>
+                  <li><Link to="/contact">{t('navbar.link_4')}</Link></li>
                   <li>
                     <div onClick={toggle}>
                       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -111,10 +111,10 @@ function PageHeader() {
                     ) : <></>}
                   </li>
                   <li>
-                    <div className="pos-r">
+                    <Link to="cart" className="pos-r">
                       <img className="shopping_bag" src={SHOPPING_BAG} alt="shopping_bag" />
                       {cartItemsNumber !== 0 ? <span className="cart_items_num flex justify-center items-center">{cartItemsNumber}</span> : <></>}
-                    </div> 
+                    </Link> 
                     {openCart ? <ModalCart /> : <></>}            
                   </li>
                   <li className="flex">

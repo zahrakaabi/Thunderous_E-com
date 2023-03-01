@@ -18,21 +18,20 @@ import './index.css';
 /* ------------------------------------ */ 
 function CartPage() {
   // Context
-  const { cartItems, product } = useCartValue();
+  const { cartItems, setCartItems } = useCartValue();
 
-  // Increment Product Quantity if its duplicated
-  const PRODUCT_DUPLICATED = cartItems?.find((item) => {
-    const { id } = item;
-    return id === product?.id;
-  });
+  // Handle InCart
+  const handleInCart = (product, qty) => {
+    const PRODUCT_INDEX = cartItems?.indexOf(product);
+    cartItems[PRODUCT_INDEX].inCart += qty;
+    setCartItems(() => [...cartItems]);
+  }
 
-  // filter cartItems from duplication
-  const FILTRED_CART = cartItems?.filter((item) => {
-    const { id } = item;
-    return id !== product?.id;
-  });
-
-  console.log('tada duplicated', PRODUCT_DUPLICATED);
+  // Delete Product
+  const deleteProduct = (id) => {
+    const FILTRED_CART_ITEMS = cartItems?.filter((product) => product.id !== id);
+    setCartItems(FILTRED_CART_ITEMS);
+  }
 
   /* ********** RENDERING ************* */
   return (
@@ -66,8 +65,8 @@ function CartPage() {
           </thead>
 
           <tbody>
-            {FILTRED_CART?.map((product) => {
-              const { id, image, name, price } = product;
+            {cartItems?.map((product) => {
+              let { id, image, name, price, inCart } = product;
               return (
                 <tr key={id}>
                   <td className='cart-item-page'>
@@ -82,10 +81,10 @@ function CartPage() {
 
                   <td>
                     <div className="item-quantity flex items-center">
-                      <button type="button">-</button>
-                      <div className="item_Qty flex justify-center items-center">1</div>
-                      <button type="button">+</button>
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                      <button type="button" onClick={() => handleInCart(product, -1)}>-</button>
+                      <div className="item_Qty flex justify-center items-center">{inCart}</div>
+                      <button type="button" onClick={() => handleInCart(product, 1)}>+</button>
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" onClick={() => deleteProduct(id)}>
                         <path d="M9.172 16.242 12 13.414l2.828 2.828 1.414-1.414L13.414 12l2.828-2.828-1.414-1.414L12 10.586 9.172 7.758 7.758 9.172 10.586 12l-2.828 2.828z"></path>
                         <path d="M12 22c5.514 0 10-4.486 10-10S17.514 2 12 2 2 6.486 2 12s4.486 10 10 10zm0-18c4.411 0 8 3.589 8 8s-3.589 8-8 8-8-3.589-8-8 3.589-8 8-8z"></path>
                       </svg>

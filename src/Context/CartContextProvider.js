@@ -2,7 +2,7 @@
 /*                 DEPENDENCIES                */
 /* ------------------------------------------- */
 // Packages
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState, useEffect } from 'react';
 
 /* ------------------------------------------- */
 /*              CONTEXT PROVIDERS              */
@@ -25,15 +25,15 @@ export function CartProvider({ children }) {
 
   // Add to cart
   const addToCart = (product) => {
+    setProduct(product);
     setCartItems(() => [...cartItems, product]);
     setCartItemsNumber((prev) => prev + 1);
-    setProduct(product);
     setOpenCart(true);
-  }
+  };
 
   /* ************** RENDERING ************* */
   return (
-    <CartContext.Provider value={{ openCart, closeCart, cartItemsNumber, cartItems, product, addToCart }}>
+    <CartContext.Provider value={{ openCart, closeCart, cartItemsNumber, cartItems, setCartItems, product, addToCart }}>
       {children}
     </CartContext.Provider>
   );

@@ -25,11 +25,24 @@ export function CartProvider({ children }) {
 
   // Add to cart
   const addToCart = (product) => {
+
     setProduct(product);
     setCartItems(() => [...cartItems, product]);
+
+    const PRODUCT_INDEX = cartItems?.indexOf(product);
+    if (cartItems) {
+      cartItems[PRODUCT_INDEX].inCart += 1
+    };
+    setCartItems(() => [...cartItems]);
+
+    setProduct(product);
+    //setCartItems(() => [...cartItems, product]);
     setCartItemsNumber((prev) => prev + 1);
     setOpenCart(true);
   };
+
+  console.log('product', product);
+  console.log('cart items', cartItems);
 
   /* ************** RENDERING ************* */
   return (

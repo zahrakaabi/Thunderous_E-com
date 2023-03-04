@@ -74,11 +74,12 @@
     width: 18px;
     height: 18px;
     position: absolute;
-    right: -5px;
-    bottom: -5px;
+    right: 0;
+    bottom: 0;
     border-radius: 50%;
     font-size: 0.55rem;
     color: #fff;
+    transform: translate(10%, 10%);
     background-color: #222;
 }
 

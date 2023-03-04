@@ -8,6 +8,9 @@ import { useTranslation } from "react-i18next";
 // Fetchers
 import useProducts from '../../Hooks/useProducts';
 
+// Helpers
+import FormatCurrency from '../../Shared/Helpers/formatCurrency';
+
 // Styles
 import './index.css';
 
@@ -30,7 +33,7 @@ function Banner() {
                   return (
                     <Link to={`/Shop/${id}`} className="pos-r" key={id}>
                       <div className="product-details">
-                          <span>{`$${price}`}</span>
+                          <span>{FormatCurrency(price)}</span>
                           <span>{name}</span>
                       </div>
                       <img src={image} alt={name} loading="lazy" width={250} height={300}  />

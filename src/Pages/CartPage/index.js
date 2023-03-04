@@ -10,6 +10,9 @@ import { useCartValue } from '../../Context/CartContextProvider';
 // SEO
 import SEO from '../../Shared/SEO';
 
+// Helpers
+import FormatCurrency from '../../Shared/Helpers/formatCurrency'; 
+
 // Styles
 import './index.css';
 
@@ -19,6 +22,10 @@ import './index.css';
 function CartPage() {
   // Context
   const { cartItems, setCartItems } = useCartValue();
+  //incorporel bech taswira to93ed fel AI
+  //text vicctorisé mbaad ctrl+a
+  //shift selectioni ktiba + morabaa w bel Alt 3al rectangle
+  //anzel fel hwa w mbaad aaml nazla wa7da tawa yaamel dissocie 
 
   // Handle InCart
   const handleInCart = (product, qty) => {
@@ -74,7 +81,7 @@ function CartPage() {
                       <img className="cart-product-page__img" src={image} alt={name} />
                       <div className="cart-product-page__content">
                         <h1>{`${name} | THUNDEROUS`}</h1>
-                        <h3>{`$${price}`}</h3>
+                        <h3>{FormatCurrency(price)}</h3>
                       </div>
                     </div>
                   </td>
@@ -91,7 +98,7 @@ function CartPage() {
                     </div>
                   </td>
 
-                  <td>{`$${price}`}</td>
+                  <td>{FormatCurrency(price)}</td>
                 </tr>
               )
             })}

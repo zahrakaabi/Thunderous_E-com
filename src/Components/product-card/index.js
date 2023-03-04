@@ -8,6 +8,9 @@ import { motion } from "framer-motion";
 // Context
 import { useCartValue } from '../../Context/CartContextProvider';
 
+// Helpers
+import FormatCurrency from '../../Shared/Helpers/formatCurrency';
+
 // Styles
 import './index.css';
 
@@ -33,7 +36,7 @@ function ProductCard({ product }) {
       <Link to={`/Shop/${id}`} className="pos-r">
         <div className="product-card__content flex justify-between">
           <h5>{name}</h5>
-          <h5>{`$${price}`}</h5>
+          <h5>{FormatCurrency(price)}</h5>
         </div>
         <div className="product-card__img">
           <img src={image} alt={name} />

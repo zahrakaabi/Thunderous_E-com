@@ -22,11 +22,7 @@ import './index.css';
 function CartPage() {
   // Context
   const { cartItems, setCartItems } = useCartValue();
-  //incorporel bech taswira to93ed fel AI
-  //text vicctorisé mbaad ctrl+a
-  //shift selectioni ktiba + morabaa w bel Alt 3al rectangle
-  //anzel fel hwa w mbaad aaml nazla wa7da tawa yaamel dissocie 
-
+  
   // Handle InCart
   const handleInCart = (product, qty) => {
     const PRODUCT_INDEX = cartItems?.indexOf(product);

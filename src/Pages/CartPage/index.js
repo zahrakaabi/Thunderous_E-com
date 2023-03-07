@@ -21,20 +21,38 @@ import './index.css';
 /* ------------------------------------ */ 
 function CartPage() {
   // Context
-  const { cartItems, setCartItems } = useCartValue();
+  const { cartItems, setCartItems, addToCart } = useCartValue();
   
   // Handle InCart
-  const handleInCart = (product, qty) => {
+  /*const handleInCart = (product, qty) => {
     const PRODUCT_INDEX = cartItems?.indexOf(product);
     cartItems[PRODUCT_INDEX].inCart += qty;
     setCartItems(() => [...cartItems]);
-  }
+  }*/
 
   // Delete Product
   const deleteProduct = (id) => {
     const FILTRED_CART_ITEMS = cartItems?.filter((product) => product.id !== id);
     setCartItems(FILTRED_CART_ITEMS);
   }
+
+  // Handle products quantity in Cart
+  const handleQuantityInCart = (id) => {
+    const PRODUCT_EXIST = cartItems?.find((findProduct) => findProduct.id === id);
+    if (PRODUCT_EXIST.qty === 1) {
+      const NEW_CART_ITEMS = cartItems?.filter((existedProduct) => existedProduct.id !== id);
+      setCartItems(NEW_CART_ITEMS);
+    } else {
+      const NEW_CART_ITEMS = cartItems?.map((item) => 
+        item.id === id ? {...PRODUCT_EXIST, inCart: PRODUCT_EXIST.inCart - 1} : item
+      );
+      setCartItems(NEW_CART_ITEMS);
+    };
+  };
+
+  // Total Price
+  const INITIAL_PRICE = 0;
+  const TOTAL_PRICE = cartItems?.reduce((accumulator, product) => accumulator + product.inCart * product.price, INITIAL_PRICE); 
 
   /* ********** RENDERING ************* */
   return (
@@ -71,31 +89,33 @@ function CartPage() {
             {cartItems?.map((product) => {
               let { id, image, name, price, inCart } = product;
               return (
-                <tr key={id}>
-                  <td className='cart-item-page'>
-                    <div className="cart-product-page flex">
-                      <img className="cart-product-page__img" src={image} alt={name} />
-                      <div className="cart-product-page__content">
-                        <h1>{`${name} | THUNDEROUS`}</h1>
-                        <h3>{FormatCurrency(price)}</h3>
+                inCart > 0 ? (
+                  <tr key={id}>
+                    <td className='cart-item-page'>
+                      <div className="cart-product-page flex">
+                        <img className="cart-product-page__img" src={image} alt={name} />
+                        <div className="cart-product-page__content">
+                          <h1>{`${name} | THUNDEROUS`}</h1>
+                          <h3>{FormatCurrency(price)}</h3>
+                        </div>
                       </div>
-                    </div>
-                  </td>
+                    </td>
 
-                  <td>
-                    <div className="item-quantity flex items-center">
-                      <button type="button" onClick={() => handleInCart(product, -1)}>-</button>
-                      <div className="item_Qty flex justify-center items-center">{inCart}</div>
-                      <button type="button" onClick={() => handleInCart(product, 1)}>+</button>
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" onClick={() => deleteProduct(id)}>
-                        <path d="M9.172 16.242 12 13.414l2.828 2.828 1.414-1.414L13.414 12l2.828-2.828-1.414-1.414L12 10.586 9.172 7.758 7.758 9.172 10.586 12l-2.828 2.828z"></path>
-                        <path d="M12 22c5.514 0 10-4.486 10-10S17.514 2 12 2 2 6.486 2 12s4.486 10 10 10zm0-18c4.411 0 8 3.589 8 8s-3.589 8-8 8-8-3.589-8-8 3.589-8 8-8z"></path>
-                      </svg>
-                    </div>
-                  </td>
+                    <td>
+                      <div className="item-quantity flex items-center">
+                        <button type="button" onClick={() => handleQuantityInCart(id)}>-</button>
+                        <div className="item_Qty flex justify-center items-center">{inCart}</div>
+                        <button type="button" onClick={() => addToCart(product)}>+</button>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" onClick={() => deleteProduct(id)}>
+                          <path d="M9.172 16.242 12 13.414l2.828 2.828 1.414-1.414L13.414 12l2.828-2.828-1.414-1.414L12 10.586 9.172 7.758 7.758 9.172 10.586 12l-2.828 2.828z"></path>
+                          <path d="M12 22c5.514 0 10-4.486 10-10S17.514 2 12 2 2 6.486 2 12s4.486 10 10 10zm0-18c4.411 0 8 3.589 8 8s-3.589 8-8 8-8-3.589-8-8 3.589-8 8-8z"></path>
+                        </svg>
+                      </div>
+                    </td>
 
-                  <td>{FormatCurrency(price)}</td>
-                </tr>
+                    <td>{FormatCurrency(inCart * price)}</td>
+                  </tr>
+                ) : <></>
               )
             })}
           </tbody>
@@ -104,7 +124,7 @@ function CartPage() {
         <div className="subtotal flex flex-column items-end">
           <div className="subtotal-calc flex items-center">
             <h1>subtotal</h1>
-            <h2>$28</h2>
+            <h2>{FormatCurrency(TOTAL_PRICE)}</h2>
           </div>
           <button className="flex justify-center items-center" type="button">Checkout</button>
         </div>

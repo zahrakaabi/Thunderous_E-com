@@ -23,8 +23,10 @@ export function CartProvider({ children }) {
     setOpenCart(false);
   }
 
-  // Add to cart
+  // Add item to cart
   const addToCart = (product) => {
+    setOpenCart(true);
+    setProduct(product);
     const PRODUCT_EXIST = cartItems?.find((findProduct) => findProduct.id === product.id);
     if (PRODUCT_EXIST) {
       const NEW_CART_ITEMS = cartItems?.map((existedProduct) =>
@@ -35,22 +37,7 @@ export function CartProvider({ children }) {
       const NEW_CART_ITEMS = [...cartItems, {...product, inCart: 1}];
       setCartItems(NEW_CART_ITEMS);
     }
-
-    /*setProduct(product);
-    setCartItems(() => [...cartItems, product]);
-
-    const PRODUCT_INDEX = cartItems?.indexOf(product);
-    if (cartItems) {
-      cartItems[PRODUCT_INDEX].inCart += 1
-    };
-    setCartItems(() => [...cartItems]);
-
-    setProduct(product);*/
-    //setCartItems(() => [...cartItems, product]);
-    /*setCartItemsNumber((prev) => prev + 1);
-    setOpenCart(true);*/
   };
-  console.log('cart items', cartItems);
 
   /* ************** RENDERING ************* */
   return (

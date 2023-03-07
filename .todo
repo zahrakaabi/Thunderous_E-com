@@ -15,10 +15,12 @@
 - @TO DO : add to cart @done
 - @TO DO : display added items @done
 - @TO DO : Cart is empty 
-- @TO DO : delete item from cart
-- @TO DO : Quantity (+/-)
-- @TO DO : calc qty*item price 
-- @TO DO : calc subtotal
+- @TO DO : Cart Number
+- @TO DO : view cart (number)
+- @TO DO : delete item from cart @done
+- @TO DO : Quantity (+/-) @done
+- @TO DO : calc qty*item price @done
+- @TO DO : calc subtotal @done
 - @TO DO : Pagination
 - @TO DO : add shopping bag to navbar @done
 - @TO DO : add search option in the shop page

@@ -3,6 +3,7 @@
 /* ------------------------------------ */
 // Packages
 import { Link } from 'react-router-dom';
+import { useEffect, useTransition } from 'react';
 
 // Context
 import { useCartValue } from '../../Context/CartContextProvider';
@@ -20,6 +21,9 @@ import './index.css';
 /*          PRODUCT DETAILS PAGE        */
 /* ------------------------------------ */ 
 function CartPage() {
+  // Hooks
+  const [isPending, startTransition] = useTransition(); 
+
   // Context
   const { cartItems, setCartItems, addToCart } = useCartValue();
   
@@ -28,6 +32,7 @@ function CartPage() {
     const PRODUCT_INDEX = cartItems?.indexOf(product);
     cartItems[PRODUCT_INDEX].inCart += qty;
     setCartItems(() => [...cartItems]);
+    localStorage.setItem('cartItems', JSON.stringify(NEW_CART_ITEMS));
   }*/
 
   // Delete Product
@@ -39,20 +44,33 @@ function CartPage() {
   // Handle products quantity in Cart
   const handleQuantityInCart = (id) => {
     const PRODUCT_EXIST = cartItems?.find((findProduct) => findProduct.id === id);
-    if (PRODUCT_EXIST.qty === 1) {
+    if (PRODUCT_EXIST.inCart === 1) {
       const NEW_CART_ITEMS = cartItems?.filter((existedProduct) => existedProduct.id !== id);
       setCartItems(NEW_CART_ITEMS);
+      localStorage.setItem('cartItems', JSON.stringify(NEW_CART_ITEMS));
     } else {
       const NEW_CART_ITEMS = cartItems?.map((item) => 
         item.id === id ? {...PRODUCT_EXIST, inCart: PRODUCT_EXIST.inCart - 1} : item
       );
       setCartItems(NEW_CART_ITEMS);
+      localStorage.setItem('cartItems', JSON.stringify(NEW_CART_ITEMS));
     };
   };
 
   // Total Price
   const INITIAL_PRICE = 0;
   const TOTAL_PRICE = cartItems?.reduce((accumulator, product) => accumulator + product.inCart * product.price, INITIAL_PRICE); 
+
+  // UseEffect
+  useEffect(() => {
+    const CART_ITEMS = localStorage.getItem('cartItems');
+    const PARSED_CART_ITEMS = JSON.parse(CART_ITEMS);
+    const GET_CART_ITEMS = CART_ITEMS ? PARSED_CART_ITEMS : [];
+    // because it has low priority to load
+    startTransition(() => {
+      setCartItems(GET_CART_ITEMS);
+    });
+  }, [setCartItems]);
 
   /* ********** RENDERING ************* */
   return (

@@ -17,6 +17,7 @@
 - @TO DO : Cart is empty 
 - @TO DO : Cart Number
 - @TO DO : view cart (number)
+- @TO DO : Implement Local Storage
 - @TO DO : delete item from cart @done
 - @TO DO : Quantity (+/-) @done
 - @TO DO : calc qty*item price @done

@@ -33,9 +33,11 @@ export function CartProvider({ children }) {
         existedProduct.id === product.id ? {...PRODUCT_EXIST, inCart: PRODUCT_EXIST.inCart + 1} : existedProduct
       );
       setCartItems(NEW_CART_ITEMS);
+      localStorage.setItem('cartItems', JSON.stringify(NEW_CART_ITEMS));
     } else {
       const NEW_CART_ITEMS = [...cartItems, {...product, inCart: 1}];
       setCartItems(NEW_CART_ITEMS);
+      localStorage.setItem('cartItems', JSON.stringify(NEW_CART_ITEMS));
     }
   };
 

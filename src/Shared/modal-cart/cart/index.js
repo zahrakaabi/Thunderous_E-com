@@ -19,8 +19,8 @@ function Cart() {
     const API_URL = process.env.REACT_APP_API_URL;
 
     // CONTEXT
-    const { closeCart, product } = useCartValue();
-    const { name, image, inCart } = product ? product : '';
+    const { closeCart, product, cartItemsNumber } = useCartValue();
+    const { name, image } = product ? product : '';
     
     // translation
     const { t } = useTranslation('common');
@@ -44,7 +44,7 @@ function Cart() {
                 <img src={`${API_URL}/${image}`} alt={name} />
                 <h4>{`${name} | THUNDEROUS`}</h4>
             </div>
-            <button type="button" onClick={navigateToCart}>{`${t('cart_modal.view_cart')} (${inCart})`}</button>
+            <button type="button" onClick={navigateToCart}>{`${t('cart_modal.view_cart')} (${cartItemsNumber})`}</button>
             <button type="button" onClick={closeCart}>{t('cart_modal.continue_shopping')}</button>
         </div>
     );

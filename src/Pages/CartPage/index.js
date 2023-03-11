@@ -39,6 +39,7 @@ function CartPage() {
   const deleteProduct = (id) => {
     const FILTRED_CART_ITEMS = cartItems?.filter((product) => product.id !== id);
     setCartItems(FILTRED_CART_ITEMS);
+    localStorage.setItem('cartItems', JSON.stringify(FILTRED_CART_ITEMS));
   }
 
   // Handle products quantity in Cart
@@ -103,11 +104,11 @@ function CartPage() {
             </tr>
           </thead>
 
-          <tbody>
-            {cartItems?.map((product) => {
+            <tbody>
+             {!isPending && cartItems ? cartItems.map((product) => {
               let { id, image, name, price, inCart } = product;
-              return (
-                inCart > 0 ? (
+              if (inCart > 0) {
+                return (
                   <tr key={id}>
                     <td className='cart-item-page'>
                       <div className="cart-product-page flex">
@@ -133,9 +134,11 @@ function CartPage() {
 
                     <td>{FormatCurrency(inCart * price)}</td>
                   </tr>
-                ) : <></>
-              )
-            })}
+                );
+              };
+              return '';
+              }) : <></>
+             }
           </tbody>
         </table>
 

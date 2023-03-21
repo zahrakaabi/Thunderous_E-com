@@ -3,6 +3,7 @@
 /* ------------------------------------ */
 // Packages
 import { Link } from 'react-router-dom';
+import { useTranslation } from "react-i18next";
 import { useEffect, useTransition } from 'react';
 
 // Context
@@ -10,6 +11,9 @@ import { useCartValue } from '../../Context/CartContextProvider';
 
 // SEO
 import SEO from '../../Shared/SEO';
+
+// UI Local Componenets
+import EmptyCart from './EmptyCart';
 
 // Helpers
 import FormatCurrency from '../../Shared/Helpers/formatCurrency'; 
@@ -27,6 +31,9 @@ function CartPage() {
   // Context
   const { cartItems, setCartItems, addToCart } = useCartValue();
   
+  // translation
+  const { t } = useTranslation('common');
+
   // Handle InCart
   /*const handleInCart = (product, qty) => {
     const PRODUCT_INDEX = cartItems?.indexOf(product);
@@ -82,15 +89,16 @@ function CartPage() {
         name='cart'
       />
 
+      {cartItems.length === 0 ? <EmptyCart /> : (
       <div className="cart-page-container container">
         <div className="go-to-shop">
-          <h1>YOUR PURCHASES</h1>
+          <h1>{t('empty_cart.your_purchases')}</h1>
           <Link to="/Shop">
             <h2 className="flex items-center">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                 <path d="M20 3h-7.21a2 2 0 0 0-1.987 1.779L10 12H4a2 2 0 0 0 0 4h12l-1.212 3.03a2.001 2.001 0 0 0 1.225 2.641l.34.113a.998.998 0 0 0 1.084-.309l4.332-5.197c.149-.179.231-.406.231-.64V5a2 2 0 0 0-2-2z"></path>
               </svg>
-              Go Back To Shop
+              {t('empty_cart.Go_TO_SHOP')}
             </h2>
           </Link>
         </div>
@@ -98,9 +106,9 @@ function CartPage() {
         <table>
           <thead>
             <tr>
-              <th>Product</th>
-              <th>Quantity</th>
-              <th>Total</th>
+              <th>{t('empty_cart.th_first')}</th>
+              <th>{t('empty_cart.th_second')}</th>
+              <th>{t('empty_cart.th_third')}</th>
             </tr>
           </thead>
 
@@ -144,12 +152,13 @@ function CartPage() {
 
         <div className="subtotal flex flex-column items-end">
           <div className="subtotal-calc flex items-center">
-            <h1>subtotal</h1>
+            <h1>{t('empty_cart.subTotal')}</h1>
             <h2>{FormatCurrency(TOTAL_PRICE)}</h2>
           </div>
           <button className="flex justify-center items-center" type="button">Checkout</button>
         </div>
       </div>
+      )}
     </>
   );
 }

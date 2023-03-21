@@ -5,4 +5,5 @@ export { default as NewIn } from './new-in-section';
 export { default as ScrollProgressBar } from '../Shared/back-to-top-scroll-progress';
 export { default as ProductDetails } from './product-details';
 export { default as AllProductsMenu } from './all-products-Menu';
+export { default as Pagination } from './pagination';
 export { default as ProductCard } from './product-card';

@@ -36,5 +36,15 @@
         "added_item": "produit est ajouté dans votre papier avec succé",
         "view_cart": "Allez vers votre cart",
         "continue_shopping": "Continue le shopping"
+    },
+
+    "empty_cart": {
+        "message": "VOTRE CARTE EST VIDE",
+        "Go_TO_SHOP": "Retournez vers page Shop",
+        "your_purchases": "VOS ACHATS",
+        "th_first": "Produit",
+        "th_second": "Quantité",
+        "th_third": "Totale",
+        "subTotal": "SubTotale"
     }
 }

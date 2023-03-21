@@ -14,10 +14,10 @@
 - @TO DO : increment cart number onclick @done
 - @TO DO : add to cart @done
 - @TO DO : display added items @done
-- @TO DO : Cart is empty 
-- @TO DO : Cart Number
-- @TO DO : view cart (number)
-- @TO DO : Implement Local Storage
+- @TO DO : Cart is empty @done
+- @TO DO : Cart Number @done
+- @TO DO : view cart (number) @done
+- @TO DO : Implement Local Storage @done
 - @TO DO : delete item from cart @done
 - @TO DO : Quantity (+/-) @done
 - @TO DO : calc qty*item price @done

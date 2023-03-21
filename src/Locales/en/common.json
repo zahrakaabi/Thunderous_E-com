@@ -36,5 +36,15 @@
         "added_item": "item added to your cart",
         "view_cart": "View my cart",
         "continue_shopping": "continue shopping"
+    },
+
+    "empty_cart": {
+        "message": "YOUR CART IS EMPTY",
+        "Go_TO_SHOP": "Go Back to Shop",
+        "your_purchases": "YOUR PURCHASES",
+        "th_first": "Product",
+        "th_second": "Quantity",
+        "th_third": "Total",
+        "subTotal": "SubTotal"
     }
 }

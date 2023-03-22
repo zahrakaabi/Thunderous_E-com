@@ -5,3 +5,4 @@ when the dependencies array is full, it renders everytime the variable changes
 
 we use async await when it takes a little of time to fetch the data
 .finally we use to say whatever happened do that thing after promises ofcourse
+last push : chore: Style pagination + implement search UI  

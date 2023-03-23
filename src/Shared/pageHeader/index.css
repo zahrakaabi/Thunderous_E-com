@@ -8,6 +8,10 @@
     display: none;
 }
 
+.menu ul li {
+    cursor: pointer;
+}
+
 .menu ul li button {
     width: 25px;
     height: 25px;

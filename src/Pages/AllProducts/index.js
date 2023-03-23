@@ -21,6 +21,7 @@ function AllProductsPage() {
   // States
   const [filtredProducts, setFiltredProducts] = useState();
   const [active, setActive] = useState('All');
+  const [activePage, setActivePage] = useState(1);
   const [currentPage, setCurrentPage] = useState(1);
   const [productsPerPage] = useState(7);
 
@@ -30,19 +31,22 @@ function AllProductsPage() {
   const CURRENT_PRODUCTS = filtredProducts?.slice(INDEX_OF_FIRST_PRODUCT, INDEX_OF_LAST_PRODUCT);
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
+    setActivePage(pageNumber);
   };
 
   // Previous Page
   const previousPage = () => {
     if (currentPage !== 1) {
-       setCurrentPage(currentPage - 1);
+      setCurrentPage(currentPage - 1);
+      setActivePage(0);
     }
   };
 
   // Next Page
   const nextPage = () => {
       if (currentPage !== Math.ceil(filtredProducts?.length / productsPerPage)) {
-         setCurrentPage(currentPage + 1);
+        setCurrentPage(currentPage + 1);
+        setActivePage(filtredProducts?.length + 1);
       }
   };
 
@@ -74,6 +78,7 @@ function AllProductsPage() {
           paginate={paginate}
           previousPage={previousPage}
           nextPage={nextPage}
+          activePage={activePage}
         />
       </div>
     </>

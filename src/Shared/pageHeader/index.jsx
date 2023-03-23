@@ -3,7 +3,7 @@
 /* ------------------------------------ */
 // Packages
 import { useEffect, useState } from 'react';
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { onAuthStateChanged } from 'firebase/auth';
 
@@ -64,6 +64,9 @@ function PageHeader() {
       i18n.changeLanguage(lng);
     }
 
+    // LOCATION
+    const { pathname } = useLocation();
+
     /* ********** RENDERING *********** */
     return (
       <>
@@ -110,6 +113,13 @@ function PageHeader() {
                       </Modal>
                     ) : <></>}
                   </li>
+                  {pathname === '/Shop' ? (
+                    <li>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <path d="M10 18a7.952 7.952 0 0 0 4.897-1.688l4.396 4.396 1.414-1.414-4.396-4.396A7.952 7.952 0 0 0 18 10c0-4.411-3.589-8-8-8s-8 3.589-8 8 3.589 8 8 8zm0-14c3.309 0 6 2.691 6 6s-2.691 6-6 6-6-2.691-6-6 2.691-6 6-6z"></path>
+                      </svg>
+                    </li>
+                    ) : <></>}  
                   <li>
                     <Link to="cart" className="pos-r">
                       <img className="shopping_bag" src={SHOPPING_BAG} alt="shopping_bag" />

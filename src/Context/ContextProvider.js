@@ -15,10 +15,12 @@ export function ContextProvider({ children }) {
     // STATES
     const [activeMenu, setActiveMenu] = useState(false);
     const [dataStateMenu, setDataStateMenu] = useState('closing');
+    const [searchInput, setSearchInput] = useState('');
 
     /* ************** RENDERING ************* */
     return (
-        <StateContext.Provider value={{ activeMenu, setActiveMenu, dataStateMenu, setDataStateMenu }}>
+        <StateContext.Provider value={{ activeMenu, setActiveMenu, dataStateMenu, setDataStateMenu,
+        searchInput, setSearchInput }}>
             {children}
         </StateContext.Provider>
     );

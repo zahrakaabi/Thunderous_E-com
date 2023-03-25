@@ -5,6 +5,9 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from "framer-motion";
 
+// Context
+import { useStateContext } from '../../Context/ContextProvider';
+
 // UI Local Pages
 import { AllProductsMenu, ProductCard, Pagination } from '../../Components';
 
@@ -18,6 +21,9 @@ import './index.css';
 /*           ALL PRODUCTS PAGE          */
 /* ------------------------------------ */ 
 function AllProductsPage() {
+  // Context
+  const { searchInput } = useStateContext();
+
   // States
   const [filtredProducts, setFiltredProducts] = useState();
   const [active, setActive] = useState('All');
@@ -68,7 +74,13 @@ function AllProductsPage() {
 
         <motion.div className="products-wrapper" layout>
           <AnimatePresence>
-            {CURRENT_PRODUCTS?.map((product) => <ProductCard product={product} key={product?.id} />)}
+            {CURRENT_PRODUCTS?.filter((filtredProduct) => {
+              const { name } = filtredProduct;
+              if (name?.toLowerCase()?.includes(searchInput.toLowerCase())) {
+                return filtredProduct;
+              }
+              return '';
+            })?.map((product) => <ProductCard product={product} key={product?.id} />)}
           </AnimatePresence>
         </motion.div>
 

@@ -1,0 +1,16 @@
+.search-container {
+    left: 0;
+    top: 70px;
+    width: 100%;
+    position: fixed;
+}
+
+.search-container input {
+    width: 100%;
+    border: none;
+    height: 40px;
+    outline: none;
+    padding-left: 7px;
+    font-family: sans-serif;
+    border-bottom: 1px solid #222222;
+}

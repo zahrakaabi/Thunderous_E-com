@@ -29,7 +29,7 @@ function AllProductsPage() {
   const [active, setActive] = useState('All');
   const [activePage, setActivePage] = useState(1);
   const [currentPage, setCurrentPage] = useState(1);
-  const [productsPerPage] = useState(7);
+  const [productsPerPage] = useState(18);
 
   // Pagination
   const INDEX_OF_LAST_PRODUCT = currentPage * productsPerPage;

@@ -3,6 +3,7 @@
 /* ---------------------------------------- */
 // Packages
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 
 // Images
 import WOMAN_1 from '../../Assets/Images/New-in-section/woman.avif';
@@ -16,6 +17,8 @@ import './index.css';
 /*               NEW IN COMPONENT           */
 /* ---------------------------------------- */
 function NewIn() {
+    const navigate = useNavigate();
+
     // translation
     const { t } = useTranslation('common');
 
@@ -26,7 +29,7 @@ function NewIn() {
             <div className="new-in-content flex">
                 <div className="content-container flex flex-column justify-center items-start">
                     <p>{t('index.newIn.content')}</p>
-                    <button className="flex items-center" type='button'>
+                    <button className="flex items-center" type='button'onClick={() => navigate('/Shop')}>
                         <span>{t('index.newIn.button')}</span> <img className='button-arrow' src={ARROW} alt="arrow" />
                     </button>
                 </div>

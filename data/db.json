@@ -103,6 +103,134 @@
             "price": "45",
             "inCart": 1,
             "type": "Creme"
+        },
+        {
+            "id": 13,
+            "name": "product_13",
+            "image": "Assets/Images/Products/product_13.jpg",
+            "price": "25",
+            "inCart": 1,
+            "type": "Creme"
+        },
+        {
+            "id": 14,
+            "name": "product_14",
+            "image": "Assets/Images/Products/product_14.jpg",
+            "price": "20",
+            "inCart": 1,
+            "type": "Creme"
+        },
+        {
+            "id": 15,
+            "name": "product_1",
+            "image": "Assets/Images/Products/product_15.jpg",
+            "price": "36",
+            "inCart": 1,
+            "type": "Creme"
+        },
+        {
+            "id": 16,
+            "name": "product_16",
+            "image": "Assets/Images/Products/product_16.jpg",
+            "price": "45",
+            "inCart": 1,
+            "type": "Serum"
+        },
+        {
+            "id": 17,
+            "name": "product_1",
+            "image": "Assets/Images/Products/product_17.jpg",
+            "price": "62",
+            "inCart": 1,
+            "type": "Creme"
+        },
+        {
+            "id": 18,
+            "name": "product_18",
+            "image": "Assets/Images/Products/product_18.jpg",
+            "price": "75",
+            "inCart": 1,
+            "type": "Creme"
+        },
+        {
+            "id": 19,
+            "name": "product_1",
+            "image": "Assets/Images/Products/product_19.jpg",
+            "price": "97",
+            "inCart": 1,
+            "type": "Serum"
+        },
+        {
+            "id": 20,
+            "name": "product_20",
+            "image": "Assets/Images/Products/product_20.jpg",
+            "price": "11",
+            "inCart": 1,
+            "type": "Creme"
+        },
+        {
+            "id": 21,
+            "name": "product_1",
+            "image": "Assets/Images/Products/product_21.jpg",
+            "price": "34",
+            "inCart": 1,
+            "type": "Serum"
+        },
+        {
+            "id": 22,
+            "name": "product_22",
+            "image": "Assets/Images/Products/product_22.jpg",
+            "price": "28",
+            "inCart": 1,
+            "type": "Creme"
+        },
+        {
+            "id": 23,
+            "name": "product_23",
+            "image": "Assets/Images/Products/product_23.jpg",
+            "price": "42",
+            "inCart": 1,
+            "type": "Creme"
+        },
+        {
+            "id": 24,
+            "name": "product_1",
+            "image": "Assets/Images/Products/product_24.jpg",
+            "price": "45",
+            "inCart": 1,
+            "type": "Serum"
+        },
+        {
+            "id": 25,
+            "name": "product_1",
+            "image": "Assets/Images/Products/product_25.jpg",
+            "price": "97",
+            "inCart": 1,
+            "type": "Serum"
+        },
+        {
+            "id": 26,
+            "name": "product_26",
+            "image": "Assets/Images/Products/product_26.jpg",
+            "price": "60",
+            "inCart": 1,
+            "type": "Serum"
+        },
+        {
+            "id": 27,
+            "name": "product_1",
+            "image": "Assets/Images/Products/product_27.jpg",
+            "price": "48",
+            "inCart": 1,
+            "type": "Creme"
+        },
+        {
+            "id": 28,
+            "name": "product_28",
+            "image": "Assets/Images/Products/product_28.jpg",
+            "price": "39",
+            "inCart": 1,
+            "type": "Creme"
         }
     ]
 }

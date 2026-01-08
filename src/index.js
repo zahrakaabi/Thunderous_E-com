@@ -4,16 +4,15 @@
 // Packages
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { QueryClientProvider } from '@tanstack/react-query';
+
+// Utils
 import './i18n';
+import { queryClient } from './lib';
+import * as serviceWorker from "./service-worker/registration";
 
 // UIL ocal Components
-import App from './App';
-import * as serviceWorker from "./serviceWorkerRegistration";
-
-// Context
-import { AuthProvider } from './Context/AuthContextProvider';
-import { ContextProvider } from './Context/ContextProvider';
-import { CartProvider } from './Context/CartContextProvider';
+import App from './app/App';
 
 /* ------------------------------------ */
 /*                    APP               */
@@ -21,13 +20,15 @@ import { CartProvider } from './Context/CartContextProvider';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <AuthProvider>
+    <QueryClientProvider client={queryClient}>
+    {/* <AuthProvider>
       <ContextProvider>
-        <CartProvider>
+        <CartProvider> */}
           <App />
-        </CartProvider>
+        {/* </CartProvider>
       </ContextProvider>
-    </AuthProvider>
+    </AuthProvider> */}
+    </QueryClientProvider>
   </React.StrictMode>
 );
 

@@ -1,3 +1,6 @@
+We can use react-paginate for pagination.
+
+
 # Custom documentation
 useEffect is used whenever the page is reloaded
 when using listners or fetching data

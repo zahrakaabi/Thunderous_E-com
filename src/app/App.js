@@ -1,0 +1,76 @@
+/* ------------------------------------ */
+/*                DEPENDENCIES          */
+/* ------------------------------------ */
+// Packages
+import { lazy, Suspense } from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
+
+// UI_Local Components
+import Layout from '../layout/Layout';
+import { Loader } from '../components';
+
+// Context
+// import { useAuthValue } from '../Context/AuthContextProvider';
+
+// Styles
+import '../styles/global.scss';
+import '../styles/variables.scss';
+import '../styles/typography.scss';
+
+// Lazy UI Local Pages
+/* ------------- HOME PAGE ------------ */
+const Home = lazy(() => import('../pages').then((module) => {
+  return { default: module.Home };
+}));
+// /* -------- PRODUCT DETAILS PAGE ------ */
+const ProductDetails = lazy(() => import('../pages').then((module) => {
+  return { default: module.ProductDetails };
+}));
+// /* ---------- PROFILE PAGE ------------ */
+// const Profile = lazy(() => import('../Pages').then((module) => {
+//   return { default: module.Profile };
+// }));
+// /* -------- ALL PRODUCTS PAGE --------- */
+const Products = lazy(() => import('../pages').then((module) => {
+  return { default: module.Products };
+}));
+// /* ----------- CART PAGE -------------- */
+// const CartPage = lazy(() => import('../Pages').then((module) => {
+//   return { default: module.CartPage };
+// }));
+
+/* ------------------------------------ */
+/*                    APP               */
+/* ------------------------------------ */ 
+function App() {
+  //CONTEXT
+  // const { currentUser } = useAuthValue();
+
+  /* ********** RENDERING ************* */
+  return (
+    <div className="App">
+      <HelmetProvider>{/* CCR | SSR */}
+        <Router>
+          <Suspense fallback={<Loader />}>
+            <Routes>
+                <Route element={<Layout />}>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/shop" element={<Products />} />
+                  <Route path="/shop/:id" element={<ProductDetails />} />
+                  {/*<Route path="/cart" element={<CartPage />} />
+                  <Route path="/profile" element={currentUser?.emailVerified ? (<Profile />) : (<Navigate to='/' />)} /> */}
+                </Route>
+                <Route path="*" element={<div><h2>404 Page not found etc</h2></div>} />
+            </Routes>
+          </Suspense>
+        </Router>
+      </HelmetProvider>
+    </div>
+  );
+}
+
+export default App;
+
+// @TO DO : Run the next line in the terminal
+// npx json-server --watch data/db.json --port 3001 

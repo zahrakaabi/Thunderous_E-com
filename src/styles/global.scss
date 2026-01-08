@@ -1,0 +1,135 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul, 
+ol {
+    margin: 0;
+}
+
+a {
+    color: #222;
+    text-decoration: none;
+}
+
+ul {
+    padding-left: 0;
+    list-style: none;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.flex-column {
+    flex-direction: column
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-start {
+    justify-content: flex-start;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.justify-end {
+    justify-content: flex-end;
+}
+
+.items-start {
+    align-items: flex-start;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.items-end {
+    align-items: flex-end;
+}
+
+.gap-1 {
+    gap: 1rem;
+}
+
+.gap-2 {
+    gap: 1.5rem;
+}
+
+.gap-3 {
+    gap: 3rem;
+}
+
+.text-center {
+    text-align: center;
+} 
+
+.w-full {
+    width: 100%;
+}
+
+.h-full {
+    height: 100vh;
+    min-height: 100vh;
+}
+
+.hide-element {
+    display: none;
+}
+
+.transition {
+    transition: 0.3s ease;
+}
+
+.container {
+    margin-left: 10%;
+    margin-right: 10%;
+
+    @media screen and (max-width: 992px) {
+        margin-left: 1.5rem;
+        margin-right: 1.5rem;
+    } 
+}
+
+.section-seperator {
+    margin-top: 8rem;
+}
+
+.pos-r {
+    position: relative;
+}
+
+.cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}

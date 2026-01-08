@@ -1,0 +1,60 @@
+.cart-modal {
+    position: fixed;
+    top: 50px;
+    right: 175px;
+
+    width: 100%;
+    padding: 2em;
+    max-width: 350px;
+    z-index: 2;
+    background-color: #fff;
+    border: 0.5px solid lightgray;
+
+    .cart {
+        margin-top: 1.5rem;
+        font-family: sans-serif;
+
+        &__title {
+            color: gray;
+            font-weight: 200;
+            margin-bottom: 1rem;
+
+            svg {
+                width: 24px;
+                height: 24px;
+                fill: gray;
+            }
+        }
+
+        &__item {
+            img {
+                width: 3rem;
+                margin-right: 1rem;
+            }
+        }
+
+        button {
+            cursor: pointer;
+            border-radius: 45px;
+            transition: 0.3s ease;
+            width: 100% !important;
+            height: 40px !important;
+            border: 2px solid #222;
+
+            &:hover {
+                background-color: rgb(211, 211, 211);
+            }
+
+            &:first-of-type {
+                color: #222;
+                margin-bottom: .5rem;
+                background-color: #fff;
+            }
+
+            &:last-of-type {
+                color: #fff;
+                background-color: #222;
+            }
+        }
+    }
+}

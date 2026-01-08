@@ -1,0 +1,23 @@
+@use '../../../../styles/variables.scss' as vars;
+
+.products-filter {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+
+    &__filter {
+        padding: 1rem 2rem;
+        border: 2px solid vars.$primary-clr;
+        background-color: transparent;
+
+        color: vars.$primary-clr;
+        font: normal 700 1rem sans-serif;
+
+        &:hover,
+        &:active,
+        &:focus-visible,
+        &.active {
+            color: #fff;
+            background-color: vars.$primary-clr;
+        }
+    }
+}

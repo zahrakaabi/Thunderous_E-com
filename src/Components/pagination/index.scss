@@ -1,0 +1,24 @@
+.pagination {
+    margin-top: 3rem;
+
+    &__prev,
+    &__next {
+        border: none;
+        padding: 1rem 2rem;
+        background: #e7e9ec;
+        box-shadow: -3px -3px 7px #ffffff73, 3px 3px 5px rgba(94, 104, 121, 0.288);
+
+        color: #4d3252;
+        font: normal 400 1.6rem sans-serif;
+    }
+
+    &__pages {
+        padding: 1rem;
+
+        &.active {
+            color: #6f6cde;
+            box-shadow: inset -3px -3px 7px #ffffff73,
+            inset 3px 3px 5px rgba(94, 104, 121, 0.288);
+        }
+    }
+}

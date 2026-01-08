@@ -1,40 +1,47 @@
 /* ------------------------------------ */
 /*                DEPENDENCIES          */
 /* ------------------------------------ */
+// Utils
+import { usePagination } from '../../hooks';
+
 // Styles
-import './index.css';
+import './index.scss';
 
 /* ------------------------------------ */
 /*              PAGINATION              */
-/* ------------------------------------ */ 
-function Pagination({ productsPerPage, totalProducts, paginate, previousPage, nextPage, activePage }) {
-  // Pagination
-  const pageNumbers = [];
-  for (let i = 1; i <= Math.ceil(totalProducts / productsPerPage); i++) {
-    pageNumbers.push(i);
-  }
+/* ------------------------------------ */
+function Pagination({ currentPage, totalItems, itemsPerPage, onPageChange }) {
+/* --------------------------------- CONSTS --------------------------------- */
+  const { pages, hasNext, hasPrev } = usePagination({
+    totalItems,
+    itemsPerPage,
+    currentPage
+  });
 
-  /* ********** RENDERING ************* */
+  if (pages.length <= 1) return null;
+
+/* -------------------------------- RENDERING ------------------------------- */
   return (
-    <div className="container pagination-container">
-        <ul className="pagination flex">
-          <li onClick={previousPage} className={`${activePage === 0 ? 'active-page' : ''}
-            page-number previous-page flex justify-center items-center`}>
-            Prev
-          </li>
-          {pageNumbers.map((pageNumber) => (
-              <li key={pageNumber} className={`${activePage === pageNumber ? 'active-page' : ''} 
-                page-number flex justify-center items-center`}>
-                <div className='flex justify-center items-center' onClick={() => paginate(pageNumber)}>
-                  {pageNumber}
-                </div>
-              </li>
-          ))}
-          <li onClick={nextPage} className={`${activePage === pageNumbers + 1 ? 'active-page' : ''}
-            page-number next-page flex justify-center items-center`}>
-            Next
-          </li>
-        </ul>
+    <div className="pagination container flex justify-center items-center gap-1">
+      <button className="pagination__prev cursor-pointer" 
+      disabled={!hasPrev} 
+      onClick={() => onPageChange(currentPage - 1)}>
+        Prev
+      </button>
+
+      {pages.map((page) => (
+        <button key={page}
+        className={`pagination__pages cursor-pointer ${page === currentPage ? "active" : ""}`}
+        onClick={() => onPageChange(page)}>
+          {page}
+        </button>
+      ))}
+
+      <button className="pagination__next cursor-pointer" 
+      disabled={!hasNext} 
+      onClick={() => onPageChange(currentPage + 1)}>
+        Next
+      </button>
     </div>
   );
 }

@@ -1,0 +1,22 @@
+@use '../../../../styles/variables.scss' as vars;
+
+.product-card {
+    &__content {
+        margin-bottom: .5rem;
+
+        h5 {
+            font: normal 400 1.2rem sans-serif;
+        }
+    }
+
+    &__img {
+        height: 20rem;
+    }
+    
+    &__CTA-button {
+        height: 2rem;
+        color: vars.$primary-clr;
+        border: 1px solid vars.$primary-clr;
+        background-color: transparent;
+    }
+}

@@ -1,0 +1,104 @@
+.new-in-section {
+    .title {
+        font: 6rem serif;
+
+        &__before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 5px;
+            transform: rotate(50deg) translateX(-50%);
+
+            border-radius: 50%;
+            width: 6rem;
+            height: 15rem;
+            border: 1px solid rgb(90, 90, 90);
+        }
+    }
+
+    .content {
+        gap: 3rem;
+        margin-top: 5%;
+
+        .box {
+            max-height: 40rem;
+            width: calc(100% / 3);
+        }
+
+        &__box-1 {
+            padding: 3rem;
+            border: 1px solid rgb(90, 90, 90);
+            background-color: rgb(231, 231, 231);
+            border-bottom-right-radius: 50%; 
+            
+            p {
+                font: 1.4rem sans-serif;
+                text-align: justify;
+            }
+            
+            button {
+                margin-top: 3rem;
+                padding: 1rem;
+                border: 1px solid rgb(90, 90, 90);
+                background-color: transparent;
+
+                .button-arrow {
+                    width: 6rem;
+                    height: 1rem;
+                    margin-left: 5px;
+                }
+            }
+        }
+
+        &__box-2,
+        &__box-3 {
+            &:hover::before {
+                content: 'VIEW COLLECTION';
+                position: absolute;
+                font: 1.2rem sans-serif;
+
+                width: 100%;
+                height: 100%;
+                color: #fff;
+                background-color: rgba(0, 0, 0, 0.5);
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+
+        &__box-2 {
+            &::before {
+                border-top-left-radius: 50%;
+                border-top-right-radius: 50%; 
+            }
+
+            img {
+                border-top-left-radius: 50%;
+                border-top-right-radius: 50%; 
+            }
+        }
+
+        &__box-3 {
+            &::before {
+                border-radius: 45%;
+            }
+
+            img {
+                border-radius: 45%;
+            }
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .content {
+        display: block !important;
+            
+        .box {
+            width: 100% !important;
+            margin-top: 5rem;
+        }
+    }
+}

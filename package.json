@@ -21,6 +21,7 @@
     "react-parallax-tilt": "^1.7.89",
     "react-router-dom": "^6.6.1",
     "react-scripts": "5.0.1",
+    "sass": "^1.97.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

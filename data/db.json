@@ -3,7 +3,7 @@
         {
             "id": 0,
             "name": "product_0",
-            "image": "Assets/Images/Products/product_0.avif",
+            "image": "assets/images/products/product_0.avif",
             "price": "10",
             "inCart": 1,
             "type": "Creme"
@@ -11,7 +11,7 @@
         {
             "id": 1,
             "name": "product_1",
-            "image": "Assets/Images/Products/product_1.avif",
+            "image": "assets/images/products/product_1.avif",
             "price": "25",
             "inCart": 1,
             "type": "Creme"
@@ -19,7 +19,7 @@
         {
             "id": 2,
             "name": "product_2",
-            "image": "Assets/Images/Products/product_2.avif",
+            "image": "assets/images/products/product_2.avif",
             "price": "15",
             "inCart": 1,
             "type": "Creme"
@@ -27,7 +27,7 @@
         {
             "id": 3,
             "name": "product_3",
-            "image": "Assets/Images/Products/product_3.avif",
+            "image": "assets/images/products/product_3.avif",
             "price": "20",
             "inCart": 1,
             "type": "Creme"
@@ -35,7 +35,7 @@
         {
             "id": 4,
             "name": "product_4",
-            "image": "Assets/Images/Products/product_4.avif",
+            "image": "assets/images/products/product_4.avif",
             "price": "35",
             "inCart": 1,
             "type": "Serum"
@@ -43,7 +43,7 @@
         {
             "id": 5,
             "name": "product_5",
-            "image": "Assets/Images/Products/product_5.avif",
+            "image": "assets/images/products/product_5.avif",
             "price": "10",
             "inCart": 1,
             "type": "Serum"
@@ -51,7 +51,7 @@
         {
             "id": 6,
             "name": "product_6",
-            "image": "Assets/Images/Products/product_6.avif",
+            "image": "assets/images/products/product_6.avif",
             "price": "45",
             "inCart": 1,
             "type": "Creme"
@@ -59,7 +59,7 @@
         {
             "id": 7,
             "name": "product_7",
-            "image": "Assets/Images/Products/product_7.avif",
+            "image": "assets/images/products/product_7.avif",
             "price": "20",
             "inCart": 1,
             "type": "Serum"
@@ -67,7 +67,7 @@
         {
             "id": 8,
             "name": "product_8",
-            "image": "Assets/Images/Products/product_8.avif",
+            "image": "assets/images/products/product_8.avif",
             "price": "15",
             "inCart": 1,
             "type": "Creme"
@@ -75,7 +75,7 @@
         {
             "id": 9,
             "name": "product_9",
-            "image": "Assets/Images/Products/product_9.avif",
+            "image": "assets/images/products/product_9.avif",
             "price": "30",
             "inCart": 0,
             "type": "Creme"
@@ -83,7 +83,7 @@
         {
             "id": 10,
             "name": "product_10",
-            "image": "Assets/Images/Products/product_10.avif",
+            "image": "assets/images/products/product_10.avif",
             "price": "25",
             "inCart": 1,
             "type": "Serum"
@@ -91,7 +91,7 @@
         {
             "id": 11,
             "name": "product_11",
-            "image": "Assets/Images/Products/product_11.avif",
+            "image": "assets/images/products/product_11.avif",
             "price": "10",
             "inCart": 1,
             "type": "Creme"
@@ -99,7 +99,7 @@
         {
             "id": 12,
             "name": "product_12",
-            "image": "Assets/Images/Products/product_12.avif",
+            "image": "assets/images/products/product_12.avif",
             "price": "45",
             "inCart": 1,
             "type": "Creme"
@@ -107,7 +107,7 @@
         {
             "id": 13,
             "name": "product_13",
-            "image": "Assets/Images/Products/product_13.jpg",
+            "image": "assets/images/products/product_13.jpg",
             "price": "25",
             "inCart": 1,
             "type": "Creme"
@@ -115,7 +115,7 @@
         {
             "id": 14,
             "name": "product_14",
-            "image": "Assets/Images/Products/product_14.jpg",
+            "image": "assets/images/products/product_14.jpg",
             "price": "20",
             "inCart": 1,
             "type": "Creme"
@@ -123,7 +123,7 @@
         {
             "id": 15,
             "name": "product_1",
-            "image": "Assets/Images/Products/product_15.jpg",
+            "image": "assets/images/products/product_15.jpg",
             "price": "36",
             "inCart": 1,
             "type": "Creme"
@@ -131,7 +131,7 @@
         {
             "id": 16,
             "name": "product_16",
-            "image": "Assets/Images/Products/product_16.jpg",
+            "image": "assets/images/products/product_16.jpg",
             "price": "45",
             "inCart": 1,
             "type": "Serum"
@@ -147,7 +147,7 @@
         {
             "id": 18,
             "name": "product_18",
-            "image": "Assets/Images/Products/product_18.jpg",
+            "image": "assets/images/products/product_18.jpg",
             "price": "75",
             "inCart": 1,
             "type": "Creme"
@@ -155,7 +155,7 @@
         {
             "id": 19,
             "name": "product_1",
-            "image": "Assets/Images/Products/product_19.jpg",
+            "image": "assets/images/products/product_19.jpg",
             "price": "97",
             "inCart": 1,
             "type": "Serum"
@@ -163,7 +163,7 @@
         {
             "id": 20,
             "name": "product_20",
-            "image": "Assets/Images/Products/product_20.jpg",
+            "image": "assets/images/products/product_20.jpg",
             "price": "11",
             "inCart": 1,
             "type": "Creme"
@@ -171,7 +171,7 @@
         {
             "id": 21,
             "name": "product_1",
-            "image": "Assets/Images/Products/product_21.jpg",
+            "image": "assets/images/products/product_21.jpg",
             "price": "34",
             "inCart": 1,
             "type": "Serum"
@@ -179,7 +179,7 @@
         {
             "id": 22,
             "name": "product_22",
-            "image": "Assets/Images/Products/product_22.jpg",
+            "image": "assets/images/products/product_22.jpg",
             "price": "28",
             "inCart": 1,
             "type": "Creme"
@@ -187,7 +187,7 @@
         {
             "id": 23,
             "name": "product_23",
-            "image": "Assets/Images/Products/product_23.jpg",
+            "image": "assets/images/products/product_23.jpg",
             "price": "42",
             "inCart": 1,
             "type": "Creme"
@@ -195,7 +195,7 @@
         {
             "id": 24,
             "name": "product_1",
-            "image": "Assets/Images/Products/product_24.jpg",
+            "image": "assets/images/products/product_24.jpg",
             "price": "45",
             "inCart": 1,
             "type": "Serum"
@@ -203,7 +203,7 @@
         {
             "id": 25,
             "name": "product_1",
-            "image": "Assets/Images/Products/product_25.jpg",
+            "image": "assets/images/products/product_25.jpg",
             "price": "97",
             "inCart": 1,
             "type": "Serum"
@@ -211,7 +211,7 @@
         {
             "id": 26,
             "name": "product_26",
-            "image": "Assets/Images/Products/product_26.jpg",
+            "image": "assets/images/products/product_26.jpg",
             "price": "60",
             "inCart": 1,
             "type": "Serum"
@@ -219,7 +219,7 @@
         {
             "id": 27,
             "name": "product_1",
-            "image": "Assets/Images/Products/product_27.jpg",
+            "image": "assets/images/products/product_27.jpg",
             "price": "48",
             "inCart": 1,
             "type": "Creme"
@@ -227,7 +227,7 @@
         {
             "id": 28,
             "name": "product_28",
-            "image": "Assets/Images/Products/product_28.jpg",
+            "image": "assets/images/products/product_28.jpg",
             "price": "39",
             "inCart": 1,
             "type": "Creme"

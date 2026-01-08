@@ -5,9 +5,8 @@
 import { Link } from 'react-router-dom';
 import { motion } from "framer-motion";
 
-// Context
-
-// Helpers
+// Utils
+import { useCart } from '../../../cart/hooks';
 import { FormatCurrency } from '../../../../shared/helpers';
 
 // Styles
@@ -17,6 +16,7 @@ import './index.scss';
 /*            PRODUCT CARD              */
 /* ------------------------------------ */ 
 function ProductCard({ product }) {
+  const { addProduct } = useCart();
   const { id, price, name, image } = product; 
 
   /* ********** RENDERING ************* */
@@ -37,7 +37,8 @@ function ProductCard({ product }) {
       </Link>
       <button className="product-card__CTA-button flex justify-center items-center w-full cursor-pointer" 
       type="button"
-      title="Add produt to your cart">+</button>
+      title="Add produt to your cart"
+      onClick={() => addProduct(product)}>+</button>
     </motion.div>
   );
 }

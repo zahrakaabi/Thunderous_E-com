@@ -59,6 +59,10 @@ function Header() {
               <li><Link to="/about">{t('navbar.link_2')}</Link></li>
               <li><Link to="/Shop">{t('navbar.link_3')}</Link></li>
               <li><Link to="/contact">{t('navbar.link_4')}</Link></li>
+
+
+
+              <li><Link to="/cart">cart</Link></li>
               {/* <li>
                 <div onClick={toggle}>
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">

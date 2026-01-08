@@ -11,6 +11,7 @@ import Layout from '../layout/Layout';
 import { Loader } from '../components';
 
 // Context
+import { CartProvider } from '../context';
 // import { useAuthValue } from '../Context/AuthContextProvider';
 
 // Styles
@@ -36,9 +37,9 @@ const Products = lazy(() => import('../pages').then((module) => {
   return { default: module.Products };
 }));
 // /* ----------- CART PAGE -------------- */
-// const CartPage = lazy(() => import('../Pages').then((module) => {
-//   return { default: module.CartPage };
-// }));
+const Cart = lazy(() => import('../pages').then((module) => {
+  return { default: module.Cart };
+}));
 
 /* ------------------------------------ */
 /*                    APP               */
@@ -51,20 +52,22 @@ function App() {
   return (
     <div className="App">
       <HelmetProvider>{/* CCR | SSR */}
-        <Router>
-          <Suspense fallback={<Loader />}>
-            <Routes>
-                <Route element={<Layout />}>
-                  <Route path="/" element={<Home />} />
-                  <Route path="/shop" element={<Products />} />
-                  <Route path="/shop/:id" element={<ProductDetails />} />
-                  {/*<Route path="/cart" element={<CartPage />} />
-                  <Route path="/profile" element={currentUser?.emailVerified ? (<Profile />) : (<Navigate to='/' />)} /> */}
-                </Route>
-                <Route path="*" element={<div><h2>404 Page not found etc</h2></div>} />
-            </Routes>
-          </Suspense>
-        </Router>
+        <CartProvider>
+          <Router>
+            <Suspense fallback={<Loader />}>
+              <Routes>
+                  <Route element={<Layout />}>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/shop" element={<Products />} />
+                    <Route path="/shop/:id" element={<ProductDetails />} />
+                    <Route path="/cart" element={<Cart />} />
+                    {/*<Route path="/profile" element={currentUser?.emailVerified ? (<Profile />) : (<Navigate to='/' />)} /> */}
+                  </Route>
+                  <Route path="*" element={<div><h2>404 Page not found etc</h2></div>} />
+              </Routes>
+            </Suspense>
+          </Router>
+        </CartProvider>
       </HelmetProvider>
     </div>
   );

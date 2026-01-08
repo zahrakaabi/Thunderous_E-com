@@ -35,7 +35,7 @@ function ProductsFilters({ selectedFilter, setSelectedFilter }) {
 
   /* ********** RENDERING ************* */
   return (
-    <div className="products-filter flex gap-2 flex-wrap">
+    <div className="products-filter flex gap-2 flex-wrap cursor-auto">
       {FILTERS.map((filter) => <button key={filter.id}
         className={`products-filter__filter cursor-pointer transition flex gap-1 justify-center items-center 
          ${selectedFilter === filter.value ? 'active' : ''}`} 

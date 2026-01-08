@@ -12,10 +12,6 @@ import { productsService } from "../../services";
 /* -------------------------------------------------------------------------- */
 export function useProduct(productId) {
   const queryClient = useQueryClient();
-
-  
-
-  console.log('tes', productsService.getById(productId))
   
   return useQuery({
     queryKey: ["products", productId],

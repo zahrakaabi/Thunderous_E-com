@@ -8,13 +8,8 @@ import { useTranslation } from "react-i18next";
 
 // Utils
 import { useProduct } from '../../../../hooks';
+import { useCart } from '../../../cart/hooks';
 import { FormatCurrency } from '../../../../shared/helpers';
-// import { useCartValue } from '../../context/CartContextProvider';
-
-// // Fetchers
-// import { fetchData } from '../../hooks/useFetch';
-
-// // Helpers
 
 // Styles
 import './index.scss';
@@ -24,6 +19,7 @@ import './index.scss';
 /* ------------------------------------ */ 
 function ProductDetailsPage() {
   const { id: productId } = useParams();
+  const { addProduct } = useCart();
   const { data: productDetails, isLoading, isError } = useProduct(Number(productId));
   
   const { t } = useTranslation('common');
@@ -38,12 +34,10 @@ function ProductDetailsPage() {
   };
 
   const { name, image, price } = productDetails;
-  // //Context onClick={() => addToCart(productDetails)}
-  // const { addToCart } = useCartValue();
 
   /* ********** RENDERING ************* */
   return (
-    <div className="product-detail container">
+    <div className="product-detail container cursor-auto">
       <div className="product-detail__image">
         <Tilt tiltMaxAngleX={15} tiltMaxAngleY={15}>
           <img className="cover" src={`${API_URL}/${image}`} alt={name} loading="lazy" />
@@ -56,7 +50,8 @@ function ProductDetailsPage() {
         <button className="product-detail__add-to-cart cursor-pointer"
         type="button"
         title="add-to-cart"
-        aria-label="add-to-cart">
+        aria-label="add-to-cart"
+        onClick={() => addProduct(productDetails)}>
           {t('product_detail.button')}
         </button>
       </div>

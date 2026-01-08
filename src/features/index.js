@@ -4,3 +4,5 @@ export { default as NewInSection } from './home/components/new-in-section';
 
 export { default as ProductsPage } from './products/pages/ProductsPage';
 export { default as ProductDetailsPage } from './products/pages/ProductsDetailsPage';
+
+export { default as CartPage } from './cart/pages/cartPage';

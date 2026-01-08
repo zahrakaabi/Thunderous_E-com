@@ -1,0 +1,73 @@
+@use '../../../../styles/variables.scss' as vars;
+
+.cart {
+    &__back-to-shop {
+        margin: 2rem 0;
+
+        h2 {
+            margin-bottom: 1rem;
+            font: normal 400 1.4rem sans-serif;
+        }
+
+        a {
+            color: vars.$primary-clr;
+            font: normal 400 1.6rem sans-serif;
+
+            svg {
+                width: 2.4rem;
+                height: 2.4rem;
+                fill: vars.$primary-clr;
+                margin-right: .5rem;
+            }
+        }
+    }
+
+    &__table {
+        thead {
+            tr th {
+                opacity: .4;
+                text-align: left;
+                padding-bottom: 1rem;
+                font: normal 500 1.6rem sans-serif;
+                border-bottom: 0.5px solid vars.$primary-clr;
+            }
+        }
+
+        tbody {
+            tr:last-of-type td {
+                padding-bottom: 1.5rem;
+                border-bottom: 0.5px solid lightgray;
+            }
+        }
+    }
+
+    &__subtotal {
+        margin-top: 4rem;
+        
+        .amount {
+            h2 {
+                color: vars.$primary-clr;
+                font: normal 500 1.6rem sans-serif;
+            }
+
+            h3 {
+                color: gray;
+                font: normal 500 1.6rem sans-serif;
+            }
+        }
+
+        .checkout {
+            margin-top: 1rem;
+            padding: 1rem 2rem;
+            color: #fff;
+            border-radius: 45px;
+            background-color: vars.$primary-clr;
+            border: 1px solid ;
+
+            &:hover {
+                color: vars.$primary-clr;
+                background-color: #fff;
+            }
+        }
+    }
+}

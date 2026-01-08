@@ -1,0 +1,64 @@
+@use '../../../../styles/variables.scss' as vars;
+
+tr {
+    .product {
+        padding-top: 3rem;
+        vertical-align: top;
+
+        &__image {
+            width: 10rem;
+            min-width: 10rem;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+        }
+
+        &__name-price {
+            h2 {
+                color: vars.$primary-clr;
+                margin-bottom: 1rem;
+                font: normal 400 1.6rem sans-serif;
+            }
+
+            h3 {
+                opacity: 0.4;
+                color: vars.$primary-clr;
+                font: normal 400 1.4rem sans-serif;
+            }
+        }
+    }
+
+    .quantity {
+        &__increment,
+        &__decrement,
+        &__count {
+            height: 3rem;
+            width: 3rem;
+            background: transparent;
+            border: 1px solid lightgray;
+        }
+
+        &__increment {
+            border-right: none !important;
+        }
+
+        &__decrement {
+            border-left: none !important;
+        }
+
+        &__remove {
+            margin-left: 1rem;
+            border: none;
+            background: transparent;
+
+            svg {
+                width: 2.4rem;
+                height: 2.4rem;
+                fill: gray;
+            }
+        }
+    }
+
+    .total {
+        font: normal 400 1.6rem sans-serif;
+    }
+}

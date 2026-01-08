@@ -1,72 +1,114 @@
-/* ------------------------------------------- */
-/*                 DEPENDENCIES                */
-/* ------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+/*                                DEPENDENCIES                                */
+/* -------------------------------------------------------------------------- */
 // Packages
-import { createContext, useContext, useState, useEffect } from 'react';
+import { createContext, useReducer } from 'react';
 
-/* ------------------------------------------- */
-/*              CONTEXT PROVIDERS              */
-/* ------------------------------------------- */
-// CREATE CONTEXT
-const CartContext = createContext();
+/* -------------------------------------------------------------------------- */
+/*                             CREATE CART CONTEXT                            */
+/* -------------------------------------------------------------------------- */
+export const CartContext = createContext(null);
 
-// CONTEXT PROVIDERS
-export function CartProvider({ children }) {
-  // STATES
-  const [openCart, setOpenCart] = useState(false);
-  const [cartItemsNumber, setCartItemsNumber] = useState(0);
-  const [cartItems, setCartItems] = useState([]);
-  const [product, setProduct] = useState({});
+/* -------------------------------------------------------------------------- */
+/*                            CART REDUCER FUNCTION                           */
+/* -------------------------------------------------------------------------- */
+const CART_ACTIONS = {
+  ADD: 'ADD_PRODUCT',
+  REMOVE: 'REMOVE_PRODUCT',
+  INCREMENT: 'INCREMENT_QTY',
+  DECREMENT: 'DECREMENT_QTY',
+  CLEAR: 'CLEAR_CART'
+};
 
-  // Add to cart
-  const closeCart = () => {
-    setOpenCart(false);
-  }
+function cartReducer(state, action) {
+  switch (action.type) {
+    case CART_ACTIONS.ADD:
+      const product = action.payload;
+      const existing = state.items[product.id];
 
-  // Add item to cart
-  const addToCart = (product) => {
-    setOpenCart(true);
-    setProduct(product);
+      return {
+        ...state,
+        items: {
+          ...state.items,
+          [product.id]: {
+            ...product,
+            inCart: existing ? existing.inCart + 1 : 1
+          }
+        }
+      };
 
-    const PRODUCT_EXIST = cartItems?.find((findProduct) => findProduct.id === product.id);
-    if (PRODUCT_EXIST) {
-      const NEW_CART_ITEMS = cartItems?.map((existedProduct) =>
-        existedProduct.id === product.id ? {...PRODUCT_EXIST, inCart: PRODUCT_EXIST.inCart + 1} : existedProduct
-      );
-      setCartItems(NEW_CART_ITEMS);
-      localStorage.setItem('cartItems', JSON.stringify(NEW_CART_ITEMS));
-    } else {
-      const NEW_CART_ITEMS = [...cartItems, {...product, inCart: 1}];
-      setCartItems(NEW_CART_ITEMS);
-      localStorage.setItem('cartItems', JSON.stringify(NEW_CART_ITEMS));
-    }
+    case CART_ACTIONS.REMOVE:
+      const newItems = { ...state.items };
+      delete newItems[action.payload]
+      return { ...state, items: newItems }
+
+    case CART_ACTIONS.INCREMENT:
+      const incrementId = action.payload;
+      if (!state.items[incrementId]) return state;
+      return {
+        ...state,
+        items: {
+          ...state.items,
+          [incrementId]: {...state.items[incrementId], inCart: state.items[incrementId].inCart + 1}
+        }
+      };
+    
+    case CART_ACTIONS.DECREMENT:
+      const decrementId = action.payload;
+      if (!state.items[decrementId]) return state;
+
+      if (state.items[decrementId].inCart === 1) {
+        const newItems = { ...state.items };
+        delete newItems[decrementId];
+        return { ...state, items: newItems };
+      }
+      
+      return {
+        ...state,
+        items: {
+          ...state.items,
+          [decrementId]: {...state.items[decrementId], inCart: state.items[decrementId].inCart - 1}
+        }
+      };
+
+    case CART_ACTIONS.CLEAR:
+      return { items: {} }
+
+    default:
+      return state;
+  };
+};
+
+/* -------------------------------------------------------------------------- */
+/*                                CART PROVIDER                               */
+/* -------------------------------------------------------------------------- */
+function CartProvider({ children }) {
+/* ---------------------------------- HOOKS --------------------------------- */
+  const [state, dispatch] = useReducer(cartReducer, { items : {} });
+
+/* --------------------------------- CONSTS --------------------------------- */
+  const cartItems = Object.values(state.items);
+
+  const value = {
+    cart: cartItems,
+    cartCount: cartItems.reduce((total, item) => total + item.inCart, 0),
+    totalProducts: cartItems.reduce((sum, item) => sum + item.inCart, 0),
+    totalPrice: cartItems.reduce((sum, item) => sum + item.price * item.inCart, 0),
+
+    addProduct: (product) => dispatch({ type: CART_ACTIONS.ADD, payload: product }),
+    incrementQuantity: (id) => dispatch({ type: CART_ACTIONS.INCREMENT, payload: id }),
+    decrementQuantity: (id) => dispatch({ type: CART_ACTIONS.DECREMENT, payload: id }),
+    removeProduct: (id) => dispatch({ type: CART_ACTIONS.REMOVE, payload: id }),
+    clearCart: () => dispatch({ type: CART_ACTIONS.CLEAR }),
+    isInCart: (id) => Boolean(state.items[id]),
   };
 
-  // UseEffect
-  useEffect(() => {
-    // Set Items Number In Cart
-    if (cartItems.length !== 0) {
-      const IN_CART_ARRAY = cartItems?.map((product) => product?.inCart);
-      const ITEMS_TOTAL_NUMBER = IN_CART_ARRAY?.reduce((acc, inCart) => acc + inCart);
-      localStorage.setItem('cartItemsNumber', JSON.stringify(ITEMS_TOTAL_NUMBER));
-
-      // Get Items Number In Cart
-      const CART_ITEMS_NUMBER = localStorage.getItem('cartItemsNumber');
-      const PARSED_CART_ITEMS_NUMBER = JSON.parse(CART_ITEMS_NUMBER);
-      setCartItemsNumber(PARSED_CART_ITEMS_NUMBER);
-    } else {
-      localStorage.setItem('cartItemsNumber', JSON.stringify(0));
-      setCartItemsNumber(0);
-    };
-  }, [cartItems, setCartItemsNumber]);
-
-  /* ************** RENDERING ************* */
+/* -------------------------------- RENDERING ------------------------------- */
   return (
-    <CartContext.Provider value={{ openCart, closeCart, cartItemsNumber, cartItems, setCartItems, product, addToCart }}>
+    <CartContext.Provider value={value}>
       {children}
     </CartContext.Provider>
   );
-}
+};
 
-// CONTEXT HOOK
-export const useCartValue = () => useContext(CartContext);
+export default CartProvider;

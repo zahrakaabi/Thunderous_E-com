@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 
 // Styles
-import './index.css';
+import './index.scss';
 
 /* ------------------------------------------ */
 /*                  EMPTY CART                */
@@ -19,9 +19,14 @@ function EmptyCart() {
 
   /* ************ RENDERING ***************** */
   return (
-    <div className="empty-cart flex flex-column items-center justify-center">
-        <h1>{t('empty_cart.message')}</h1>
-        <button onClick={() => navigate('/Shop')}>{t('empty_cart.Go_TO_SHOP')}</button>
+    <div className="empty-cart flex flex-column items-center justify-center w-full">
+        <h2 className="empty-cart__title">{t('empty_cart.message')}</h2>
+        <button className="empty-cart__button cursor-pointer"
+        title={t('empty_cart.Go_TO_SHOP')}
+        aria-label={t('empty_cart.Go_TO_SHOP')}
+        onClick={() => navigate('/shop')}>
+          {t('empty_cart.Go_TO_SHOP')}
+        </button>
     </div>
   )
 }

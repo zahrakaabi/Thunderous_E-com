@@ -45,7 +45,7 @@ function ProductsPage() {
 
 /* -------------------------------- RENDERING ------------------------------- */
   return (
-    <div className="products-page container">
+    <div className="products-page container cursor-auto">
       <ProductsFilters selectedFilter={selectedFilter} setSelectedFilter={setSelectedFilter} />
       <motion.div className="products" layout>
         <AnimatePresence>

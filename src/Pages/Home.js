@@ -5,6 +5,7 @@
 import AnimatedCursor from "react-animated-cursor";
 
 // UI Local Components
+import { ScrollProgressBar } from '../components';
 import { HeroSection, AboutSection, NewInSection } from '../features';
 
 // SEO
@@ -48,9 +49,7 @@ function Home() {
                 <HeroSection />
                 <AboutSection />
                 <NewInSection />
-                {/* <About />
-                <NewIn /> */}
-                {/* <ScrollProgressBar /> */}
+                <ScrollProgressBar />
             </div>
         </>
     )

@@ -7,9 +7,9 @@ import Tilt from "react-parallax-tilt";
 import { useTranslation } from "react-i18next";
 
 // Utils
-import { useProduct } from '../../../../hooks';
+import { useCartModal, useProduct } from '../../../../hooks';
 import { useCart } from '../../../cart/hooks';
-import { FormatCurrency } from '../../../../shared/helpers';
+import { FormatCurrency } from '../../../../helpers';
 
 // Styles
 import './index.scss';
@@ -19,7 +19,8 @@ import './index.scss';
 /* ------------------------------------ */ 
 function ProductDetailsPage() {
   const { id: productId } = useParams();
-  const { addProduct } = useCart();
+  const { addProduct: addToCart} = useCart();
+  const { addProduct } = useCartModal();
   const { data: productDetails, isLoading, isError } = useProduct(Number(productId));
   
   const { t } = useTranslation('common');
@@ -34,6 +35,10 @@ function ProductDetailsPage() {
   };
 
   const { name, image, price } = productDetails;
+  const handleAddToCart = (productDetails) => {
+    addToCart(productDetails);
+    addProduct(productDetails);
+  };
 
   /* ********** RENDERING ************* */
   return (
@@ -51,7 +56,7 @@ function ProductDetailsPage() {
         type="button"
         title="add-to-cart"
         aria-label="add-to-cart"
-        onClick={() => addProduct(productDetails)}>
+        onClick={() => handleAddToCart(productDetails)}>
           {t('product_detail.button')}
         </button>
       </div>

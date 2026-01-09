@@ -7,7 +7,7 @@ import { useCallback, useState } from "react";
 /* -------------------------------------------------------------------------- */
 /*                           useBoolean CUSTOM HOOK                           */
 /* -------------------------------------------------------------------------- */
-function useBoolean(defaultValue) {
+export function useBoolean(defaultValue) {
 /* ---------------------------------- HOOKS --------------------------------- */
   const [value, setValue] = useState(!!defaultValue);
 
@@ -32,5 +32,3 @@ function useBoolean(defaultValue) {
     setValue,
   };
 };
-
-export default useBoolean;

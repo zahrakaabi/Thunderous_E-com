@@ -7,7 +7,8 @@ import { motion } from "framer-motion";
 
 // Utils
 import { useCart } from '../../../cart/hooks';
-import { FormatCurrency } from '../../../../shared/helpers';
+import { useCartModal } from '../../../../hooks';
+import { FormatCurrency } from '../../../../helpers';
 
 // Styles
 import './index.scss';
@@ -16,8 +17,14 @@ import './index.scss';
 /*            PRODUCT CARD              */
 /* ------------------------------------ */ 
 function ProductCard({ product }) {
-  const { addProduct } = useCart();
-  const { id, price, name, image } = product; 
+  const { addProduct: addToCart } = useCart();
+  const { addProduct } = useCartModal();
+  const { id, price, name, image } = product;
+
+  const handleAddToCart = (product) => {
+    addProduct(product);
+    addToCart(product);
+  }; 
 
   /* ********** RENDERING ************* */
   return (
@@ -38,7 +45,8 @@ function ProductCard({ product }) {
       <button className="product-card__CTA-button flex justify-center items-center w-full cursor-pointer" 
       type="button"
       title="Add produt to your cart"
-      onClick={() => addProduct(product)}>+</button>
+      aria-label="Add to your cart"
+      onClick={() => handleAddToCart(product)}>+</button>
     </motion.div>
   );
 }

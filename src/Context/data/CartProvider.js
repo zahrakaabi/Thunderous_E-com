@@ -92,9 +92,8 @@ function CartProvider({ children }) {
   const value = {
     cart: cartItems,
     cartCount: cartItems.reduce((total, item) => total + item.inCart, 0),
-    totalProducts: cartItems.reduce((sum, item) => sum + item.inCart, 0),
     totalPrice: cartItems.reduce((sum, item) => sum + item.price * item.inCart, 0),
-
+    
     addProduct: (product) => dispatch({ type: CART_ACTIONS.ADD, payload: product }),
     incrementQuantity: (id) => dispatch({ type: CART_ACTIONS.INCREMENT, payload: id }),
     decrementQuantity: (id) => dispatch({ type: CART_ACTIONS.DECREMENT, payload: id }),

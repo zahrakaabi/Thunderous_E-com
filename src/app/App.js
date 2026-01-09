@@ -11,7 +11,7 @@ import Layout from '../layout/Layout';
 import { Loader } from '../components';
 
 // Context
-import { CartProvider } from '../context';
+import { CartProvider, CartModalProvider } from '../context';
 // import { useAuthValue } from '../Context/AuthContextProvider';
 
 // Styles
@@ -53,20 +53,22 @@ function App() {
     <div className="App">
       <HelmetProvider>{/* CCR | SSR */}
         <CartProvider>
-          <Router>
-            <Suspense fallback={<Loader />}>
-              <Routes>
-                  <Route element={<Layout />}>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/shop" element={<Products />} />
-                    <Route path="/shop/:id" element={<ProductDetails />} />
-                    <Route path="/cart" element={<Cart />} />
-                    {/*<Route path="/profile" element={currentUser?.emailVerified ? (<Profile />) : (<Navigate to='/' />)} /> */}
-                  </Route>
-                  <Route path="*" element={<div><h2>404 Page not found etc</h2></div>} />
-              </Routes>
-            </Suspense>
-          </Router>
+          <CartModalProvider>
+            <Router>
+              <Suspense fallback={<Loader />}>
+                <Routes>
+                    <Route element={<Layout />}>
+                      <Route path="/" element={<Home />} />
+                      <Route path="/shop" element={<Products />} />
+                      <Route path="/shop/:id" element={<ProductDetails />} />
+                      <Route path="/cart" element={<Cart />} />
+                      {/*<Route path="/profile" element={currentUser?.emailVerified ? (<Profile />) : (<Navigate to='/' />)} /> */}
+                    </Route>
+                    <Route path="*" element={<div><h2>404 Page not found etc</h2></div>} />
+                </Routes>
+              </Suspense>
+            </Router>
+          </CartModalProvider>
         </CartProvider>
       </HelmetProvider>
     </div>

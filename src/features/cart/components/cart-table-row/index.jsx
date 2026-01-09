@@ -3,7 +3,7 @@
 /* -------------------------------------------------------------------------- */
 // Utils
 import { useCart } from '../../hooks';
-import { FormatCurrency } from '../../../../shared/helpers';
+import { FormatCurrency } from '../../../../helpers';
 
 // Styles
 import './index.scss';

@@ -7,7 +7,7 @@ import { useTranslation } from "react-i18next";
 
 // Helpers
 import { useProducts } from '../../../../hooks';
-import { FormatCurrency } from '../../../../shared/helpers';
+import { FormatCurrency } from '../../../../helpers';
 
 // Styles
 import './index.scss';

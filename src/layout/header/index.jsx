@@ -9,14 +9,13 @@ import { onAuthStateChanged } from 'firebase/auth';
 
 import { auth } from '../../firebase';
 
-// Context
-
-// Custom Hook
 
 // UI Local Components
+import CartModal from '../../features/cart/components/cart-modal';
 
-// Images
-// import SHOPPING_BAG from '../../Assets/Images/Icons/shopping-bag.png';
+// Utils
+// import { useBoolean } from '../../hooks';
+import { useCart } from '../../features/cart/hooks';
 
 // Styles
 import './index.scss';
@@ -24,15 +23,14 @@ import './index.scss';
 /* ------------------------------------ */
 /*                 HEADER               */
 /* ------------------------------------ */
-function Header() {    
-  // translation
+function Header() {   
+  const { pathname } = useLocation();
+  const { cartCount } = useCart();
+
   const { t, i18n } = useTranslation('common');
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
-  }
-
-  // LOCATION
-  const { pathname } = useLocation();
+  };
 
   /* ********** RENDERING *********** */
   return (
@@ -56,13 +54,8 @@ function Header() {
           <div className="menu__links">
             <ul className="flex gap-2 items-center">
               <li><Link to="/">{t('navbar.link_1')}</Link></li>
-              <li><Link to="/about">{t('navbar.link_2')}</Link></li>
-              <li><Link to="/Shop">{t('navbar.link_3')}</Link></li>
-              <li><Link to="/contact">{t('navbar.link_4')}</Link></li>
+              <li><Link to="/shop">{t('navbar.link_3')}</Link></li>
 
-
-
-              <li><Link to="/cart">cart</Link></li>
               {/* <li>
                 <div onClick={toggle}>
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -77,6 +70,7 @@ function Header() {
                   </Modal>
                 ) : <></>}
               </li> */}
+
               {pathname === '/shop' && <>
                 <li>
                   <div>
@@ -88,19 +82,30 @@ function Header() {
                 </li>
                 {/* {openSearch ? <Search setOpenSearch={setOpenSearch} /> : <></>} */}
               </>}  
-              {/* <li>
+
+              <li>
                 <Link to="cart" className="pos-r">
-                  <img className="shopping_bag" src={SHOPPING_BAG} alt="shopping_bag" />
-                  {cartItemsNumber !== 0 ? <span className="cart_items_num flex justify-center items-center">{cartItemsNumber}</span> : <></>}
+                  <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24" >
+                    <path d="M3 20c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V7c0-.16-.05-.31-.11-.44s-1.72-3.45-1.72-3.45A2 2 0 0 0 17.38 2H6.62c-.76 0-1.45.42-1.79 1.11L3.11 6.56c-.07.14-.11.29-.11.45v13Zm2 0V8h14v12zM17.38 4l1 2H5.62l1-2z"></path>
+                    <path d="M12 13c-1.65 0-3-1.35-3-3H7c0 2.76 2.24 5 5 5s5-2.24 5-5h-2c0 1.65-1.35 3-3 3"></path>
+                  </svg>
+                  {cartCount !== 0 && <span className="cart__count flex justify-center items-center">
+                    {cartCount}
+                  </span>}
                 </Link> 
-                {openCart ? <ModalCart /> : <></>}            
-              </li> */}
+                <CartModal />          
+              </li>
+
               <li className="flex items-center">
-                <button className="language cursor-auto flex items-center justify-center" 
+                <button className="language cursor-pointer flex items-center justify-center"
+                title="Traduire en franais"
+                aria-label="Traduire en franais" 
                 onClick={() => changeLanguage('fr')}>
                   fr
                 </button>
-                <button className="language cursor-auto flex items-center justify-center" 
+                <button className="language cursor-pointer flex items-center justify-center"
+                title="Translate to english"
+                aria-label="Translate to english"
                 onClick={() => changeLanguage('en')}>
                   en
                 </button>

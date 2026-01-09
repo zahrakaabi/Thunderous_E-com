@@ -34,13 +34,36 @@
 
         &__links {
             a {
-                cursor: pointer;
                 font: normal 400 1.6rem sans-serif;
             }
 
+            .cart {
+                svg {
+                    width: 2.4rem;
+                    height: 2.4rem;
+                    color: vars.$primary-clr;
+                }
+
+                &__count {
+                    width: 1.8rem;
+                    aspect-ratio: 1 / 1;
+
+                    position: absolute;
+                    right: 0;
+                    bottom: 0;
+                    transform: translate(20%, 20%);
+
+                    color: #fff;
+                    font: normal 400 .8rem sans-serif;
+
+                    border-radius: 50%;
+                    background-color: vars.$primary-clr;
+                }
+            }
+
             .language {
-                width: 25px;
-                height: 25px;
+                width: 2.5rem;
+                height: 2.5rem;
                 border-radius: none;
             }
         }
@@ -69,23 +92,6 @@
     transform: translate(-50%, -50%);
 }
 
-.shopping_bag {
-    width: 24px;
-    height: 24px;
-}
-
-.cart_items_num {
-    width: 18px;
-    height: 18px;
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    border-radius: 50%;
-    font-size: 0.55rem;
-    color: #fff;
-    transform: translate(10%, 10%);
-    background-color: #222;
-}
 
 @media screen and (min-width: 992px) {
     .header {

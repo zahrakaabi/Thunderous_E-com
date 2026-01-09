@@ -1,38 +1,17 @@
-- @TO DO : create product details page (project by id) @done
-- @TO DO : add titl option to product detail page @done
-- @TO DO : add I18N option @done
-- @TO DO : add languages to navabr @done
-- @TO DO : add content to locales @done
-- @TO DO : update pages + organize code @done
-- @TO DO : authentification @done
-- @TO DO : authentication - add verify email option @done
-- @TO DO : style UI register + login + verifyEmail @done
-- @TO DO : password validation @done
-- @TO DO : profile page + sign out @done
+- @TO DO : authentification
+- @TO DO : authentication - add verify email option
+- @TO DO : style UI register + login + verifyEmail 
+- @TO DO : password validation
+- @TO DO : profile page + sign out 
 - @TO DO : authentification using fb + gmail option
-- @TO DO : add i18n to URL
+
 - @TO DO : implement footer + useMemo
-- @TO DO : increment cart number onclick @done
-- @TO DO : add to cart @done
-- @TO DO : display added items @done
-- @TO DO : Cart is empty @done
-- @TO DO : Cart Number @done
-- @TO DO : view cart (number) @done
-- @TO DO : Implement Local Storage @done
-- @TO DO : delete item from cart @done
-- @TO DO : Quantity (+/-) @done
-- @TO DO : calc qty*item price @done
-- @TO DO : calc subtotal @done
-- @TO DO : Pagination @done
-- @TO DO : add shopping bag to navbar @done
-- @TO DO : add search icon to the navbar for shop page only @done
-- @TO DO : add search option in the shop page @done
-- @TO DO : add 20 other products @done
-- @TO DO : add customer review 
-- @TO DO : create loading component @done
-- @TO DO : add PWA add to screen option @done
-- @TO DO : implement SEO @done
-- @TO DO : create page shop that contains all products @done
 - @TO DO : Error page UI Component
-- @TO DO : Footer UI component
-- @TO DO : fix reloading pageHeader 
+
+- @TO DO : Implement Local Storage
+
+- @TO DO : add search icon to the navbar for shop page only
+- @TO DO : add search option in the shop page @done
+
+- @TO DO : add customer review 
+- @TO DO : create loading component

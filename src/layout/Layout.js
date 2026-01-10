@@ -6,15 +6,22 @@ import { Outlet } from "react-router-dom";
 
 // UI_Local Components
 import Header from "./header";
+import MobileHeader from "./mobile-header";
+
+// Utils
+import { useBoolean } from "../hooks";
 
 /* ------------------------------------ */
 /*                 Layout               */
 /* ------------------------------------ */
 function Layout() {
+  const mobileHeader = useBoolean();
+
   /* ********** RENDERING ************* */
   return (
     <>
-      <Header />
+      <Header mobileHeader={mobileHeader} />
+      {mobileHeader.value && <MobileHeader mobileHeader={mobileHeader} />}
       <Outlet />
     </>
   );

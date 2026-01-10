@@ -1,0 +1,61 @@
+.mobile-header {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    z-index: 1;
+    transition: .7s ease;
+
+    @media (min-width: 581px) {
+        display: none;
+    }
+
+    &.isOpen {
+        right: 0;
+    }
+
+    .menu {
+        max-width: 35rem;
+        background-color: rgb(249 249 249);
+
+        &__close {
+            position: fixed;
+            top: 1.5rem;
+            right: 1.5rem;
+            z-index: 2;
+            font-size: 2rem;
+            border: none;
+            background-color: transparent;
+        }
+
+        &__links {
+            .mobile-link {
+                &:not(:last-of-type) {
+                    margin-bottom: 1.5em;
+                }
+
+                a {
+                    font: normal 400 2rem sans-serif;
+                }
+            }
+        }
+    }
+}
+
+
+.responsive-menu-container[data-state="opened"] {
+    animation: animate-menu-opened 0.7s ease-in-out forwards;
+}
+
+.responsive-menu-container[data-state="closing"] {
+    animation: animate-menu-closed 0.7s ease-in-out forwards;
+}
+
+@keyframes animate-menu-opened {
+    0% { right: -100%; }
+    100% { right: 0; }
+}
+
+@keyframes animate-menu-closed {
+    0% { right: 0; }
+    100% { right: -100%; }
+}

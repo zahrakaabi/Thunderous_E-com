@@ -1,0 +1,39 @@
+@use '../../../styles/variables.scss' as vars;
+
+.search {
+    $--height: 4rem; 
+
+    position: absolute;
+    left: 0;
+    top: 6rem;
+    padding: 0 10%;
+    color: vars.$primary-clr;
+
+    @media screen and (max-width: 992px) {
+        padding: 0 1.5rem;
+    }
+
+    &__input {
+        height: $--height;
+        padding-left: .7rem;
+        font-family: sans-serif;
+
+        border: none;
+        border-bottom: 1px solid vars.$primary-clr;
+    }
+
+    &__close {
+        height: $--height;
+        border: none;
+        background: transparent;
+        padding-right: .7rem;
+
+        position: absolute;
+        right: 10%;
+        top: 0;
+
+        @media screen and (max-width: 992px) {
+            right: 1.5rem;
+        }
+    }
+}

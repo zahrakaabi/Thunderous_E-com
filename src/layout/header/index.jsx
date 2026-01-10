@@ -11,10 +11,11 @@ import { auth } from '../../firebase';
 
 
 // UI Local Components
+import Search from './search';
 import CartModal from '../../features/cart/components/cart-modal';
 
 // Utils
-// import { useBoolean } from '../../hooks';
+import { useBoolean } from '../../hooks';
 import { useCart } from '../../features/cart/hooks';
 
 // Styles
@@ -23,9 +24,11 @@ import './index.scss';
 /* ------------------------------------ */
 /*                 HEADER               */
 /* ------------------------------------ */
-function Header() {   
+function Header({ mobileHeader }) {   
   const { pathname } = useLocation();
   const { cartCount } = useCart();
+
+  const search = useBoolean();
 
   const { t, i18n } = useTranslation('common');
   const changeLanguage = (lng) => {
@@ -38,19 +41,7 @@ function Header() {
       <div className="container header flex justify-between items-center">
         <Link className="logo cursor-auto" to="/">{t('navbar.logo')}</Link>
 
-        <nav className="menu">
-          <button className="menu__burger-menu flex flex-column" 
-          aria-controls="primary-navigation"
-          aria-label="Menu">
-            {/* Screen Reader Only*/}
-            <span className="visually-hidden"></span>
-            <div></div>
-            <div></div>
-            <div></div>
-          </button>
-
-          {/* <ResponsiveHeader /> */}
-
+        <nav className="menu flex items-center gap-2">
           <div className="menu__links">
             <ul className="flex gap-2 items-center">
               <li><Link to="/">{t('navbar.link_1')}</Link></li>
@@ -71,20 +62,22 @@ function Header() {
                 ) : <></>}
               </li> */}
 
-              {pathname === '/shop' && <>
-                <li>
-                  <div>
-                  {/* <div onClick={() => setOpenSearch((prev) => !prev)}> */}
+              {pathname === '/shop' && <li>
+                  <button className="cursor-pointer"
+                  type="button" 
+                  title="search"
+                  aria-label="search"
+                  onClick={search.onToggle}>
                     <svg  width="24" height="24" viewBox="0 0 24 24">
                       <path d="M10 18a7.952 7.952 0 0 0 4.897-1.688l4.396 4.396 1.414-1.414-4.396-4.396A7.952 7.952 0 0 0 18 10c0-4.411-3.589-8-8-8s-8 3.589-8 8 3.589 8 8 8zm0-14c3.309 0 6 2.691 6 6s-2.691 6-6 6-6-2.691-6-6 2.691-6 6-6z"></path>
                     </svg>
-                  </div>
+                  </button>
+                  {search.value && <Search close={search.onFalse} />}
                 </li>
-                {/* {openSearch ? <Search setOpenSearch={setOpenSearch} /> : <></>} */}
-              </>}  
+              }  
 
               <li>
-                <Link to="cart" className="pos-r">
+                <Link to="cart" className="cart pos-r">
                   <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24" >
                     <path d="M3 20c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V7c0-.16-.05-.31-.11-.44s-1.72-3.45-1.72-3.45A2 2 0 0 0 17.38 2H6.62c-.76 0-1.45.42-1.79 1.11L3.11 6.56c-.07.14-.11.29-.11.45v13Zm2 0V8h14v12zM17.38 4l1 2H5.62l1-2z"></path>
                     <path d="M12 13c-1.65 0-3-1.35-3-3H7c0 2.76 2.24 5 5 5s5-2.24 5-5h-2c0 1.65-1.35 3-3 3"></path>
@@ -112,6 +105,17 @@ function Header() {
               </li>
             </ul>
           </div>
+
+          <button className="menu__burger-menu flex flex-column" 
+          aria-controls="primary-navigation"
+          aria-label="Menu"
+          onClick={mobileHeader.onTrue}>
+            {/* Screen Reader Only*/}
+            <span className="visually-hidden"></span>
+            <div></div>
+            <div></div>
+            <div></div>
+          </button>
         </nav>
       </div>
     </>

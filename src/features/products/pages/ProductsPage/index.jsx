@@ -4,6 +4,7 @@
 // Packages
 import { useEffect, useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useSearchParams } from "react-router-dom";
 
 // UI Local Components
 import ProductCard from "../../components/product-card";
@@ -21,22 +22,29 @@ import './index.scss';
 /* -------------------------------------------------------------------------- */
 function ProductsPage() {
 /* ---------------------------------- HOOKS --------------------------------- */
+  const [params] = useSearchParams();
+  const search = params.get("q")?.toLowerCase() ?? "";
+
   const [selectedFilter, setSelectedFilter] = useState('all');
   const [page, setPage] = useState(1);
+
+  const PRODUCTS_PER_PAGE = 12;
+  const { data: products = [] } = useProducts();
   
   // Reset page when filter changes
   useEffect(() => {
     setPage(1);
-  }, [selectedFilter]);
-
-/* --------------------------------- CONSTS --------------------------------- */
-  const PRODUCTS_PER_PAGE = 12;
-  const { data: products } = useProducts();
+  }, [search, selectedFilter]);
 
   const filteredProducts = useMemo(() => {
-    if (selectedFilter === 'all') return products;
-    return products.filter((product)=> product.type.toLowerCase().includes(selectedFilter));
-  }, [products, selectedFilter]);
+    if (selectedFilter !== 'all') return products.filter((product)=> 
+      product.type.toLowerCase().includes(selectedFilter));
+
+    if (search) return products.filter((product) =>
+      product.name.toLowerCase().includes(search));
+
+    return products;
+  }, [products, search, selectedFilter]);
 
   const paginatedProducts = useMemo(() => {
     const start = (page - 1) * PRODUCTS_PER_PAGE;

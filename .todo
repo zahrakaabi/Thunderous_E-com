@@ -1,15 +1,6 @@
-- @TO DO : authentification
-- @TO DO : authentication - add verify email option
-- @TO DO : style UI register + login + verifyEmail 
-- @TO DO : password validation
-- @TO DO : profile page + sign out 
-- @TO DO : authentification using fb + gmail option
-
 - @TO DO : Implement Local Storage
-- @TO DO : implement footer + useMemo
+- @TO DO : Implement skeletons + loading
+- @TO DO : Implement footer
+- @TO DO : Add customer review 
 - @TO DO : Error page UI Component
-- @TO DO : add customer review 
-
-- @TO DO : add search icon to the navbar for shop page only
-- @TO DO : add search option in the shop page
-- @TO DO : create loading component
+- @TO DO : Create loading component

@@ -7,7 +7,7 @@ import { initReactI18next } from "react-i18next";
 import detector from "i18next-browser-languagedetector";
 
 // Translation
-import { common_en, common_fr } from "./locales";
+import { common_en, common_fr } from "../locales";
 
 /* ------------------------------------ */
 /*             TRANSLATION              */

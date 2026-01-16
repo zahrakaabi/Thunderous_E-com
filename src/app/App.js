@@ -28,10 +28,6 @@ const Home = lazy(() => import('../pages').then((module) => {
 const ProductDetails = lazy(() => import('../pages').then((module) => {
   return { default: module.ProductDetails };
 }));
-// /* ---------- PROFILE PAGE ------------ */
-// const Profile = lazy(() => import('../Pages').then((module) => {
-//   return { default: module.Profile };
-// }));
 // /* -------- ALL PRODUCTS PAGE --------- */
 const Products = lazy(() => import('../pages').then((module) => {
   return { default: module.Products };
@@ -45,9 +41,6 @@ const Cart = lazy(() => import('../pages').then((module) => {
 /*                    APP               */
 /* ------------------------------------ */ 
 function App() {
-  //CONTEXT
-  // const { currentUser } = useAuthValue();
-
   /* ********** RENDERING ************* */
   return (
     <div className="App">
@@ -62,7 +55,6 @@ function App() {
                       <Route path="/shop" element={<Products />} />
                       <Route path="/shop/:id" element={<ProductDetails />} />
                       <Route path="/cart" element={<Cart />} />
-                      {/*<Route path="/profile" element={currentUser?.emailVerified ? (<Profile />) : (<Navigate to='/' />)} /> */}
                     </Route>
                     <Route path="*" element={<div><h2>404 Page not found etc</h2></div>} />
                 </Routes>

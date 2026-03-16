@@ -3,7 +3,7 @@
 /* ------------------------------------ */
 // Packages
 import { lazy, Suspense } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 
 // UI_Local Components
@@ -12,7 +12,6 @@ import { Loader } from '../components';
 
 // Context
 import { CartProvider, CartModalProvider } from '../context';
-// import { useAuthValue } from '../Context/AuthContextProvider';
 
 // Styles
 import '../styles/global.scss';

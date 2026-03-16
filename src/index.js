@@ -7,6 +7,7 @@ import ReactDOM from 'react-dom/client';
 import { QueryClientProvider } from '@tanstack/react-query';
 
 // Utils
+import './scripts/seedFirestore.js';
 import './lib/i18n';
 import { queryClient } from './lib';
 import * as serviceWorker from "./service-worker/registration";

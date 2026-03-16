@@ -21,7 +21,7 @@ function ProductDetailsPage() {
   const { id: productId } = useParams();
   const { addProduct: addToCart} = useCart();
   const { addProduct } = useCartModal();
-  const { data: productDetails, isLoading, isError } = useProduct(Number(productId));
+  const { data: productDetails, isLoading, isError } = useProduct(productId);
   
   const { t } = useTranslation('common');
   const API_URL = process.env.REACT_APP_HOST_API;

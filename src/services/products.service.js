@@ -19,7 +19,7 @@ export const productsService = {
   },
 
   getById: async (id) => {
-    const docRef = doc(db, "products", id);
+    const docRef = doc(db, "products", String(id));
     const docSnap = await getDoc(docRef);
     if (!docSnap.exists()) throw new Error("Product not found");
     return { id: docSnap.id, ...docSnap.data() };

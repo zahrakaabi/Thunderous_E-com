@@ -43,7 +43,7 @@ function App() {
   /* ********** RENDERING ************* */
   return (
     <div className="App">
-      <HelmetProvider>{/* CCR | SSR */}
+      <HelmetProvider> {/* CCR | SSR */}
         <CartProvider>
           <CartModalProvider>
             <Router>

@@ -3,7 +3,7 @@
 /* -------------------------------------------------------------------------- */
 // Packages
 import { db } from "../lib/firebase";
-import { collection, addDoc, getDocs } from "firebase/firestore";
+import { collection, getDocs, setDoc, doc } from "firebase/firestore";
 import data from "../data/db.json";
 
 /* -------------------------------------------------------------------------- */
@@ -16,7 +16,7 @@ const seedData = async () => {
   };
 
   for (const product of data.Products) {
-    await addDoc(collection(db, "products"), product);
+    await setDoc(doc(db, "products", String(product.id)), product);
   };
 };
 

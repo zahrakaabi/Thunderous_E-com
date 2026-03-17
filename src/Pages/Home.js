@@ -25,7 +25,7 @@ function Home() {
             />
             
             <div>
-                <AnimatedCursor
+                {/* <AnimatedCursor
                     innerSize={6}
                     outerSize={25}
                     color="0, 0, 0"
@@ -45,7 +45,7 @@ function Home() {
                         "button",
                         ".link",
                     ]}
-                />
+                /> */}
                 <HeroSection />
                 <AboutSection />
                 <NewInSection />

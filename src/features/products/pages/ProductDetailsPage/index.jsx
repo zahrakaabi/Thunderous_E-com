@@ -2,8 +2,8 @@
 /*                DEPENDENCIES          */
 /* ------------------------------------ */
 // Packages
+import { useRef } from 'react';
 import { useParams } from 'react-router-dom';
-import Tilt from "react-parallax-tilt";
 import { useTranslation } from "react-i18next";
 
 // Utils
@@ -18,14 +18,17 @@ import './index.scss';
 /*            PRODUCT DETAILS           */
 /* ------------------------------------ */ 
 function ProductDetailsPage() {
+  /* ********** HOOKS ************* */
+  const refImg = useRef(null);
+
   const { id: productId } = useParams();
   const { addProduct: addToCart} = useCart();
   const { addProduct } = useCartModal();
   const { data: productDetails, isLoading, isError } = useProduct(productId);
-  
+  //
   const { t } = useTranslation('common');
-  const API_URL = process.env.REACT_APP_HOST_API;
 
+  // Handle data
   if (isLoading) {
     return <p>Loading</p>;
   };
@@ -33,20 +36,36 @@ function ProductDetailsPage() {
   if (isError || !productDetails) {
     return <p>Error</p>;
   };
-
+  
+  const API_URL = process.env.REACT_APP_HOST_API;
   const { name, image, price } = productDetails;
+
   const handleAddToCart = (productDetails) => {
     addToCart(productDetails);
     addProduct(productDetails);
+  };
+
+  const handleMouseMove = (e) => {
+    const { left, top, width, height } = refImg.current.getBoundingClientRect();
+    const x = (e.clientX - left) / width - 0.5;
+    const y = (e.clientY - top) / height - 0.5;
+    refImg.current.style.transform = `rotateY(${x * 20}deg) rotateX(${-y * 20}deg)`;
+  };
+
+  const handleMouseLeave = () => {
+    refImg.current.style.transform = `rotateY(0deg) rotateX(0deg)`;
   };
 
   /* ********** RENDERING ************* */
   return (
     <div className="product-detail container cursor-auto">
       <div className="product-detail__image">
-        <Tilt tiltMaxAngleX={15} tiltMaxAngleY={15}>
+        <div ref={refImg}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        style={{ transition: "transform 0.1s ease", transformStyle: "preserve-3d" }}>
           <img className="cover" src={`${API_URL}/${image}`} alt={name} loading="lazy" />
-        </Tilt>
+        </div>
       </div>
       <div className="product-detail__content flex justify-center items-center flex-column gap-2 text-center">
         <h1 className="product-detail__title">{name}</h1>

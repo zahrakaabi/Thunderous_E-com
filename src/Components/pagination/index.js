@@ -44,6 +44,6 @@ function Pagination({ currentPage, totalItems, itemsPerPage, onPageChange }) {
       </button>
     </div>
   );
-}
+};
 
 export default Pagination;

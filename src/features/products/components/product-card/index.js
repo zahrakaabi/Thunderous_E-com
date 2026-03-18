@@ -3,7 +3,6 @@
 /* ------------------------------------ */
 // Packages
 import { Link } from 'react-router-dom';
-import { motion } from "framer-motion";
 
 // Utils
 import { useCart } from '../../../cart/hooks';
@@ -12,11 +11,14 @@ import { FormatCurrency } from '../../../../helpers';
 
 // Styles
 import './index.scss';
+import { useState } from 'react';
 
 /* ------------------------------------ */
 /*            PRODUCT CARD              */
 /* ------------------------------------ */ 
 function ProductCard({ product }) {
+  const [imageLoaded, setImageLoaded] = useState(false);
+
   const { addProduct: addToCart } = useCart();
   const { addProduct } = useCartModal();
   const { id, price, name, image } = product;
@@ -28,18 +30,23 @@ function ProductCard({ product }) {
 
   /* ********** RENDERING ************* */
   return (
-    <motion.div className="product-card"
-    animate={{ opacity: 1 }}
-    initial={{ opacity: 0 }}
-    exit={{ opacity: 0 }}
-    layout>
+    <div className="product-card">
       <Link to={`/Shop/${id}`} className="pos-r">
         <div className="product-card__content flex justify-between">
           <h5>{name}</h5>
           <h5>{FormatCurrency(price)}</h5>
         </div>
         <div className="product-card__img">
-          <img className="cover" src={image} alt={name} />
+          <img className="cover" 
+            src={image} 
+            alt={name}
+            onLoad={() => setImageLoaded(true)}
+            style={{
+              filter: imageLoaded ? "blur(0px)" : "blur(10px)",
+              transition: "filter 0.4s ease",
+              transform: "translateZ(0)" // forces GPU layer
+            }} 
+          />
         </div>
       </Link>
       <button className="product-card__CTA-button flex justify-center items-center w-full cursor-pointer" 
@@ -47,7 +54,7 @@ function ProductCard({ product }) {
       title="Add produt to your cart"
       aria-label="Add to your cart"
       onClick={() => handleAddToCart(product)}>+</button>
-    </motion.div>
+    </div>
   );
 }
 

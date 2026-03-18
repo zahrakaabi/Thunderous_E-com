@@ -12,7 +12,7 @@ import ProductsFilters from "../../components/product-filters";
 import { Pagination } from "../../../../components";
 
 // Utils
-import { useProducts } from '../../../../hooks';
+import { useDebounce, useProducts } from '../../../../hooks';
 
 // Styles
 import './index.scss';
@@ -20,31 +20,37 @@ import './index.scss';
 /* -------------------------------------------------------------------------- */
 /*                           PRODUCTS PAGE COMPONENT                          */
 /* -------------------------------------------------------------------------- */
+const PRODUCTS_PER_PAGE = 12;
+
 function ProductsPage() {
 /* ---------------------------------- HOOKS --------------------------------- */
+  const [page, setPage] = useState(1);
+  const [selectedFilter, setSelectedFilter] = useState('all');
+  
+  const { data: products = [], isLoading } = useProducts();
   const [params] = useSearchParams();
   const search = params.get("q")?.toLowerCase() ?? "";
-
-  const [selectedFilter, setSelectedFilter] = useState('all');
-  const [page, setPage] = useState(1);
-
-  const PRODUCTS_PER_PAGE = 12;
-  const { data: products = [] } = useProducts();
+  const debouncedSearch = useDebounce(search, 300);
   
-  // Reset page when filter changes
+  // Reset page when filter or change changes
   useEffect(() => {
     setPage(1);
-  }, [search, selectedFilter]);
+  }, [debouncedSearch, selectedFilter]);
 
+/* ---------------------------------- MEMOS --------------------------------- */
   const filteredProducts = useMemo(() => {
-    if (selectedFilter !== 'all') return products.filter((product)=> 
-      product.type.toLowerCase().includes(selectedFilter));
+    return products.filter((product) => {
+      const matchesFilter =
+        selectedFilter === "all" ||
+        product.type.toLowerCase().includes(selectedFilter);
 
-    if (search) return products.filter((product) =>
-      product.name.toLowerCase().includes(search));
+      const matchesSearch =
+        !debouncedSearch ||
+        product.name.toLowerCase().includes(debouncedSearch);
 
-    return products;
-  }, [products, search, selectedFilter]);
+      return matchesFilter && matchesSearch;
+    });
+  }, [products, debouncedSearch, selectedFilter]);
 
   const paginatedProducts = useMemo(() => {
     const start = (page - 1) * PRODUCTS_PER_PAGE;
@@ -52,14 +58,35 @@ function ProductsPage() {
   }, [filteredProducts, page]); 
 
 /* -------------------------------- RENDERING ------------------------------- */
+  if (isLoading) return <div>Loading...</div>;
+
   return (
     <div className="products-page container cursor-auto">
-      <ProductsFilters selectedFilter={selectedFilter} setSelectedFilter={setSelectedFilter} />
-      <motion.div className="products" layout>
-        <AnimatePresence>
-          {paginatedProducts?.map((product) => <ProductCard product={product} key={product.id} />)}
-        </AnimatePresence>
-      </motion.div>
+      <ProductsFilters 
+        selectedFilter={selectedFilter} 
+        setSelectedFilter={setSelectedFilter} 
+      />
+
+      <AnimatePresence mode="popLayout">
+        <motion.div
+          className="products"
+          layout
+          key={`${selectedFilter}-${page}`}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.15 }}
+        >
+          {paginatedProducts.length > 0 ? (
+            paginatedProducts.map((product) => (
+              <ProductCard product={product} key={product.id} />
+            ))
+          ) : (
+            <p>No products found.</p>
+          )}
+        </motion.div>
+      </AnimatePresence>
+
       <Pagination
         currentPage={page}
         totalItems={filteredProducts?.length}

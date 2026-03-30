@@ -8,7 +8,7 @@ import { HelmetProvider } from 'react-helmet-async';
 
 // UI_Local Components
 import Layout from '../layout/Layout';
-import { Loader } from '../components';
+import { Loader } from '../components/index';
 
 // Context
 import { CartProvider, CartModalProvider, AuthProvider } from '../context';

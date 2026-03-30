@@ -5,7 +5,7 @@
 import { createContext, useEffect, useState } from "react";
 
 // Utils
-import { useBoolean } from '../../hooks';
+import { useBoolean } from '../../Hooks';
 
 /* -------------------------------------------------------------------------- */
 /*                          CREATE CART MODAL CONTEXT                         */

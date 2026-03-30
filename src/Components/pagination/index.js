@@ -2,7 +2,7 @@
 /*                DEPENDENCIES          */
 /* ------------------------------------ */
 // Utils
-import { usePagination } from '../../hooks';
+import { usePagination } from '../../Hooks';
 
 // Styles
 import './index.scss';

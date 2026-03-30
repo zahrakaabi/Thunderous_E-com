@@ -12,7 +12,7 @@ import CartModal from '../../features/cart/components/cart-modal';
 import AuthForm from "../../features/auth/components/auth-form";
 
 // Utils
-import { useAuth, useBoolean } from '../../hooks';
+import { useAuth, useBoolean } from '../../Hooks';
 import { useCart } from '../../features/cart/hooks';
 import { auth } from "../../lib/firebase";
 

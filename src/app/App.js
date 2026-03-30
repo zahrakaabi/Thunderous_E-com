@@ -11,7 +11,7 @@ import Layout from '../layout/Layout';
 import { Loader } from '../components/index';
 
 // Context
-import { CartProvider, CartModalProvider, AuthProvider } from '../context';
+import { CartProvider, CartModalProvider, AuthProvider } from '../context/index';
 
 // Styles
 import '../styles/global.scss';

@@ -21,7 +21,6 @@
         margin-top: 5%;
 
         .box {
-            max-height: 40rem;
             width: calc(100% / 3);
         }
 
@@ -89,6 +88,12 @@
                 border-radius: 45%;
             }
         }
+    }
+}
+
+@media (min-width: 992px) {
+    .box {
+        max-height: 40rem;
     }
 }
 

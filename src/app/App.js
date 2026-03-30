@@ -2,7 +2,7 @@
 /*                DEPENDENCIES          */
 /* ------------------------------------ */
 // Packages
-import { lazy, Suspense } from 'react';
+import { Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 
@@ -13,28 +13,13 @@ import { Loader } from '../components/index';
 // Context
 import { CartProvider, CartModalProvider, AuthProvider } from '../context/index';
 
+// Lazy UI Local Pages
+import { Home, ProductDetails, Products, Cart } from '../routes/lazyRoutes';
+
 // Styles
 import '../styles/global.scss';
 import '../styles/variables.scss';
 import '../styles/typography.scss';
-
-// Lazy UI Local Pages
-/* ------------- HOME PAGE ------------ */
-const Home = lazy(() => import('../pages').then((module) => {
-  return { default: module.Home };
-}));
-// /* -------- PRODUCT DETAILS PAGE ------ */
-const ProductDetails = lazy(() => import('../pages').then((module) => {
-  return { default: module.ProductDetails };
-}));
-// /* -------- ALL PRODUCTS PAGE --------- */
-const Products = lazy(() => import('../pages').then((module) => {
-  return { default: module.Products };
-}));
-// /* ----------- CART PAGE -------------- */
-const Cart = lazy(() => import('../pages').then((module) => {
-  return { default: module.Cart };
-}));
 
 /* ------------------------------------ */
 /*                    APP               */

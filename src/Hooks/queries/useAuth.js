@@ -5,7 +5,7 @@
 import { useContext } from "react";
 
 // Utils
-import { AuthContext } from "../../context";
+import { AuthContext } from "../../Context";
 
 /* -------------------------------------------------------------------------- */
 /*                             useAuth CUSTOM HOOK                            */

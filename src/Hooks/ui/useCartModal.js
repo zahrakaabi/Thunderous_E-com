@@ -5,7 +5,7 @@
 import { useContext } from "react";
 
 // Utils
-import { CartModalContext } from "../../context";
+import { CartModalContext } from "../../Context";
 
 /* -------------------------------------------------------------------------- */
 /*                          useCartModal CUSTOM HOOK                          */

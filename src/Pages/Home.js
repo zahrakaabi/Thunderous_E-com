@@ -2,7 +2,7 @@
 /*                DEPENDENCIES              */
 /* ---------------------------------------- */
 // UI Local Components
-import { ScrollProgressBar } from '../components';
+import { ScrollProgressBar } from '../Components';
 import { HeroSection, AboutSection, NewInSection } from '../features';
 
 // SEO

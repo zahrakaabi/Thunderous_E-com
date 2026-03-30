@@ -8,10 +8,10 @@ import { HelmetProvider } from 'react-helmet-async';
 
 // UI_Local Components
 import Layout from '../layout/Layout';
-import { Loader } from '../components/index';
+import { Loader } from '../Components';
 
 // Context
-import { CartProvider, CartModalProvider, AuthProvider } from '../context/index';
+import { CartProvider, CartModalProvider, AuthProvider } from '../Context';
 
 // Lazy UI Local Pages
 import { Home, ProductDetails, Products, Cart } from '../routes/lazyRoutes';

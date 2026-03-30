@@ -9,7 +9,7 @@ import { useSearchParams } from "react-router-dom";
 // UI Local Components
 import ProductCard from "../../components/product-card";
 import ProductsFilters from "../../components/product-filters";
-import { Loader, Pagination } from "../../../../components";
+import { Loader, Pagination } from "../../../../Components";
 
 // Utils
 import { useDebounce, useProducts } from '../../../../hooks';

@@ -6,3 +6,6 @@ export { default as ProductsPage } from './products/pages/ProductsPage';
 export { default as ProductDetailsPage } from './products/pages/ProductDetailsPage';
 
 export { default as CartPage } from './cart/pages/cartPage';
+
+// Auth
+export { default as AuthForm } from './auth/components/auth-form';

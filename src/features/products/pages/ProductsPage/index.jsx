@@ -9,7 +9,7 @@ import { useSearchParams } from "react-router-dom";
 // UI Local Components
 import ProductCard from "../../components/product-card";
 import ProductsFilters from "../../components/product-filters";
-import { Pagination } from "../../../../components";
+import { Loader, Pagination } from "../../../../components";
 
 // Utils
 import { useDebounce, useProducts } from '../../../../hooks';
@@ -58,7 +58,7 @@ function ProductsPage() {
   }, [filteredProducts, page]); 
 
 /* -------------------------------- RENDERING ------------------------------- */
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <Loader />;
 
   return (
     <div className="products-page container cursor-auto">

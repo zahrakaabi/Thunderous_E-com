@@ -11,7 +11,7 @@ import Layout from '../layout/Layout';
 import { Loader } from '../components';
 
 // Context
-import { CartProvider, CartModalProvider } from '../context';
+import { CartProvider, CartModalProvider, AuthProvider } from '../context';
 
 // Styles
 import '../styles/global.scss';
@@ -44,23 +44,25 @@ function App() {
   return (
     <div className="App">
       <HelmetProvider> {/* CCR | SSR */}
-        <CartProvider>
-          <CartModalProvider>
-            <Router>
-              <Suspense fallback={<Loader />}>
-                <Routes>
-                    <Route element={<Layout />}>
-                      <Route path="/" element={<Home />} />
-                      <Route path="/shop" element={<Products />} />
-                      <Route path="/shop/:id" element={<ProductDetails />} />
-                      <Route path="/cart" element={<Cart />} />
-                    </Route>
-                    <Route path="*" element={<div><h2>404 Page not found etc</h2></div>} />
-                </Routes>
-              </Suspense>
-            </Router>
-          </CartModalProvider>
-        </CartProvider>
+        <AuthProvider>
+          <CartProvider>
+            <CartModalProvider>
+              <Router>
+                <Suspense fallback={<Loader />}>
+                  <Routes>
+                      <Route element={<Layout />}>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/shop" element={<Products />} />
+                        <Route path="/shop/:id" element={<ProductDetails />} />
+                        <Route path="/cart" element={<Cart />} />
+                      </Route>
+                      <Route path="*" element={<div><h2>404 Page not found etc</h2></div>} />
+                  </Routes>
+                </Suspense>
+              </Router>
+            </CartModalProvider>
+          </CartProvider>
+        </AuthProvider>
       </HelmetProvider>
     </div>
   );

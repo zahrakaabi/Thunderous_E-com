@@ -4,7 +4,7 @@
 // Packages
 
 // Styles
-import './index.css';
+import './index.scss';
 
 /* ------------------------------------ */
 /*                 LOADER               */
@@ -12,12 +12,12 @@ import './index.css';
 function Loader() {
   return (
     <div className="loader-wrapper flex flex-column justify-center items-center">
-        <div className="loader-content">
-            <div className="loader-container flex justify-center items-center">
-                <div className="loader"></div>
-            </div>
+      <div className="inner-shadow">
+        <div className="loader flex justify-center items-center">
+          <div className="loader__item"></div>
         </div>
-        <h1>Loading...</h1>
+      </div>
+      <h1>Loading...</h1>
     </div>
   )
 }

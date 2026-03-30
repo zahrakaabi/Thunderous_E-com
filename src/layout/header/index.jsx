@@ -4,14 +4,17 @@
 // Packages
 import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { signOut } from "firebase/auth";
 
 // UI Local Components
 import Search from './search';
 import CartModal from '../../features/cart/components/cart-modal';
+import AuthForm from "../../features/auth/components/auth-form";
 
 // Utils
-import { useBoolean } from '../../hooks';
+import { useAuth, useBoolean } from '../../hooks';
 import { useCart } from '../../features/cart/hooks';
+import { auth } from "../../lib/firebase";
 
 // Styles
 import './index.scss';
@@ -22,12 +25,20 @@ import './index.scss';
 function Header({ mobileHeader }) {   
   const { pathname } = useLocation();
   const { cartCount } = useCart();
+  const { currentUser } = useAuth();
 
+  const isAuthFormOpen = useBoolean();
   const search = useBoolean();
 
   const { t, i18n } = useTranslation('common');
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
+  };
+
+  const handleLogout = async () => {
+    if (window.confirm("Are you sure you want to logout?")) {
+      await signOut(auth);
+    };
   };
 
   /* ********** RENDERING *********** */
@@ -54,7 +65,20 @@ function Header({ mobileHeader }) {
                   </button>
                   {search.value && <Search close={search.onFalse} />}
                 </li>
-              }  
+              } 
+
+              <li>
+                {currentUser ? (
+                  <div onClick={handleLogout} style={{ cursor: "pointer" }}>
+                    <p className="auth-state">Logout</p>
+                  </div>
+                ) : (
+                  <div onClick={isAuthFormOpen.onTrue}>
+                    <p className="auth-state">Login</p>
+                  </div> 
+                )}
+                {isAuthFormOpen.value && <AuthForm close={isAuthFormOpen.onFalse} />}          
+              </li> 
 
               <li>
                 <Link to="cart" className="cart pos-r">

@@ -38,6 +38,10 @@
         }
 
         &__links {
+            .auth-state {
+                font: normal 400 1.6rem sans-serif;
+            }
+
             button:not(.language) {
                 border: none;
                 background: transparent;

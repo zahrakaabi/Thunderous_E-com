@@ -12,7 +12,7 @@ import ProductsFilters from "../../components/product-filters";
 import { Loader, Pagination } from "../../../../Components";
 
 // Utils
-import { useDebounce, useProducts } from '../../../../hooks';
+import { useDebounce, useProducts } from '../../../../Hooks';
 
 // Styles
 import './index.scss';

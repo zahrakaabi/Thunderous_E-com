@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 // Utils
 import { useCart } from '../../../cart/hooks';
-import { useCartModal } from '../../../../hooks';
+import { useCartModal } from '../../../../Hooks';
 import { FormatCurrency } from '../../../../helpers';
 
 // Styles

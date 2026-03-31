@@ -7,7 +7,7 @@ import { useParams } from 'react-router-dom';
 import { useTranslation } from "react-i18next";
 
 // Utils
-import { useCartModal, useProduct } from '../../../../hooks';
+import { useCartModal, useProduct } from '../../../../Hooks';
 import { useCart } from '../../../cart/hooks';
 import { FormatCurrency } from '../../../../helpers';
 

@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next';
 
 // Utils
 import { useCart } from '../../hooks';
-import { useCartModal } from '../../../../hooks';
+import { useCartModal } from '../../../../Hooks';
 import { FormatCurrency }from '../../../../helpers';
 
 // Styles

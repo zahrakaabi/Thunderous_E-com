@@ -37,7 +37,6 @@ function ProductDetailsPage() {
     return <p>Error</p>;
   };
   
-  const API_URL = process.env.REACT_APP_HOST_API;
   const { name, image, price } = productDetails;
 
   const handleAddToCart = (productDetails) => {
@@ -64,7 +63,7 @@ function ProductDetailsPage() {
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
         style={{ transition: "transform 0.1s ease", transformStyle: "preserve-3d" }}>
-          <img className="cover" src={`${API_URL}/${image}`} alt={name} loading="lazy" />
+          <img className="cover" src={image} alt={name} loading="lazy" />
         </div>
       </div>
       <div className="product-detail__content flex justify-center items-center flex-column gap-2 text-center">

@@ -24,6 +24,7 @@ function CartModal() {
 
 /* --------------------------------- CONSTS --------------------------------- */
   const { t } = useTranslation('common');
+  const { name, image, price } = product;
   const handleNavigate = (link) => {
     cartModal.onFalse();
     navigate(link);
@@ -48,11 +49,11 @@ function CartModal() {
                     <span>{t('cart_modal.added_item')}</span>
                 </h5>
                 <div className="cart__item flex items-center">
-                    <img src={product?.image} alt={product?.name} />
+                    <img src={image} alt={name} />
                     <h4>
-                        {`${product?.name} | THUNDEROUS`}
+                        {`${name} | THUNDEROUS`}
                         <br/>
-                        <span>{FormatCurrency(product.price)}</span>
+                        <span>{FormatCurrency(price)}</span>
                     </h4>
                 </div>
                 <button className="cursor-pointer transition w-full"

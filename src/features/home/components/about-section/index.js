@@ -5,8 +5,8 @@
 import { useTranslation } from "react-i18next";
 
 // Images
-import WOMAN_FACE from '../../../../Assets/images/home/woman_face.avif'; 
-import DOWN_ARROW from '../../../../Assets/images/icons/down_arrow.png'; 
+import WOMAN_FACE from '../../../../assets/images/home/woman_face.avif'; 
+import DOWN_ARROW from '../../../../assets/images/icons/down_arrow.png'; 
 
 // Styles
 import './index.scss';

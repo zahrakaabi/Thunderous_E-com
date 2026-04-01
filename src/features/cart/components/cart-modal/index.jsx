@@ -24,7 +24,6 @@ function CartModal() {
 
 /* --------------------------------- CONSTS --------------------------------- */
   const { t } = useTranslation('common');
-  const API_URL = process.env.REACT_APP_HOST_API;
   const handleNavigate = (link) => {
     cartModal.onFalse();
     navigate(link);
@@ -49,7 +48,7 @@ function CartModal() {
                     <span>{t('cart_modal.added_item')}</span>
                 </h5>
                 <div className="cart__item flex items-center">
-                    <img src={`${API_URL}/${product?.image}`} alt={product?.name} />
+                    <img src={product?.image} alt={product?.name} />
                     <h4>
                         {`${product?.name} | THUNDEROUS`}
                         <br/>

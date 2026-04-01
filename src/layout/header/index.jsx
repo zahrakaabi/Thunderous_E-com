@@ -73,7 +73,7 @@ function Header({ mobileHeader }) {
                     <p className="auth-state">Logout</p>
                   </div>
                 ) : (
-                  <div onClick={isAuthFormOpen.onTrue}>
+                  <div onClick={isAuthFormOpen.onTrue} style={{ cursor: "pointer" }}>
                     <p className="auth-state">Login</p>
                   </div> 
                 )}
